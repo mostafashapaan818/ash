@@ -1,168 +1,324 @@
 /**
  * ARCHITECT AHMED MOHAMED MAHMOUD SHAABAN — PORTFOLIO INTERACTIVE SCRIPT (PURE VANILLA JS)
- * 1. Boomerang Hero Video Capture & 30fps Ping-Pong Canvas Playback
- * 2. Navbar Glass State & Scroll Reveal Observer
- * 3. Interactive Career Timeline Stage Filtering
- * 4. Executed Projects Category Filtering (Cards + Master Directory Table)
- * 5. Interactive Multi-Image Project Gallery & Dossier Modal (12 Real Case Studies)
+ * 1. Configuration Flags (Easy toggle for Testimonials section)
+ * 2. Smart Hero Video & Poster Controller (Desktop-only playback, disabled on mobile/slow connections)
+ * 3. Navbar Scroll State, Active Section Scroll-Spy, Mobile Menu Drawer & Smooth Scroll
+ * 4. Interactive Career Timeline Stage Filtering
+ * 5. Executed Projects Category Filtering + Collapsible Full Directory Accordion
+ * 6. Project Specs Bar Empty-Field Auto-Hide Fallback
+ * 7. Interactive Multi-Image Project Gallery & Dossier Modal (12 Real Case Studies)
  */
 
 (() => {
   'use strict';
 
   // ==========================================================================
-  // 1. BOOMERANG VIDEO CAPTURE & 30FPS PING-PONG PLAYBACK
+  // 1. CONFIGURATION FLAGS
+  // ==========================================================================
+  /**
+   * Set SHOW_TESTIMONIALS to `false` (or set data-section-enabled="false" on #testimonials in index.html)
+   * if you want to temporarily hide the "What Colleagues Say" section until real reviews are added.
+   */
+  const SHOW_TESTIMONIALS = true;
+
+  const testimonialsSection = document.getElementById('testimonials');
+  const testimonialNavLinks = document.querySelectorAll('[data-nav-section="testimonials"]');
+
+  if (testimonialsSection) {
+    const htmlEnabled = testimonialsSection.getAttribute('data-section-enabled') !== 'false';
+    const isEnabled = SHOW_TESTIMONIALS && htmlEnabled;
+    testimonialsSection.setAttribute('data-section-enabled', isEnabled ? 'true' : 'false');
+    testimonialNavLinks.forEach((link) => {
+      const parentLi = link.closest('li');
+      if (parentLi) {
+        parentLi.style.display = isEnabled ? '' : 'none';
+      } else {
+        link.style.display = isEnabled ? '' : 'none';
+      }
+    });
+  }
+
+  // ==========================================================================
+  // 2. SMART HERO VIDEO CAPTURE & POSTER CONTROLLER
+  //    Disables automatic video playback on mobile (< 768px), reduced motion,
+  //    or slow connections (Save-Data / 2G / 3G), showing the poster image instead.
   // ==========================================================================
   const video = document.getElementById('boomerang-video');
   const canvas = document.getElementById('boomerang-canvas');
 
+  function shouldDisableBackgroundVideo() {
+    const isMobileViewport = window.matchMedia('(max-width: 767px)').matches;
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    const conn = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
+    const isDataSaver = Boolean(conn && conn.saveData);
+    const isSlowConnection = Boolean(
+      conn && typeof conn.effectiveType === 'string' && ['slow-2g', '2g', '3g'].includes(conn.effectiveType)
+    );
+
+    return isMobileViewport || prefersReducedMotion || isDataSaver || isSlowConnection;
+  }
+
   if (video && canvas) {
-    let isCapturing = false;
-    let rafId = null;
-    let rvfcId = null;
-    let lastCapturedTime = -1;
-    const capturedFrames = [];
+    if (shouldDisableBackgroundVideo()) {
+      // Keep the lightweight poster image visible and prevent video download/playback
+      video.pause();
+      video.removeAttribute('autoplay');
+      video.preload = 'none';
+      canvas.style.display = 'none';
+    } else {
+      let isCapturing = false;
+      let rafId = null;
+      let rvfcId = null;
+      let lastCapturedTime = -1;
+      const capturedFrames = [];
 
-    function captureFrame() {
-      if (video.readyState < 2 || video.videoWidth === 0 || video.videoHeight === 0) {
-        return;
-      }
-
-      const currentTime = video.currentTime;
-      if (currentTime === lastCapturedTime) {
-        return;
-      }
-      lastCapturedTime = currentTime;
-
-      const width = Math.min(video.videoWidth, 960);
-      const height = Math.round((video.videoHeight / video.videoWidth) * width);
-
-      const offscreen = document.createElement('canvas');
-      offscreen.width = width;
-      offscreen.height = height;
-
-      const ctx = offscreen.getContext('2d');
-      if (ctx) {
-        try {
-          ctx.drawImage(video, 0, 0, width, height);
-          capturedFrames.push(offscreen);
-        } catch {
-          // Ignore transient draw error
+      function captureFrame() {
+        if (video.readyState < 2 || video.videoWidth === 0 || video.videoHeight === 0) {
+          return;
         }
-      }
-    }
 
-    function scheduleCapture() {
-      if (!isCapturing) return;
+        const currentTime = video.currentTime;
+        if (currentTime === lastCapturedTime) {
+          return;
+        }
+        lastCapturedTime = currentTime;
 
-      if (typeof video.requestVideoFrameCallback === 'function') {
-        rvfcId = video.requestVideoFrameCallback(() => {
-          captureFrame();
-          scheduleCapture();
-        });
-      } else {
-        rafId = requestAnimationFrame(() => {
-          captureFrame();
-          scheduleCapture();
-        });
-      }
-    }
+        const width = Math.min(video.videoWidth, 960);
+        const height = Math.round((video.videoHeight / video.videoWidth) * width);
 
-    function stopCapture() {
-      isCapturing = false;
-      if (rvfcId !== null && typeof video.cancelVideoFrameCallback === 'function') {
-        video.cancelVideoFrameCallback(rvfcId);
-        rvfcId = null;
-      }
-      if (rafId !== null) {
-        cancelAnimationFrame(rafId);
-        rafId = null;
-      }
-    }
+        const offscreen = document.createElement('canvas');
+        offscreen.width = width;
+        offscreen.height = height;
 
-    function startBoomerangCanvasPlayback(frames) {
-      if (!frames || frames.length === 0) return;
-
-      canvas.width = frames[0].width;
-      canvas.height = frames[0].height;
-
-      const ctx = canvas.getContext('2d');
-      if (!ctx) return;
-
-      video.style.display = 'none';
-      canvas.style.display = 'block';
-
-      let frameIndex = 0;
-      let direction = 1;
-      let lastTime = performance.now();
-      const interval = 1000 / 30;
-
-      ctx.drawImage(frames[frameIndex], 0, 0, canvas.width, canvas.height);
-
-      function animate(now) {
-        if (now - lastTime >= interval) {
-          lastTime = now - ((now - lastTime) % interval);
-
-          ctx.clearRect(0, 0, canvas.width, canvas.height);
-          ctx.drawImage(frames[frameIndex], 0, 0, canvas.width, canvas.height);
-
-          if (frames.length > 1) {
-            frameIndex += direction;
-            if (frameIndex >= frames.length - 1) {
-              frameIndex = frames.length - 1;
-              direction = -1;
-            } else if (frameIndex <= 0) {
-              frameIndex = 0;
-              direction = 1;
-            }
+        const ctx = offscreen.getContext('2d');
+        if (ctx) {
+          try {
+            ctx.drawImage(video, 0, 0, width, height);
+            capturedFrames.push(offscreen);
+          } catch {
+            // Ignore transient draw error
           }
         }
+      }
+
+      function scheduleCapture() {
+        if (!isCapturing) return;
+
+        if (typeof video.requestVideoFrameCallback === 'function') {
+          rvfcId = video.requestVideoFrameCallback(() => {
+            captureFrame();
+            scheduleCapture();
+          });
+        } else {
+          rafId = requestAnimationFrame(() => {
+            captureFrame();
+            scheduleCapture();
+          });
+        }
+      }
+
+      function stopCapture() {
+        isCapturing = false;
+        if (rvfcId !== null && typeof video.cancelVideoFrameCallback === 'function') {
+          video.cancelVideoFrameCallback(rvfcId);
+          rvfcId = null;
+        }
+        if (rafId !== null) {
+          cancelAnimationFrame(rafId);
+          rafId = null;
+        }
+      }
+
+      function startBoomerangCanvasPlayback(frames) {
+        if (!frames || frames.length === 0) return;
+
+        canvas.width = frames[0].width;
+        canvas.height = frames[0].height;
+
+        const ctx = canvas.getContext('2d');
+        if (!ctx) return;
+
+        video.style.display = 'none';
+        canvas.style.display = 'block';
+
+        let frameIndex = 0;
+        let direction = 1;
+        let lastTime = performance.now();
+        const interval = 1000 / 30;
+
+        ctx.drawImage(frames[frameIndex], 0, 0, canvas.width, canvas.height);
+
+        function animate(now) {
+          if (now - lastTime >= interval) {
+            lastTime = now - ((now - lastTime) % interval);
+
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            ctx.drawImage(frames[frameIndex], 0, 0, canvas.width, canvas.height);
+
+            if (frames.length > 1) {
+              frameIndex += direction;
+              if (frameIndex >= frames.length - 1) {
+                frameIndex = frames.length - 1;
+                direction = -1;
+              } else if (frameIndex <= 0) {
+                frameIndex = 0;
+                direction = 1;
+              }
+            }
+          }
+          requestAnimationFrame(animate);
+        }
+
         requestAnimationFrame(animate);
       }
 
-      requestAnimationFrame(animate);
-    }
-
-    function handleLoaded() {
-      if (isCapturing || capturedFrames.length > 0) return;
-      isCapturing = true;
-      video.muted = true;
-      scheduleCapture();
-      video.play().catch(() => {});
-    }
-
-    function handleEnded() {
-      captureFrame();
-      stopCapture();
-
-      if (capturedFrames.length > 0) {
-        startBoomerangCanvasPlayback(capturedFrames);
+      function handleLoaded() {
+        if (isCapturing || capturedFrames.length > 0) return;
+        isCapturing = true;
+        video.muted = true;
+        scheduleCapture();
+        video.play().catch(() => {});
       }
-    }
 
-    video.addEventListener('loadeddata', handleLoaded);
-    video.addEventListener('canplay', handleLoaded);
-    video.addEventListener('ended', handleEnded);
+      function handleEnded() {
+        captureFrame();
+        stopCapture();
 
-    if (video.readyState >= 2) {
-      handleLoaded();
+        if (capturedFrames.length > 0) {
+          startBoomerangCanvasPlayback(capturedFrames);
+        }
+      }
+
+      video.addEventListener('loadeddata', handleLoaded);
+      video.addEventListener('canplay', handleLoaded);
+      video.addEventListener('ended', handleEnded);
+
+      if (video.readyState >= 2) {
+        handleLoaded();
+      } else {
+        video.load();
+      }
     }
   }
 
   // ==========================================================================
-  // 2. NAVBAR SCROLL STATE & SCROLL REVEAL OBSERVER
+  // 3. NAVBAR SCROLL STATE, MOBILE MENU DRAWER, ACTIVE SECTION SCROLL-SPY & SMOOTH SCROLL
   // ==========================================================================
   const navbar = document.querySelector('.navbar');
+  const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+  const mobileNavDrawer = document.getElementById('mobile-nav-drawer');
+
+  function closeMobileMenu() {
+    if (!mobileMenuToggle || !mobileNavDrawer) return;
+    mobileMenuToggle.setAttribute('aria-expanded', 'false');
+    mobileMenuToggle.setAttribute('aria-label', 'Open navigation menu');
+    mobileNavDrawer.classList.remove('is-open');
+    mobileNavDrawer.setAttribute('aria-hidden', 'true');
+  }
+
+  function toggleMobileMenu() {
+    if (!mobileMenuToggle || !mobileNavDrawer) return;
+    const isExpanded = mobileMenuToggle.getAttribute('aria-expanded') === 'true';
+    if (isExpanded) {
+      closeMobileMenu();
+    } else {
+      mobileMenuToggle.setAttribute('aria-expanded', 'true');
+      mobileMenuToggle.setAttribute('aria-label', 'Close navigation menu');
+      mobileNavDrawer.classList.add('is-open');
+      mobileNavDrawer.setAttribute('aria-hidden', 'false');
+    }
+  }
+
+  if (mobileMenuToggle && mobileNavDrawer) {
+    mobileMenuToggle.addEventListener('click', (e) => {
+      e.stopPropagation();
+      toggleMobileMenu();
+    });
+
+    document.addEventListener('click', (e) => {
+      if (
+        mobileNavDrawer.classList.contains('is-open') &&
+        !mobileNavDrawer.contains(e.target) &&
+        !mobileMenuToggle.contains(e.target)
+      ) {
+        closeMobileMenu();
+      }
+    });
+
+    window.addEventListener('resize', () => {
+      if (window.innerWidth > 900) {
+        closeMobileMenu();
+      }
+    });
+  }
+
+  // Active Section Scroll-Spy (highlights current section in top navbar & mobile drawer)
+  const trackedSectionIds = ['about', 'experience', 'projects', 'testimonials', 'skills', 'contact'];
+  const allNavLinks = Array.from(document.querySelectorAll('[data-nav-section]'));
+
+  function updateActiveNavSection() {
+    const scrollPos = window.scrollY + 180;
+    let currentSectionId = '';
+
+    trackedSectionIds.forEach((id) => {
+      const sectionEl = document.getElementById(id);
+      if (!sectionEl) return;
+      if (sectionEl.getAttribute('data-section-enabled') === 'false') return;
+      const top = sectionEl.offsetTop;
+      const height = sectionEl.offsetHeight;
+      if (scrollPos >= top && scrollPos < top + height) {
+        currentSectionId = id;
+      }
+    });
+
+    // If scrolled near the very bottom of the page, highlight Contact
+    if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 60) {
+      currentSectionId = 'contact';
+    }
+
+    allNavLinks.forEach((link) => {
+      const targetSection = link.getAttribute('data-nav-section');
+      const isActive = targetSection === currentSectionId;
+      link.classList.toggle('is-active', isActive);
+      if (isActive) {
+        link.setAttribute('aria-current', 'true');
+      } else {
+        link.removeAttribute('aria-current');
+      }
+    });
+  }
+
   window.addEventListener(
     'scroll',
     () => {
       if (navbar) {
         navbar.classList.toggle('is-scrolled', window.scrollY > 40);
       }
+      updateActiveNavSection();
     },
     { passive: true }
   );
+  updateActiveNavSection();
 
+  // Smooth scroll handler for anchor links (closes mobile drawer automatically)
+  document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+    anchor.addEventListener('click', (e) => {
+      const targetId = anchor.getAttribute('href');
+      if (!targetId || targetId === '#') return;
+      const targetEl = document.querySelector(targetId);
+      if (targetEl) {
+        e.preventDefault();
+        closeMobileMenu();
+        targetEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        if (window.history && window.history.pushState) {
+          window.history.pushState(null, '', targetId);
+        }
+      }
+    });
+  });
+
+  // Scroll Reveal Observer
   const revealItems = document.querySelectorAll('.reveal-item');
   if ('IntersectionObserver' in window) {
     const observer = new IntersectionObserver(
@@ -182,7 +338,7 @@
   }
 
   // ==========================================================================
-  // 3. INTERACTIVE CAREER TIMELINE STAGE FILTER
+  // 4. INTERACTIVE CAREER TIMELINE STAGE FILTER
   // ==========================================================================
   const tlNavPills = Array.from(document.querySelectorAll('.tl-nav-pill'));
   const tlItems = Array.from(document.querySelectorAll('.timeline-item'));
@@ -199,12 +355,38 @@
   });
 
   // ==========================================================================
-  // 4. EXECUTED PROJECTS FILTERING (CARDS + MASTER DIRECTORY TABLE)
+  // 5. EXECUTED PROJECTS FILTERING + COLLAPSIBLE FULL DIRECTORY ACCORDION
   // ==========================================================================
   const filterButtons = Array.from(document.querySelectorAll('.filter-btn'));
   const projectCards = Array.from(document.querySelectorAll('.project-card'));
   const indexRows = Array.from(document.querySelectorAll('[data-index-cat]'));
   const jumpFilterLinks = Array.from(document.querySelectorAll('[data-jump-filter]'));
+  const directoryToggleBtn = document.getElementById('directory-toggle-btn');
+  const directoryToggleLabel = document.getElementById('directory-toggle-label');
+  const directoryCollapsible = document.getElementById('directory-collapsible');
+
+  function setDirectoryAccordionOpen(isOpen) {
+    if (!directoryToggleBtn || !directoryCollapsible) return;
+    directoryToggleBtn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    if (isOpen) {
+      directoryCollapsible.removeAttribute('hidden');
+      if (directoryToggleLabel) {
+        directoryToggleLabel.textContent = 'Hide Full Projects Directory';
+      }
+    } else {
+      directoryCollapsible.setAttribute('hidden', '');
+      if (directoryToggleLabel) {
+        directoryToggleLabel.textContent = 'Show Full Projects Directory';
+      }
+    }
+  }
+
+  if (directoryToggleBtn && directoryCollapsible) {
+    directoryToggleBtn.addEventListener('click', () => {
+      const isCurrentlyOpen = directoryToggleBtn.getAttribute('aria-expanded') === 'true';
+      setDirectoryAccordionOpen(!isCurrentlyOpen);
+    });
+  }
 
   function applyProjectFilter(category) {
     filterButtons.forEach((btn) => {
@@ -238,17 +420,31 @@
   });
 
   // ==========================================================================
-  // 5. PROJECT DOSSIER & MULTI-IMAGE GALLERY MODAL (12 REAL CASE STUDIES)
+  // 6. PROJECT SPECS BAR EMPTY-FIELD AUTO-HIDE FALLBACK
+  //    Automatically hides any .spec-item whose .spec-item-val is empty
+  // ==========================================================================
+  document.querySelectorAll('.project-specs-bar .spec-item').forEach((specItem) => {
+    const valEl = specItem.querySelector('.spec-item-val');
+    if (!valEl || !valEl.textContent.trim()) {
+      specItem.classList.add('is-empty');
+    } else {
+      specItem.classList.remove('is-empty');
+    }
+  });
+
+  // ==========================================================================
+  // 7. PROJECT DOSSIER & MULTI-IMAGE GALLERY MODAL (12 REAL CASE STUDIES)
   // ==========================================================================
   const PROJECT_DATA = {
     '01': {
       code: 'EXECUTED PROJECT // 01 · CONCEPT STORE & VILLA',
       title: 'Villa Baboushka Concept Store',
       location: 'Capital Business Park, Sheikh Zayed',
+      role: 'Senior Site Engineer',
       area: '280 m² Retail Space',
-      scope: 'Interior Architecture, Custom Joinery & Turnkey Retail Fit-Out',
+      scope: 'Interior Architecture, Custom Joinery & Retail Fit-Out',
       materials: 'Polished Terrazzo, Fluted Oak Wood, Brushed Brass, Curved Microcement',
-      desc: 'Designed and executed to deliver a high-end retail experience, this luxury fashion boutique blends minimalist spatial zoning with bespoke display fixtures, utilizing soft ambient lighting and sculptural display islands to elevate the customer journey.',
+      desc: 'Fashion boutique combining clean spatial zoning, custom display fixtures, ambient lighting, and sculptural display islands.',
       images: [
         {
           url: 'img/v.JPG',
@@ -272,10 +468,11 @@
       code: 'EXECUTED PROJECT // 02 · EDARA SODIC (2020–PRESENT)',
       title: 'EDARA SODIC — East Cairo Finishing Zones',
       location: 'Villette, Eastown, SODIC East & EDNC — East Cairo',
-      area: 'Finishing Department Zone Manager',
+      role: 'Zone Manager',
+      area: '4 Master-Planned Zones',
       scope: 'Interior Finishing Supervision, Shop Drawing Coordination & Contract/Invoice Revision',
       materials: 'Roman Travertine, Slatted Walnut Ceilings, Custom Kitchen Joinery, Natural Stone',
-      desc: 'As Finishing Department Zone Manager for East Cairo at EDARA SODIC, Eng. Ahmed Shaaban supervises turnkey residential and commercial unit finishing across Villette, Eastown, SODIC East, and EDNC — coordinating technical shop drawings with client requirements and auditing contracts alongside client and subcontractor invoices.',
+      desc: 'Supervising residential and commercial interior finishing, shop drawing alignment, and contract/invoice review across four East Cairo zones.',
       images: [
         {
           url: 'img/3387b959-0b21-4588-a94b-c9833fe4ce9c.JPG',
@@ -291,26 +488,27 @@
         },
         {
           url: 'img/6234a5cf-69c7-45c4-9f11-2ac076425630.JPG',
-          caption: '04 / Turnkey Residential Kitchen Joinery & Integrated Appliances',
+          caption: '04 / Residential Kitchen Joinery & Integrated Appliances',
         },
       ],
     },
     '03': {
-      code: 'EXECUTED PROJECT // 03 · LUXURY RETAIL (IMPACT FINISHING)',
+      code: 'EXECUTED PROJECT // 03 · RETAIL BOUTIQUE (IMPACT FINISHING)',
       title: 'Okhtein Flagship Boutique — Arkan Mall',
       location: 'Arkan Mall, Sheikh Zayed City',
-      area: 'Flagship Luxury Retail Boutique',
+      role: 'Senior Site Engineer',
+      area: '', // PLACEHOLDER: Add project area here (e.g., '180 m²')
       scope: 'Site Execution Management, Custom Shop Drawings & Client Invoicing',
       materials: 'Polished Brass Mirror Columns, Faceted Ceilings, Raw Carved Stone, Backlit Marble',
-      desc: 'Executed during his tenure as Senior Site Engineer at Impact Finishing and Decoration, the Okhtein flagship boutique at Arkan Mall showcases museum-grade craftsmanship: geometric faceted ceilings, polished gold mirror monoliths, sculptural suspended hand bag-holders, and carved stone seating islands.',
+      desc: 'Retail boutique featuring geometric faceted ceilings, polished brass mirror columns, suspended display fixtures, and carved stone seating.',
       images: [
         {
           url: 'img/51563824-00a7-4253-845c-55c6b4771936.JPG',
-          caption: '01 / Okhtein Arkan Mall — Brass Mirror Monoliths & Sculptural Oval Pivot Mirror',
+          caption: '01 / Okhtein Arkan Mall — Brass Mirror Columns & Oval Pivot Mirror',
         },
         {
           url: 'img/8070b388-22fc-4f9b-97d3-da718c500e0f.JPG',
-          caption: '02 / Faceted Geometric Ceiling & Suspended Sculptural Hand Displays',
+          caption: '02 / Faceted Geometric Ceiling & Suspended Hand Displays',
         },
         {
           url: 'img/b6c711f1-2d63-4528-b1e4-6bd33bfe01b5.JPG',
@@ -318,18 +516,19 @@
         },
         {
           url: 'img/1e926142-634b-46d6-ae53-eaed4afe0240.JPG',
-          caption: '04 / Carved Monolithic Stone Bench & Backlit Marble Trapezoid Alcoves',
+          caption: '04 / Carved Stone Bench & Backlit Marble Alcoves',
         },
       ],
     },
     '04': {
-      code: 'EXECUTED PROJECT // 04 · FINE DINING F&B (IMPACT FINISHING)',
+      code: 'EXECUTED PROJECT // 04 · RESTAURANT FIT-OUT (IMPACT FINISHING)',
       title: 'NUWA Asian Food Restaurant',
       location: 'Capital Business Park, Sheikh Zayed',
-      area: 'Turnkey Fine-Dining Restaurant',
+      role: 'Senior Site Engineer',
+      area: '', // PLACEHOLDER: Add project area here
       scope: 'Full Site Execution Management, Shop Drawings & MEP Kitchen Coordination',
       materials: 'Book-Matched Marble, Acoustic Oak Ceilings, Custom Mural Art, Carved Stone Pillars',
-      desc: 'A landmark culinary destination at Capital Business Park executed with book-matched marble sushi counters, custom Asian landscape ink-wash murals, backlit circular mirrors, and carved architectural stone columns.',
+      desc: 'Restaurant fit-out executed with book-matched marble sushi counters, custom wall murals, backlit circular mirrors, and carved stone columns.',
       images: [
         {
           url: 'img/2d73aabc-c8b1-46ca-8396-7d4305d3047c.JPG',
@@ -345,7 +544,7 @@
         },
         {
           url: 'img/d70af615-af47-4e8d-bafa-56b0ade97320.JPG',
-          caption: '04 / Precision Fluted Timber Base & Marble Counter Detailing',
+          caption: '04 / Fluted Timber Base & Marble Counter Detailing',
         },
       ],
     },
@@ -353,10 +552,11 @@
       code: 'EXECUTED PROJECT // 05 · RETAIL FIT-OUT (IMPACT FINISHING)',
       title: 'Rax Concept Store & Original Marines',
       location: 'Capital Business Park (Sheikh Zayed) & City Centre Almaza',
-      area: 'Multi-Brand Concept & Fashion Retail',
-      scope: 'Turnkey Retail Execution, Custom Metalwork, Terrazzo Flooring & Shop Drawings',
+      role: 'Senior Site Engineer',
+      area: '', // PLACEHOLDER: Add project area here
+      scope: 'Retail Execution, Custom Metalwork, Terrazzo Flooring & Shop Drawings',
       materials: 'Rose-Gold Expanded Metal Mesh, Custom Terrazzo, Arched MDF Joinery, Track Lighting',
-      desc: 'Executed at Capital Business Park (Sheikh Zayed) alongside Original Marines at City Centre Almaza, featuring an architectural rose-gold expanded mesh centerpiece pavilion, custom terrazzo flooring with mosaic stone inlays, and arched perimeter display cabinetry.',
+      desc: 'Retail fit-out featuring a rose-gold expanded metal mesh pavilion, custom terrazzo flooring with mosaic stone inlays, and arched wall cabinetry.',
       images: [
         {
           url: 'img/v2.JPG',
@@ -372,18 +572,19 @@
         },
         {
           url: 'img/50bab583-3399-4b45-9ce8-91780179b0e0.JPG',
-          caption: '04 / High-CRI Architectural Track Lighting & Custom Joinery Execution',
+          caption: '04 / Architectural Track Lighting & Custom Joinery Execution',
         },
       ],
     },
     '06': {
-      code: 'EXECUTED PROJECT // 06 · SIGNATURE F&B (IMPACT FINISHING)',
+      code: 'EXECUTED PROJECT // 06 · F&B FIT-OUT (IMPACT FINISHING)',
       title: 'MINCE Burger — Capital Business Park',
       location: 'Capital Business Park, Sheikh Zayed',
-      area: 'Turnkey Restaurant & Industrial Fit-Out',
+      role: 'Senior Site Engineer',
+      area: '', // PLACEHOLDER: Add project area here
       scope: 'Site Execution Management, Perforated Steel & Ceiling Grids, Shop Drawings',
       materials: 'Perforated Steel Fascia, Yellow Acoustic Mesh Ceiling, Walnut Slats, Marble Tile Grid',
-      desc: 'Industrial-modern restaurant execution at Capital Business Park featuring a cantilevered perforated steel fascia with custom neon signage, yellow expanded-metal ceiling grids, slatted walnut walls with 3D typography ("WE SPEAK BURGER"), and custom graphic murals.',
+      desc: 'Industrial-style restaurant featuring a perforated steel fascia, yellow expanded-metal ceiling grids, slatted walnut walls, and custom graphics.',
       images: [
         {
           url: 'img/98ebad92-b248-4b46-abaf-af2c2b14821c.JPG',
@@ -407,10 +608,11 @@
       code: 'EXECUTED PROJECT // 07 · INTERNATIONAL RETAIL & PAVILIONS',
       title: 'Armani Exchange (Mall of Egypt & Almaza) & Commercial Pavilions',
       location: 'Mall of Egypt, City Centre Almaza & Cairo International Exhibition',
-      area: 'Flagship Retail Boutiques & Double-Height Pavilions',
-      scope: 'Turnkey Retail Fit-Out, Structural Steel Pavilions, Shop Drawings & Invoicing',
+      role: 'Senior Site Engineer',
+      area: '', // PLACEHOLDER: Add project area here
+      scope: 'Retail Fit-Out, Structural Steel Pavilions, Shop Drawings & Invoicing',
       materials: 'Structural Blackened Steel, Backlit Acrylic & LED Signage, Custom Display Systems',
-      desc: 'Delivery of international retail boutiques for Armani Exchange at both Mall of Egypt and City Centre Almaza alongside high-impact double-height commercial exhibition pavilions engineered with precision steelwork and integrated LED display walls.',
+      desc: 'Retail stores for Armani Exchange at Mall of Egypt and City Centre Almaza alongside double-height steel exhibition pavilions.',
       images: [
         {
           url: 'img/a14b960b-8bcd-44b1-a2dc-016d12cf1249.JPG',
@@ -426,7 +628,7 @@
         },
         {
           url: 'img/64befcc2-31a1-402c-816f-7ca4ea3b76cf.JPG',
-          caption: '04 / Precision Brand Merchandising & Turnkey Stand Handover',
+          caption: '04 / Brand Merchandising & Exhibition Stand Handover',
         },
       ],
     },
@@ -434,10 +636,11 @@
       code: 'EXECUTED PROJECT // 08 · HOSPITALITY COLLECTION (IMPACT FINISHING)',
       title: "Ted's Restaurant, 7 Seeds Cafe & Orchid Café",
       location: 'Mall of Egypt (6th of October), Capital Business Park & Karma 4 (Sheikh Zayed)',
-      area: '3 Signature Hospitality Venues',
+      role: 'Senior Site Engineer',
+      area: '', // PLACEHOLDER: Add project area here
       scope: 'Site Execution Management, Custom Millwork, MEP & Client Invoicing',
       materials: 'Botanical Timber Columns, Tufted Velvet Banquettes, Brick Ovens, Brass Chandeliers',
-      desc: "Turnkey execution of three celebrated F&B venues: Ted's Restaurant by Mori Co. at Mall of Egypt, 7 Seeds Cafe at Capital Business Park, and Orchid Café at Karma 4 (Zayed City) — blending warm timber ribs, integrated vertical greenery, and artisan masonry.",
+      desc: "Hospitality execution for Ted's Restaurant (Mall of Egypt), 7 Seeds Cafe (Capital Business Park), and Orchid Café (Karma 4, Sheikh Zayed).",
       images: [
         {
           url: 'img/b0cf99fa-1b91-4478-b5b4-c169307c188e.JPG',
@@ -453,7 +656,7 @@
         },
         {
           url: 'img/63f37956-0a71-430d-b6ac-32ab0f0feaa1.JPG',
-          caption: '04 / Sculptural Wave Ceiling Ribs, Brick Pizza Oven & Patterned Tile Inlays',
+          caption: '04 / Wave Ceiling Ribs, Brick Pizza Oven & Patterned Tile Inlays',
         },
       ],
     },
@@ -461,10 +664,11 @@
       code: 'EXECUTED PROJECT // 09 · F&B ROLLOUT (IMPACT FINISHING)',
       title: "Casper & Gambini's, Mori Sushi & Garnell Sushi",
       location: 'Open Air Mall (Madinaty), North Coast & Capital Business Park (Sheikh Zayed)',
-      area: 'Multi-Branch Hospitality Execution',
+      role: 'Senior Site Engineer',
+      area: '', // PLACEHOLDER: Add project area here
       scope: 'Site Execution Management, Shop Drawings, Bar & Kitchen Fit-Out, Client Invoicing',
       materials: 'Fluted Oak Bar Counters, Blackened Steel Overhead Grids, Microcement, Warm LED Grazing',
-      desc: "Comprehensive site execution for Casper & Gambini's across Open Air Mall (Madinaty) and the North Coast, alongside Mori Sushi by Mori Co. and Garnell Sushi & Poke at Capital Business Park.",
+      desc: "Multi-branch restaurant execution across Madinaty, North Coast, and Sheikh Zayed with fluted oak counters, steel bar grids, and open kitchens.",
       images: [
         {
           url: 'img/5cb2342b-3352-4652-b69c-3c02e0bf3184.JPG',
@@ -480,7 +684,7 @@
         },
         {
           url: 'img/7a60bf9a-e5e4-4d7f-88b7-07196f6ed58b.JPG',
-          caption: '04 / Microcement Monolith Columns & Vertical Oak Louver Lounge',
+          caption: '04 / Microcement Columns & Vertical Oak Louver Lounge',
         },
       ],
     },
@@ -488,10 +692,11 @@
       code: 'EXECUTED PROJECT // 10 · CORPORATE & DIPLOMATIC',
       title: 'Anghami Office Egypt & UNDP Headquarters',
       location: 'New Cairo & World Trade Center (Cairo)',
-      area: 'Corporate Tech HQ & United Nations Offices',
-      scope: 'Executive Interior Finishing, Acoustic Partitions, Shop Drawings & MEP',
+      role: 'Senior Site Engineer',
+      area: '', // PLACEHOLDER: Add project area here
+      scope: 'Interior Finishing, Acoustic Partitions, Shop Drawings & MEP',
       materials: 'Frameless Double-Glazed Partitions, Walnut Shelving Dividers, Custom Murals, Marble',
-      desc: 'Delivering creative corporate headquarters for Anghami Office Egypt in New Cairo (Impact Finishing) and diplomatic offices for the United Nations Development Program (UNDP) at the World Trade Center in Cairo (Contrade Engineers & Contractors).',
+      desc: 'Corporate offices for Anghami Egypt in New Cairo and diplomatic offices for the UNDP at the World Trade Center in Cairo.',
       images: [
         {
           url: 'img/f176b889-fc76-4cc1-a523-458cc54ec10e.JPG',
@@ -499,7 +704,7 @@
         },
         {
           url: 'img/3e1a6efb-d482-4621-8e24-08186c2d5739.JPG',
-          caption: '02 / Executive Glass Boardroom & Custom Walnut Display Dividers',
+          caption: '02 / Glass Boardroom & Custom Walnut Display Dividers',
         },
         {
           url: 'img/265bfcc4-e92e-4479-b568-ab44f7c3b379.JPG',
@@ -507,7 +712,7 @@
         },
         {
           url: 'img/2b2ef5f2-9ec4-4aa4-8efb-111884405595.JPG',
-          caption: '04 / Executive Office Suite with Geometric Tinted Glass Screen & Walnut Doors',
+          caption: '04 / Office Suite with Geometric Tinted Glass Screen & Walnut Doors',
         },
       ],
     },
@@ -515,18 +720,19 @@
       code: 'EXECUTED PROJECT // 11 · BANKING, COMMERCIAL & CLINICAL',
       title: 'Arab Bank, National Bank of Egypt & Al Ahly Sales Office',
       location: 'Mall of Egypt, 6th of October, El Mohandeseen & Sheikh Zayed',
-      area: 'Banking Branches, Sales HQs & Commercial Complexes',
-      scope: 'Turnkey Site Engineering, Security & MEP Systems, Marble & Glass Partitions',
+      role: 'Site Engineer',
+      area: '', // PLACEHOLDER: Add project area here
+      scope: 'Site Engineering, Security & MEP Systems, Marble & Glass Partitions',
       materials: 'Polished Marble Corridors, Vertical Walnut Fins, Frameless Glass, Corian Counters',
-      desc: 'Executed during his tenure at Contrade Engineers & Contractors and subsequent commercial commissions — encompassing Arab Bank (Mall of Egypt), National Bank of Egypt (6th of October), Al Ahly Sales Office (El Mohandeseen), Opera City Mall (Sheikh Zayed), and specialized clinical centers.',
+      desc: 'Commercial and banking fit-outs for Arab Bank (Mall of Egypt), National Bank of Egypt (6th of October), Al Ahly Sales Office, and Opera City Mall.',
       images: [
         {
           url: 'img/5d6790d6-beba-4478-992e-6cfa6052e06d.JPG',
-          caption: '01 / Executive Corridor, Honed Stone Flooring & Vertical Walnut Fins',
+          caption: '01 / Commercial Corridor, Honed Stone Flooring & Vertical Walnut Fins',
         },
         {
           url: 'img/5ffbf4dc-76af-47d7-97fd-0267c0795ec5.JPG',
-          caption: '02 / Luxury Executive Washroom with Arched Fluted Mirrors & Vein-Cut Marble',
+          caption: '02 / Washroom with Arched Fluted Mirrors & Vein-Cut Marble',
         },
         {
           url: 'img/01e60248-505b-4a05-a7c0-6751936a49ab.JPG',
@@ -534,7 +740,7 @@
         },
         {
           url: 'img/b28c0d4e-f4b2-4c94-b301-7fec873f5124.JPG',
-          caption: '04 / High-Precision Clinical & Commercial Suite with Circular Barrisol Ceiling',
+          caption: '04 / Clinical & Commercial Suite with Circular Barrisol Ceiling',
         },
       ],
     },
@@ -542,10 +748,11 @@
       code: 'EXECUTED PROJECT // 12 · PRIVATE RESIDENTIAL VILLA',
       title: 'Three-Stories Villa — Upville Compound',
       location: 'Upville Compound, Sheikh Zayed City',
-      area: 'Three-Story Private Villa',
-      scope: 'Turnkey Interior Finishing, Spiral Staircase, Marble Flooring & Custom Woodwork',
+      role: 'Senior Site Engineer',
+      area: 'Three-Story Villa',
+      scope: 'Interior Finishing, Spiral Staircase, Marble Flooring & Custom Woodwork',
       materials: 'Wrought Iron & Marble Spiral Staircase, Crema Marfil Marble, Fluted Oak Cladding',
-      desc: 'Complete turnkey interior finishing of a three-story residential villa in Upville Compound (Sheikh Zayed City), anchored by a dramatic elliptical spiral staircase rising toward a natural skylight, formal marble reception salons, and bespoke oak wall cladding.',
+      desc: 'Interior finishing of a three-story villa in Upville Compound featuring an elliptical spiral staircase under a natural skylight and marble salons.',
       images: [
         {
           url: 'img/0022578b-54ed-4393-b1c1-df706acd5b31.JPG',
@@ -573,7 +780,10 @@
   const modalTitle = document.getElementById('modal-title');
   const modalDesc = document.getElementById('modal-desc');
   const modalLocation = document.getElementById('modal-location');
+  const modalRole = document.getElementById('modal-role');
+  const modalRoleRow = document.getElementById('modal-role-row');
   const modalArea = document.getElementById('modal-area');
+  const modalAreaRow = document.getElementById('modal-area-row');
   const modalScope = document.getElementById('modal-scope');
   const modalMaterials = document.getElementById('modal-materials');
   const modalImg = document.getElementById('modal-img');
@@ -620,7 +830,17 @@
     if (modalTitle) modalTitle.textContent = data.title;
     if (modalDesc) modalDesc.textContent = data.desc;
     if (modalLocation) modalLocation.textContent = data.location;
-    if (modalArea) modalArea.textContent = data.area;
+
+    if (modalRole) modalRole.textContent = data.role || '';
+    if (modalRoleRow) {
+      modalRoleRow.style.display = data.role ? '' : 'none';
+    }
+
+    if (modalArea) modalArea.textContent = data.area || '';
+    if (modalAreaRow) {
+      modalAreaRow.style.display = data.area ? '' : 'none';
+    }
+
     if (modalScope) modalScope.textContent = data.scope;
     if (modalMaterials) modalMaterials.textContent = data.materials;
 
@@ -635,6 +855,10 @@
         const img = document.createElement('img');
         img.src = imgObj.url;
         img.alt = imgObj.caption;
+        img.loading = 'lazy';
+        img.decoding = 'async';
+        img.width = 160;
+        img.height = 105;
         btn.appendChild(img);
         btn.addEventListener('click', () => renderGallerySlide(idx));
         galleryThumbs.appendChild(btn);
@@ -663,9 +887,20 @@
   }
 
   document.querySelectorAll('[data-open-modal]').forEach((el) => {
-    el.addEventListener('click', () => {
+    el.addEventListener('click', (e) => {
+      e.stopPropagation();
       openProjectModal(el.dataset.openModal);
     });
+    if (el.classList.contains('project-card')) {
+      el.setAttribute('tabindex', '0');
+      el.setAttribute('role', 'button');
+      el.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          openProjectModal(el.dataset.openModal);
+        }
+      });
+    }
   });
 
   if (modalCloseBtn) {
@@ -679,6 +914,10 @@
   }
 
   window.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && mobileNavDrawer && mobileNavDrawer.classList.contains('is-open')) {
+      closeMobileMenu();
+      return;
+    }
     if (!modal || !modal.classList.contains('is-open')) return;
     if (e.key === 'Escape') closeProjectModal();
     if (e.key === 'ArrowLeft') renderGallerySlide(activeImageIndex - 1);
