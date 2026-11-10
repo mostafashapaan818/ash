@@ -1,0 +1,1194 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Ahmed Shaaban — Architectural &amp; Interior Portfolio</title>
+<meta name="description" content="Architectural design, structural engineering, and turnkey interior finishing by Architect Ahmed Shaaban — from raw structure to timeless sanctuary.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --u:min(calc(100vw/1600),calc(100vh/900));
+  --k:1;--k2:1;--dip:0;
+  --ink:color-mix(in srgb,#14202f calc((1 - var(--k))*100%),#fff);
+  --nav:color-mix(in srgb,#1b2736 calc((1 - var(--k))*100%),#eef1f6);
+  --soft:color-mix(in srgb,#1b2736 calc((1 - var(--k))*100%),#dfe5ee);
+  --muted:color-mix(in srgb,#526071 calc((1 - var(--k))*100%),#9aa8bc);
+  --page-bg:color-mix(in srgb,#f3f4ef calc((1 - var(--k))*100%),#0b1426);
+  --card-bg:color-mix(in srgb,#ffffff calc((1 - var(--k))*100%),#111d33);
+  --card-hover:color-mix(in srgb,#f9faf6 calc((1 - var(--k))*100%),#162540);
+  --pill-bg:color-mix(in srgb,#e6e9df calc((1 - var(--k))*100%),rgba(255,255,255,.07));
+  --border-col:color-mix(in srgb,rgba(20,32,47,.12) calc((1 - var(--k))*100%),rgba(255,255,255,.12));
+  --accent:color-mix(in srgb,#6d8f2a calc((1 - var(--k))*100%),#d8ee8e);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;background:var(--page-bg)}
+body{min-height:100%;background:var(--page-bg);color:var(--ink);font-family:"Instrument Sans",system-ui,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden;overflow-y:auto}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+
+/* ==========================================================================
+   FIRST VIEWPORT: MORNING / NIGHT FOG HERO
+   ========================================================================== */
+.hero{position:relative;height:100svh;min-height:560px;overflow:hidden;isolation:isolate;background:#0b1426}
+.layer,.layer img{position:absolute;inset:0;width:100%;height:100%}
+.layer img{display:block;object-fit:cover;object-position:50% 62%}
+.sky img{filter:blur(calc(7*var(--u)));transform:scale(1.05)}
+#skyN{opacity:var(--k)}
+.home{will-change:transform;transform:translate3d(0,var(--sink,0px),0)}
+.home .set{position:absolute;inset:0;visibility:hidden}
+.home .set.is-on{visibility:visible}
+.ground{-webkit-mask-image:linear-gradient(transparent 54%,#000 64%);mask-image:linear-gradient(transparent 54%,#000 64%)}
+.tilt{position:absolute;inset:0;pointer-events:none;-webkit-backdrop-filter:blur(calc(9*var(--u)));backdrop-filter:blur(calc(9*var(--u)));-webkit-mask-image:linear-gradient(transparent 70%,#000 92%);mask-image:linear-gradient(transparent 70%,#000 92%)}
+#fog{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+.ui{position:absolute;inset:0;z-index:2;display:flex;flex-direction:column;align-items:center;pointer-events:none}
+.ui a,.ui button{pointer-events:auto}
+.bar{width:100%;display:flex;align-items:center;padding:calc(22*var(--u)) calc(38*var(--u)) 0;color:var(--nav)}
+.logo{display:flex;align-items:center;gap:calc(9*var(--u));font-size:calc(25*var(--u));font-weight:500;letter-spacing:-.025em;color:var(--ink);flex:1 1 0}
+.logo svg{width:calc(38*var(--u));height:calc(38*var(--u));flex:none}
+.links{display:flex;gap:calc(42*var(--u));list-style:none;font-size:calc(16.5*var(--u));font-weight:500;opacity:calc(1 - var(--dip)*.82)}
+.links a{transition:opacity .2s}
+.links a:hover{opacity:.75}
+.side{flex:1 1 0;display:flex;align-items:center;justify-content:flex-end;gap:calc(40*var(--u));font-size:calc(16.5*var(--u));font-weight:500}
+.side>a:first-child{opacity:calc(1 - var(--dip)*.82)}
+.cta{display:inline-flex;align-items:center;height:calc(46*var(--u));padding:0 calc(26*var(--u));border-radius:99px;
+  background:color-mix(in srgb,#0d1117 calc((1 - var(--k))*100%),#fff);color:color-mix(in srgb,#fff calc((1 - var(--k))*100%),#0d1117);opacity:calc(1 - var(--dip)*.62);transition:transform .25s}
+.cta:hover{transform:translateY(-1px)}
+h1{margin-top:calc(58*var(--u));text-align:center;font-size:calc(64*var(--u));line-height:1.09;font-weight:500;letter-spacing:-.022em;color:var(--ink)}
+h1 span{display:block}
+h1 .l1,h1 .y{opacity:calc(1 - var(--dip)*.8)}
+h1 i{font-style:normal;color:color-mix(in srgb,#14202f calc((1 - var(--k2))*42%),color-mix(in srgb,#fff calc(var(--k2)*100%),#7c8794))}
+h1 .y{display:inline}
+.dock{margin-top:auto;padding-bottom:calc(34*var(--u));display:flex;flex-direction:column;align-items:center}
+.toggle{position:relative;display:grid;grid-template-columns:1fr 1fr;width:calc(524*var(--u));height:calc(86*var(--u));padding:calc(2*var(--u));border-radius:calc(16*var(--u));overflow:hidden;
+  background:rgba(120,132,140,.34);border:1px solid rgba(255,255,255,.2);-webkit-backdrop-filter:blur(calc(14*var(--u)));backdrop-filter:blur(calc(14*var(--u)))}
+.toggle button{position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:calc(3*var(--u));border-radius:calc(13*var(--u));color:#fff;overflow:hidden}
+.toggle button:before{content:"";position:absolute;inset:0;border-radius:inherit;background:linear-gradient(160deg,#f7f8dc,#e2ee9f 90%);box-shadow:inset 0 0 calc(18*var(--u)) rgba(255,255,255,.65);opacity:var(--on)}
+.toggle b,.toggle small{position:relative;color:color-mix(in srgb,#1c2316 calc(var(--on)*100%),#fff)}
+.toggle b{font-size:calc(23*var(--u));font-weight:500;letter-spacing:-.012em}
+.toggle small{font-size:calc(15*var(--u));opacity:.72}
+.toggle button:focus-visible{outline:2px solid #fff;outline-offset:-4px}
+#bm{--on:calc(1 - var(--k))}#bn{--on:var(--k)}
+.cap{margin-top:calc(18*var(--u));text-align:center;font-size:calc(16.4*var(--u));line-height:1.35;color:var(--soft)}
+.scroll-pill{margin-top:calc(14*var(--u));display:inline-flex;align-items:center;gap:8px;padding:8px 18px;border-radius:99px;font-size:calc(13.5*var(--u));font-weight:500;background:rgba(120,132,140,.28);border:1px solid rgba(255,255,255,.22);color:#fff;-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);transition:transform .2s,background .2s}
+.scroll-pill:hover{transform:translateY(2px);background:rgba(120,132,140,.42)}
+
+/* ==========================================================================
+   SECOND VIEWPORT (SCROLL DOWN): EXECUTED PROJECTS BY AHMED SHAABAN
+   ========================================================================== */
+.projects-section{
+  position:relative;
+  z-index:3;
+  background:var(--page-bg);
+  color:var(--ink);
+  padding:96px 24px 88px;
+  border-top:1px solid var(--border-col);
+}
+.container{
+  max-width:1240px;
+  margin:0 auto;
+}
+.sec-header{
+  display:grid;
+  grid-template-columns:1fr 1.1fr;
+  gap:48px;
+  align-items:end;
+  padding-bottom:44px;
+  border-bottom:1px solid var(--border-col);
+}
+.kicker{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  font-size:12px;
+  font-weight:600;
+  text-transform:uppercase;
+  letter-spacing:.18em;
+  color:var(--accent);
+  margin-bottom:14px;
+}
+.kicker-dot{
+  width:7px;
+  height:7px;
+  border-radius:50%;
+  background:var(--accent);
+}
+.sec-title{
+  font-size:clamp(32px,3.6vw,52px);
+  font-weight:500;
+  line-height:1.08;
+  letter-spacing:-.024em;
+  color:var(--ink);
+}
+.sec-lead{
+  font-size:16px;
+  line-height:1.65;
+  color:var(--muted);
+  margin-bottom:24px;
+}
+.filter-row{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+}
+.f-btn{
+  padding:10px 18px;
+  border-radius:99px;
+  font-size:13.5px;
+  font-weight:500;
+  background:var(--pill-bg);
+  color:var(--ink);
+  border:1px solid var(--border-col);
+  transition:all .2s ease;
+}
+.f-btn:hover{
+  border-color:var(--accent);
+}
+.f-btn.active{
+  background:linear-gradient(160deg,#f7f8dc,#d8ee8e 90%);
+  color:#14202f;
+  border-color:transparent;
+  font-weight:600;
+}
+
+/* Metrics Row */
+.stats-grid{
+  margin:36px 0 48px;
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:16px;
+}
+.stat-card{
+  background:var(--card-bg);
+  border:1px solid var(--border-col);
+  border-radius:16px;
+  padding:24px 28px;
+  display:flex;
+  flex-direction:column;
+  gap:6px;
+}
+.stat-val{
+  font-size:clamp(28px,2.8vw,40px);
+  font-weight:600;
+  letter-spacing:-.02em;
+  color:var(--accent);
+}
+.stat-lbl{
+  font-size:13.5px;
+  color:var(--muted);
+}
+
+/* Projects Grid */
+.p-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:28px;
+}
+.p-card{
+  background:var(--card-bg);
+  border:1px solid var(--border-col);
+  border-radius:20px;
+  overflow:hidden;
+  display:flex;
+  flex-direction:column;
+  transition:transform .28s ease,border-color .28s ease,box-shadow .28s ease;
+}
+.p-card.is-hidden{
+  display:none;
+}
+.p-card:hover{
+  transform:translateY(-4px);
+  border-color:var(--accent);
+  box-shadow:0 20px 44px rgba(0,0,0,.22);
+}
+.p-img-wrap{
+  position:relative;
+  aspect-ratio:16/10;
+  overflow:hidden;
+  background:#162238;
+  cursor:pointer;
+}
+.p-img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+  transition:transform .55s cubic-bezier(.16,1,.3,1);
+}
+.p-card:hover .p-img{
+  transform:scale(1.05);
+}
+.p-tag-badge{
+  position:absolute;
+  top:14px;
+  left:14px;
+  padding:6px 14px;
+  border-radius:99px;
+  font-size:11.5px;
+  font-weight:600;
+  letter-spacing:.12em;
+  background:rgba(11,20,38,.78);
+  color:#d8ee8e;
+  border:1px solid rgba(255,255,255,.18);
+  -webkit-backdrop-filter:blur(10px);
+  backdrop-filter:blur(10px);
+}
+.p-count-badge{
+  position:absolute;
+  bottom:14px;
+  right:14px;
+  padding:6px 14px;
+  border-radius:99px;
+  font-size:11px;
+  font-weight:600;
+  letter-spacing:.12em;
+  background:rgba(11,20,38,.82);
+  color:#fff;
+  border:1px solid rgba(255,255,255,.2);
+  -webkit-backdrop-filter:blur(10px);
+  backdrop-filter:blur(10px);
+  transition:background .2s,color .2s;
+}
+.p-img-wrap:hover .p-count-badge{
+  background:linear-gradient(160deg,#f7f8dc,#d8ee8e 90%);
+  color:#14202f;
+}
+.p-body{
+  padding:26px 28px 28px;
+  display:flex;
+  flex-direction:column;
+  flex:1;
+}
+.p-meta{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  font-size:12px;
+  font-weight:600;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  color:var(--muted);
+  margin-bottom:10px;
+}
+.p-area{
+  color:var(--accent);
+}
+.p-title{
+  font-size:24px;
+  font-weight:500;
+  letter-spacing:-.015em;
+  color:var(--ink);
+  margin-bottom:10px;
+}
+.p-desc{
+  font-size:14.5px;
+  line-height:1.62;
+  color:var(--muted);
+  margin-bottom:22px;
+  flex:1;
+}
+.p-foot{
+  padding-top:16px;
+  border-top:1px solid var(--border-col);
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  flex-wrap:wrap;
+}
+.p-chips{
+  display:flex;
+  flex-wrap:wrap;
+  gap:6px;
+}
+.p-chips span{
+  font-size:12px;
+  padding:5px 12px;
+  border-radius:99px;
+  background:var(--pill-bg);
+  color:var(--soft);
+}
+.p-btn{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  padding:9px 18px;
+  border-radius:99px;
+  font-size:13px;
+  font-weight:500;
+  background:var(--pill-bg);
+  color:var(--ink);
+  border:1px solid var(--border-col);
+  transition:all .2s ease;
+}
+.p-btn:hover{
+  background:linear-gradient(160deg,#f7f8dc,#d8ee8e 90%);
+  color:#14202f;
+  border-color:transparent;
+}
+
+/* Execution Methodology */
+.process-box{
+  margin-top:76px;
+  padding-top:56px;
+  border-top:1px solid var(--border-col);
+}
+.process-grid{
+  margin-top:28px;
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:18px;
+}
+.step-card{
+  background:var(--card-bg);
+  border:1px solid var(--border-col);
+  border-radius:18px;
+  padding:28px;
+}
+.step-idx{
+  font-size:12px;
+  font-weight:600;
+  letter-spacing:.15em;
+  color:var(--accent);
+  display:block;
+  margin-bottom:10px;
+}
+.step-card h4{
+  font-size:20px;
+  font-weight:500;
+  color:var(--ink);
+  margin-bottom:8px;
+}
+.step-card p{
+  font-size:14.5px;
+  line-height:1.6;
+  color:var(--muted);
+}
+
+/* Contact Footer */
+.studio-footer{
+  margin-top:76px;
+  padding-top:52px;
+  border-top:1px solid var(--border-col);
+  display:grid;
+  grid-template-columns:1.1fr .9fr;
+  gap:40px;
+  align-items:end;
+}
+.footer-actions{
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+}
+.contact-pill{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:16px 22px;
+  border-radius:14px;
+  background:var(--card-bg);
+  border:1px solid var(--border-col);
+  font-size:15px;
+  font-weight:500;
+  transition:border-color .2s,transform .2s;
+}
+.contact-pill:hover{
+  border-color:var(--accent);
+  transform:translateX(3px);
+}
+.copy-row{
+  margin-top:12px;
+  display:flex;
+  justify-content:space-between;
+  font-size:13px;
+  color:var(--muted);
+}
+
+/* ==========================================================================
+   PROJECT DOSSIER & MULTI-IMAGE GALLERY MODAL
+   ========================================================================== */
+.modal-backdrop{
+  position:fixed;
+  inset:0;
+  z-index:100;
+  background:rgba(7,13,25,.78);
+  -webkit-backdrop-filter:blur(10px);
+  backdrop-filter:blur(10px);
+  display:none;
+  align-items:center;
+  justify-content:center;
+  padding:20px;
+}
+.modal-backdrop.is-open{
+  display:flex;
+}
+.modal-dialog{
+  background:var(--card-bg);
+  color:var(--ink);
+  border:1px solid var(--border-col);
+  border-radius:22px;
+  width:100%;
+  max-width:960px;
+  max-height:92vh;
+  overflow-y:auto;
+  padding:32px;
+  box-shadow:0 30px 70px rgba(0,0,0,.45);
+}
+.modal-head{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding-bottom:18px;
+  margin-bottom:24px;
+  border-bottom:1px solid var(--border-col);
+}
+.modal-close{
+  padding:8px 16px;
+  border-radius:99px;
+  background:var(--pill-bg);
+  font-size:13px;
+  font-weight:500;
+  border:1px solid var(--border-col);
+}
+.modal-close:hover{
+  border-color:var(--accent);
+}
+.modal-cols{
+  display:grid;
+  grid-template-columns:1.22fr .78fr;
+  gap:28px;
+}
+.m-gallery-col{
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+}
+.m-stage-wrap{
+  position:relative;
+  width:100%;
+  aspect-ratio:16/10.5;
+  border-radius:14px;
+  overflow:hidden;
+  background:#0b1426;
+  user-select:none;
+}
+.modal-photo{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+}
+.m-nav-btn{
+  position:absolute;
+  top:50%;
+  transform:translateY(-50%);
+  width:42px;
+  height:42px;
+  border-radius:50%;
+  background:rgba(11,20,38,.78);
+  color:#fff;
+  border:1px solid rgba(255,255,255,.24);
+  font-size:22px;
+  line-height:1;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  -webkit-backdrop-filter:blur(8px);
+  backdrop-filter:blur(8px);
+  transition:background .2s,color .2s,border-color .2s;
+}
+.m-nav-btn:hover{
+  background:linear-gradient(160deg,#f7f8dc,#d8ee8e 90%);
+  color:#14202f;
+  border-color:transparent;
+}
+.m-prev{left:12px}
+.m-next{right:12px}
+.m-caption-bar{
+  position:absolute;
+  left:0;
+  right:0;
+  bottom:0;
+  padding:10px 14px;
+  background:rgba(11,20,38,.82);
+  -webkit-backdrop-filter:blur(6px);
+  backdrop-filter:blur(6px);
+  color:#fff;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  font-size:12.5px;
+}
+.m-counter{
+  font-weight:600;
+  letter-spacing:.1em;
+  color:#d8ee8e;
+}
+.m-caption-text{
+  color:rgba(255,255,255,.9);
+}
+.m-thumbs{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:8px;
+}
+.m-thumb-btn{
+  aspect-ratio:16/10;
+  border-radius:10px;
+  overflow:hidden;
+  border:2px solid transparent;
+  opacity:.55;
+  padding:0;
+  background:#0b1426;
+  transition:opacity .2s,border-color .2s;
+}
+.m-thumb-btn:hover{
+  opacity:.85;
+}
+.m-thumb-btn.is-active{
+  opacity:1;
+  border-color:var(--accent);
+}
+.m-thumb-btn img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+}
+.modal-specs{
+  margin-top:18px;
+  border-top:1px solid var(--border-col);
+}
+.spec-line{
+  display:flex;
+  justify-content:space-between;
+  padding:10px 0;
+  border-bottom:1px solid var(--border-col);
+  font-size:13.5px;
+}
+.spec-k{color:var(--muted)}
+.spec-v{font-weight:500;text-align:right}
+
+@media (max-width:820px){
+  :root{--u:1px}
+  .bar{padding:16px 16px 0}
+  .logo{font-size:21px}.logo svg{width:32px;height:32px}
+  .links,.side>a:first-child{display:none}
+  .cta{height:40px;padding:0 16px;font-size:14px}
+  h1{margin-top:34px;padding:0 16px;font-size:clamp(34px,10.4vw,56px)}
+  .layer img,.home .cut{object-position:72% 62%!important}
+  .dock{width:100%;padding:0 16px 20px}
+  .toggle{width:100%;max-width:440px;height:74px}
+  .toggle b{font-size:19px}.toggle small{font-size:13px}
+  .cap{font-size:14px;max-width:360px}
+  .cap br{display:none}
+  .sec-header,.stats-grid,.p-grid,.process-grid,.studio-footer,.modal-cols{
+    grid-template-columns:1fr;
+  }
+  .projects-section{padding:64px 16px}
+}
+</style>
+</head>
+<body>
+<!-- =========================================================================
+     FIRST VIEWPORT: HERO WITH MORNING / NIGHT FOG & HOUSE SINK TRANSITION
+     ========================================================================= -->
+<main class="hero" id="top">
+  <div class="layer sky">
+    <img id="skyM" alt="" src="https://images.higgs.ai/?default=1&amp;output=webp&amp;url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20261102_040343_a73684b4-3f71-4613-a843-c8be80fb1211.png&amp;w=1600&amp;q=80">
+    <img id="skyN" alt="" src="https://images.higgs.ai/?default=1&amp;output=webp&amp;url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20261102_040308_f31964ab-ed8e-4ea4-90eb-3226c0859936.png&amp;w=1600&amp;q=80">
+  </div>
+  <div class="layer home">
+    <div class="set" id="setM">
+      <div class="layer ground"><img alt="" src="https://images.higgs.ai/?default=1&amp;output=webp&amp;url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20261102_040259_1be34093-835e-4de4-b3a8-f875e6a74591.png&amp;w=2560&amp;q=85"></div>
+      <img class="cut" alt="Contemporary architectural residence in soft morning light by Architect Ahmed Shaaban" src="https://images.higgs.ai/?default=1&amp;output=webp&amp;url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20261102_040416_e3b05fa4-cc80-4a43-afde-8a0a053933e9.png&amp;w=2560&amp;q=85" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 62%">
+    </div>
+    <div class="set is-on" id="setN">
+      <div class="layer ground"><img alt="" src="https://images.higgs.ai/?default=1&amp;output=webp&amp;url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20261102_040211_c8fd4865-285e-4c1f-8a37-4bfe0771357b.png&amp;w=2560&amp;q=85"></div>
+      <img class="cut" alt="Contemporary architectural residence at dusk with warm interior illumination by Architect Ahmed Shaaban" src="https://images.higgs.ai/?default=1&amp;output=webp&amp;url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20261102_040415_2ab95096-8c39-449f-b36c-17c2813815a4.png&amp;w=2560&amp;q=85" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 62%">
+    </div>
+  </div>
+  <div class="tilt"></div>
+  <canvas id="fog" aria-hidden="true"></canvas>
+  <div class="ui">
+    <header class="bar">
+      <a class="logo" href="#top" aria-label="Ahmed Shaaban Architecture">
+        <svg viewBox="0 0 40 40" aria-hidden="true"><g fill="color-mix(in srgb,#6d8f2a calc((1 - var(--k))*100%),#d8ee8e)"><circle cx="20" cy="20" r="0"/><path id="ray" d="M18.3 3.5h3.4l.9 8.4h-5.2Z"/><use href="#ray" transform="rotate(30 20 20)"/><use href="#ray" transform="rotate(60 20 20)"/><use href="#ray" transform="rotate(90 20 20)"/><use href="#ray" transform="rotate(120 20 20)"/><use href="#ray" transform="rotate(150 20 20)"/><use href="#ray" transform="rotate(180 20 20)"/><use href="#ray" transform="rotate(210 20 20)"/><use href="#ray" transform="rotate(240 20 20)"/><use href="#ray" transform="rotate(270 20 20)"/><use href="#ray" transform="rotate(300 20 20)"/><use href="#ray" transform="rotate(330 20 20)"/></g></svg>
+        Ahmed Shaaban
+      </a>
+      <ul class="links">
+        <li><a href="#projects">Executed Projects</a></li>
+        <li><a href="#projects" data-nav-filter="residential">Villas</a></li>
+        <li><a href="#projects" data-nav-filter="interior">Interior Finishing</a></li>
+        <li><a href="#process">Methodology</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <div class="side"><a href="#projects">Portfolio</a><a class="cta" href="#projects">Explore Executed Works</a></div>
+    </header>
+    <h1><span class="l1">Timeless Architecture</span><span><i>crafted for</i> <span class="y">Modern Living</span></span></h1>
+    <div class="dock">
+      <div class="toggle" role="group" aria-label="Time of day">
+        <button id="bm" aria-pressed="false"><b>Morning</b><small>Daylight Architecture</small></button>
+        <button id="bn" aria-pressed="true"><b>Night</b><small>Atmospheric Lighting</small></button>
+      </div>
+      <p class="cap">Architectural design, structural supervision, and turnkey interior finishing<br>by Architect Ahmed Shaaban — transforming raw structures into lasting landmarks.</p>
+      <a href="#projects" class="scroll-pill">Scroll to Executed Projects ↓</a>
+    </div>
+  </div>
+</main>
+
+<!-- =========================================================================
+     SECOND PAGE (ON SCROLL DOWN): EXECUTED PROJECTS BY AHMED SHAABAN
+     ========================================================================= -->
+<section class="projects-section" id="projects">
+  <div class="container">
+    <div class="sec-header">
+      <div>
+        <div class="kicker"><span class="kicker-dot"></span><span>STUDIO AHMED SHAABAN · EXECUTED WORKS</span></div>
+        <h2 class="sec-title">Executed Projects &amp;<br>Architectural Landmarks</h2>
+      </div>
+      <div>
+        <p class="sec-lead">
+          Every project below has been architecturally designed, engineered, and finished on-site by Architect Ahmed Shaaban. Click any project card to open its interactive multi-photo gallery.
+        </p>
+        <div class="filter-row" role="tablist" aria-label="Filter executed projects">
+          <button type="button" class="f-btn active" data-filter="all">All Executed Works (06)</button>
+          <button type="button" class="f-btn" data-filter="residential">Residential Villas</button>
+          <button type="button" class="f-btn" data-filter="interior">Luxury Interior Finishing</button>
+          <button type="button" class="f-btn" data-filter="commercial">Commercial &amp; Admin</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Key Architectural Metrics -->
+    <div class="stats-grid">
+      <div class="stat-card">
+        <span class="stat-val">48+</span>
+        <span class="stat-lbl">01 / Executed Residential &amp; Commercial Projects</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-val">18,500 m²</span>
+        <span class="stat-lbl">02 / Total Built &amp; Turnkey Finished Area</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-val">100%</span>
+        <span class="stat-lbl">03 / Precision Supervision &amp; On-Time Handover</span>
+      </div>
+    </div>
+
+    <!-- Executed Projects Grid -->
+    <div class="p-grid" id="projects-grid">
+      <!-- Project 01 -->
+      <article class="p-card" data-category="commercial interior">
+        <div class="p-img-wrap" data-open-modal="01" title="Click to browse project photo gallery">
+          <img class="p-img" src="assets/villa-baboushka-main.jpg" alt="Villa Baboushka Concept Store — Main Cover Image" loading="lazy">
+          <span class="p-tag-badge">01 / CONCEPT STORE</span>
+          <span class="p-count-badge">4 PHOTOS · GALLERY</span>
+        </div>
+        <div class="p-body">
+          <div class="p-meta">
+            <span>CAPITAL BUSINESS PARK · SHEIKH ZAYED</span>
+            <span class="p-area">280 m² Retail Space</span>
+          </div>
+          <h3 class="p-title">Villa Baboushka Concept Store</h3>
+          <p class="p-desc">
+            Designed and executed to deliver a high-end retail experience, this luxury fashion boutique blends minimalist spatial zoning with bespoke display fixtures, utilizing soft ambient lighting and sculptural display islands to elevate the customer journey.
+          </p>
+          <div class="p-foot">
+            <div class="p-chips">
+              <span>Interior Architecture</span>
+              <span>Custom Joinery</span>
+              <span>Turnkey Retail Fit-Out</span>
+            </div>
+            <button type="button" class="p-btn" data-open-modal="01">View Gallery (4) →</button>
+          </div>
+        </div>
+      </article>
+
+      <!-- Project 02 -->
+      <article class="p-card" data-category="interior">
+        <div class="p-img-wrap" data-open-modal="02" title="Click to browse project photo gallery">
+          <img class="p-img" src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&amp;fit=crop&amp;w=1200&amp;q=85" alt="Allegria Sky Penthouse — Main Cover Image" loading="lazy">
+          <span class="p-tag-badge">02 / EXECUTED 2025</span>
+          <span class="p-count-badge">4 PHOTOS · GALLERY</span>
+        </div>
+        <div class="p-body">
+          <div class="p-meta">
+            <span>SHEIKH ZAYED · ALLEGRIA</span>
+            <span class="p-area">440 m²</span>
+          </div>
+          <h3 class="p-title">Allegria Sky Penthouse</h3>
+          <p class="p-desc">
+            Complete interior reconfiguration and luxury finishing utilizing book-matched Calacatta marble monoliths, seamless micro-cement floors, and KNX smart day/night lighting scenes.
+          </p>
+          <div class="p-foot">
+            <div class="p-chips">
+              <span>Interior Architecture</span>
+              <span>Marble &amp; Millwork</span>
+              <span>Smart KNX</span>
+            </div>
+            <button type="button" class="p-btn" data-open-modal="02">View Gallery (4) →</button>
+          </div>
+        </div>
+      </article>
+
+      <!-- Project 03 -->
+      <article class="p-card" data-category="commercial interior">
+        <div class="p-img-wrap" data-open-modal="03" title="Click to browse project photo gallery">
+          <img class="p-img" src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&amp;fit=crop&amp;w=1200&amp;q=85" alt="Aura Executive Headquarters — Main Cover Image" loading="lazy">
+          <span class="p-tag-badge">03 / EXECUTED 2025</span>
+          <span class="p-count-badge">4 PHOTOS · GALLERY</span>
+        </div>
+        <div class="p-body">
+          <div class="p-meta">
+            <span>NEW CAPITAL · FINANCIAL DISTRICT</span>
+            <span class="p-area">1,250 m²</span>
+          </div>
+          <h3 class="p-title">Aura Executive Headquarters</h3>
+          <p class="p-desc">
+            Turnkey corporate headquarters engineered with acoustic oak ceiling baffles, frameless double-glazed architectural partitions, and custom poured terrazzo reception volumes.
+          </p>
+          <div class="p-foot">
+            <div class="p-chips">
+              <span>Corporate Fit-Out</span>
+              <span>Acoustic Design</span>
+              <span>MEP Execution</span>
+            </div>
+            <button type="button" class="p-btn" data-open-modal="03">View Gallery (4) →</button>
+          </div>
+        </div>
+      </article>
+
+      <!-- Project 04 -->
+      <article class="p-card" data-category="residential">
+        <div class="p-img-wrap" data-open-modal="04" title="Click to browse project photo gallery">
+          <img class="p-img" src="https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?auto=format&amp;fit=crop&amp;w=1200&amp;q=85" alt="Marassi Coastal Residence — Main Cover Image" loading="lazy">
+          <span class="p-tag-badge">04 / EXECUTED 2025</span>
+          <span class="p-count-badge">4 PHOTOS · GALLERY</span>
+        </div>
+        <div class="p-body">
+          <div class="p-meta">
+            <span>NORTH COAST · MARASSI</span>
+            <span class="p-area">520 m²</span>
+          </div>
+          <h3 class="p-title">Marassi Coastal Residence</h3>
+          <p class="p-desc">
+            Mediterranean-modern coastal villa built with breathable hand-troweled lime plaster, natural limestone terraces, and cantilevered Burmese teak solar shading pergolas.
+          </p>
+          <div class="p-foot">
+            <div class="p-chips">
+              <span>Coastal Villa</span>
+              <span>Natural Stone</span>
+              <span>Solar Pergolas</span>
+            </div>
+            <button type="button" class="p-btn" data-open-modal="04">View Gallery (4) →</button>
+          </div>
+        </div>
+      </article>
+
+      <!-- Project 05 -->
+      <article class="p-card" data-category="interior">
+        <div class="p-img-wrap" data-open-modal="05" title="Click to browse project photo gallery">
+          <img class="p-img" src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&amp;fit=crop&amp;w=1200&amp;q=85" alt="Zamalek Nile View Residence — Main Cover Image" loading="lazy">
+          <span class="p-tag-badge">05 / EXECUTED 2024</span>
+          <span class="p-count-badge">4 PHOTOS · GALLERY</span>
+        </div>
+        <div class="p-body">
+          <div class="p-meta">
+            <span>CAIRO · ZAMALEK</span>
+            <span class="p-area">340 m²</span>
+          </div>
+          <h3 class="p-title">Zamalek Nile View Residence</h3>
+          <p class="p-desc">
+            Architectural restoration and contemporary luxury finishing overlooking the Nile, pairing chevron French oak parquet with brushed brass shadow-gap reveals.
+          </p>
+          <div class="p-foot">
+            <div class="p-chips">
+              <span>Restoration</span>
+              <span>Fine Millwork</span>
+              <span>Lighting Design</span>
+            </div>
+            <button type="button" class="p-btn" data-open-modal="05">View Gallery (4) →</button>
+          </div>
+        </div>
+      </article>
+
+      <!-- Project 06 -->
+      <article class="p-card" data-category="commercial">
+        <div class="p-img-wrap" data-open-modal="06" title="Click to browse project photo gallery">
+          <img class="p-img" src="https://images.unsplash.com/photo-1600585152220-90363fe7e115?auto=format&amp;fit=crop&amp;w=1200&amp;q=85" alt="Verve Flagship Architectural Gallery — Main Cover Image" loading="lazy">
+          <span class="p-tag-badge">06 / EXECUTED 2024</span>
+          <span class="p-count-badge">4 PHOTOS · GALLERY</span>
+        </div>
+        <div class="p-body">
+          <div class="p-meta">
+            <span>NEW CAIRO · 5TH SETTLEMENT</span>
+            <span class="p-area">580 m²</span>
+          </div>
+          <h3 class="p-title">Verve Flagship Architectural Gallery</h3>
+          <p class="p-desc">
+            Minimalist commercial showroom featuring seamless micro-cement surfaces, sculptural blackened steel staircases, and museum-grade adjustable track lighting.
+          </p>
+          <div class="p-foot">
+            <div class="p-chips">
+              <span>Showroom</span>
+              <span>Structural Steel</span>
+              <span>Micro-Cement</span>
+            </div>
+            <button type="button" class="p-btn" data-open-modal="06">View Gallery (4) →</button>
+          </div>
+        </div>
+      </article>
+    </div>
+
+    <!-- Execution Methodology -->
+    <div class="process-box" id="process">
+      <div class="kicker"><span class="kicker-dot"></span><span>METHODOLOGY · TURNKEY EXECUTION</span></div>
+      <h3 class="sec-title" style="font-size:clamp(26px,2.8vw,38px)">From Architectural Blueprint to Final Handover</h3>
+      <div class="process-grid">
+        <div class="step-card">
+          <span class="step-idx">PHASE 01 · ARCHITECTURE &amp; BIM</span>
+          <h4>Spatial &amp; Daylight Modeling</h4>
+          <p>3D architectural massing, structural engineering, and solar orientation studies to optimize both morning daylight and evening ambiance.</p>
+        </div>
+        <div class="step-card">
+          <span class="step-idx">PHASE 02 · SHOP DRAWINGS</span>
+          <h4>MEP &amp; Millimetric Detailing</h4>
+          <p>Comprehensive execution blueprints coordinating concealed HVAC slot diffusers, smart electrical automation, and flush shadow-gap reveals.</p>
+        </div>
+        <div class="step-card">
+          <span class="step-idx">PHASE 03 · TURNKEY FINISHING</span>
+          <h4>On-Site Craft &amp; Supervision</h4>
+          <p>Direct quality control over natural stone installation, bespoke wood joinery, mineral plasters, and final luminaire calibration.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Contact Footer -->
+    <footer class="studio-footer" id="contact">
+      <div>
+        <div class="kicker"><span class="kicker-dot"></span><span>COMMISSION INQUIRY · ARCH. AHMED SHAABAN</span></div>
+        <h2 class="sec-title" style="font-size:clamp(28px,3.2vw,44px)">Ready to design or finish<br>your next landmark?</h2>
+        <p class="sec-lead" style="margin-top:14px;margin-bottom:0;max-width:480px">
+          Available for turnkey residential villas, luxury penthouses, and commercial architectural projects across New Cairo, Sheikh Zayed, and the North Coast.
+        </p>
+      </div>
+      <div class="footer-actions">
+        <a href="mailto:studio@ahmedshaaban.arch" class="contact-pill">
+          <span>EMAIL / studio@ahmedshaaban.arch</span>
+          <span>→</span>
+        </a>
+        <a href="#top" class="contact-pill">
+          <span>EXPERIENCE / Switch Morning &amp; Night Mode at Top</span>
+          <span>↑</span>
+        </a>
+        <div class="copy-row">
+          <span>© 2026 Architect Ahmed Shaaban. All Rights Reserved.</span>
+          <a href="#top">Back to Top ↑</a>
+        </div>
+      </div>
+    </footer>
+  </div>
+</section>
+
+<!-- =========================================================================
+     PROJECT DOSSIER & MULTI-IMAGE GALLERY MODAL
+     ========================================================================= -->
+<div class="modal-backdrop" id="project-modal" aria-hidden="true">
+  <div class="modal-dialog" role="dialog" aria-modal="true" aria-labelledby="m-title">
+    <div class="modal-head">
+      <span class="kicker" id="m-code" style="margin:0">EXECUTED PROJECT // 01</span>
+      <button type="button" class="modal-close" id="m-close">✕ Close</button>
+    </div>
+    <div class="modal-cols">
+      <!-- Left: Multi-Image Slider & Thumbnails -->
+      <div class="m-gallery-col">
+        <div class="m-stage-wrap">
+          <img id="m-img" class="modal-photo" src="" alt="">
+          <button type="button" class="m-nav-btn m-prev" id="m-prev" aria-label="Previous photo">‹</button>
+          <button type="button" class="m-nav-btn m-next" id="m-next" aria-label="Next photo">›</button>
+          <div class="m-caption-bar">
+            <span class="m-counter" id="m-counter">1 / 4</span>
+            <span class="m-caption-text" id="m-caption">Main Cover Vista</span>
+          </div>
+        </div>
+        <div class="m-thumbs" id="m-thumbs" role="listbox" aria-label="Project photos"></div>
+      </div>
+
+      <!-- Right: Project Details -->
+      <div>
+        <h3 class="p-title" id="m-title" style="font-size:28px"></h3>
+        <p class="p-desc" id="m-desc" style="margin-bottom:16px"></p>
+        <div class="modal-specs">
+          <div class="spec-line"><span class="spec-k">ARCHITECT</span><span class="spec-v">Arch. Ahmed Shaaban</span></div>
+          <div class="spec-line"><span class="spec-k">LOCATION</span><span class="spec-v" id="m-loc"></span></div>
+          <div class="spec-line"><span class="spec-k">BUILT AREA</span><span class="spec-v" id="m-area"></span></div>
+          <div class="spec-line"><span class="spec-k">SCOPE OF WORK</span><span class="spec-v" id="m-scope"></span></div>
+          <div class="spec-line"><span class="spec-k">KEY MATERIALS</span><span class="spec-v" id="m-mat"></span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+const root=document.documentElement.style,$=id=>document.getElementById(id);
+const calm=matchMedia('(prefers-reduced-motion:reduce)').matches;
+const SINK=240,RISE=820,DEPTH=.27;
+const clamp=(x,a=0,b=1)=>Math.min(b,Math.max(a,x));
+const smooth=(a,b,x)=>{x=clamp((x-a)/(b-a));return x*x*(3-2*x)};
+let night=1,target=1,from=1,start=-1e9,queued=null,swapped=true,k=1,surge=0;
+
+const cv=$('fog'),gl=cv.getContext('webgl2',{alpha:true,premultipliedAlpha:true,antialias:false});
+let U={};
+if(gl){
+  const vs=`#version 300 es
+  void main(){vec2 p=vec2((gl_VertexID<<1)&2,gl_VertexID&2);gl_Position=vec4(p*2.-1.,0,1);}`;
+  const fs=`#version 300 es
+  precision highp float;
+  uniform vec2 R;uniform float T,S,K;out vec4 O;
+  float h(vec2 p){p=fract(p*vec2(123.34,456.21));p+=dot(p,p+45.32);return fract(p.x*p.y);}
+  float n(vec2 p){vec2 i=floor(p),f=fract(p);f=f*f*(3.-2.*f);
+    return mix(mix(h(i),h(i+vec2(1,0)),f.x),mix(h(i+vec2(0,1)),h(i+vec2(1,1)),f.x),f.y);}
+  float fbm(vec2 p){float a=.5,s=0.;mat2 m=mat2(1.6,1.2,-1.2,1.6);p=mat2(.8,.6,-.6,.8)*p+5.3;for(int i=0;i<5;i++){s+=a*n(p);p=m*p;a*=.5;}return s;}
+  void main(){
+    vec2 uv=gl_FragCoord.xy/R;uv.y=1.-uv.y;
+    float asp=R.x/R.y;vec2 p=vec2(uv.x*asp,uv.y);
+    float t=T*.05;
+    vec2 w=vec2(fbm(p*1.3+vec2(t,-t*.6)),fbm(p*1.3+vec2(-t*.8,t)+7.));
+    float d=fbm(p*1.9+w*1.7+vec2(t*1.6,-t*1.1+S*.5));
+    float e=fbm(p*.9-w+vec2(-t,t*.5)+3.);
+    float low=smooth2(.70,1.04,uv.y+(d-.5)*.34);
+    float side=smooth2(.2,.0,uv.x+(e-.5)*.28)+smooth2(.8,1.,uv.x+(e-.5)*.28);
+    side*=smooth2(.25,.6,uv.y)*.2;
+    float wisps=smooth2(.5,.78,d)*smooth2(.22,.5,uv.y)*smooth2(.86,.6,uv.y)*.18;
+    float rest=clamp(low+side+wisps,0.,1.);
+    float front=1.02-S*.68;
+    float rise=smooth2(front-.02,front+.26,uv.y+(d-.5)*.5);
+    float haze=S*(.3+.46*d);
+    float a=clamp(max(rest,max(rise*.97,haze)),0.,1.);
+    vec3 dayA=vec3(.97,.93,.84),dayB=vec3(.79,.78,.71);
+    vec3 nitA=vec3(.40,.45,.57),nitB=vec3(.15,.19,.29);
+    vec3 c=mix(mix(dayB,dayA,d*1.15),mix(nitB,nitA,d*1.1),K);
+    float porch=exp(-dot((uv-vec2(.72,.74))*vec2(1.7,2.6),(uv-vec2(.72,.74))*vec2(1.7,2.6))*3.2);
+    c=mix(c,vec3(.86,.55,.27),K*porch*.42*(1.-S));
+    O=vec4(c*a,a);
+  }`.replace(/smooth2/g,'smoothstep');
+  const sh=(t,s)=>{const o=gl.createShader(t);gl.shaderSource(o,s);gl.compileShader(o);
+    if(!gl.getShaderParameter(o,gl.COMPILE_STATUS))console.error(gl.getShaderInfoLog(o));return o};
+  const pr=gl.createProgram();gl.attachShader(pr,sh(gl.VERTEX_SHADER,vs));gl.attachShader(pr,sh(gl.FRAGMENT_SHADER,fs));
+  gl.linkProgram(pr);gl.useProgram(pr);
+  for(const u of['R','T','S','K'])U[u]=gl.getUniformLocation(pr,u);
+}
+function size(){
+  if(!gl)return;
+  const w=Math.round(Math.min(innerWidth,960)),h=Math.round(w*innerHeight/innerWidth);
+  if(cv.width!==w||cv.height!==h){cv.width=w;cv.height=h;gl.viewport(0,0,w,h)}
+}
+addEventListener('resize',size);size();
+
+function show(n){
+  $('setM').classList.toggle('is-on',!n);$('setN').classList.toggle('is-on',!!n);
+}
+function pick(n){
+  if(n===target&&queued===null)return;
+  $('bm').setAttribute('aria-pressed',!n);$('bn').setAttribute('aria-pressed',!!n);
+  if(calm){target=night=n;k=n;show(n);return}
+  if(animating)queued=n;else begin(n,clock);
+}
+let animating=false,clock=0;
+function begin(n,now){target=n;from=k;start=now;swapped=false;animating=true}
+$('bm').onclick=()=>pick(0);$('bn').onclick=()=>pick(1);
+
+function frame(now){
+  clock=now;
+  const d=now-start;let y=0,s=0,dip=0,k2=k;
+  if(animating){
+    if(d<SINK){const x=d/SINK;y=x*x*(3-2*x)*DEPTH}
+    else{
+      if(!swapped){swapped=true;night=target;show(target)}
+      const x=clamp((d-SINK)/RISE);y=Math.pow(1-x,3.4)*DEPTH;
+    }
+    s=smooth(0,SINK*.92,d)*(1-smooth(SINK+70,SINK+RISE*.92,d));
+    dip=smooth(30,190,d)*(1-smooth(330,720,d));
+    k=from+(target-from)*smooth(120,520,d);
+    k2=from+(target-from)*smooth(340,760,d);
+    if(d>=SINK+RISE){animating=false;k=k2=target;y=s=dip=0;if(queued!==null&&queued!==target){const q=queued;queued=null;begin(q,now)}else queued=null}
+  }
+  root.setProperty('--sink',(y*innerHeight).toFixed(1)+'px');
+  root.setProperty('--k',k.toFixed(3));root.setProperty('--k2',k2.toFixed(3));root.setProperty('--dip',dip.toFixed(3));
+  if(gl){gl.uniform2f(U.R,cv.width,cv.height);gl.uniform1f(U.T,now/1000);gl.uniform1f(U.S,s);gl.uniform1f(U.K,k);gl.drawArrays(gl.TRIANGLES,0,3)}
+}
+function loop(t){frame(t);requestAnimationFrame(loop)}
+requestAnimationFrame(loop);
+
+/* Executed Projects Filtering & Multi-Image Gallery Modal */
+const fBtns=document.querySelectorAll('.f-btn');
+const pCards=document.querySelectorAll('.p-card');
+function filterProjects(cat){
+  fBtns.forEach(b=>b.classList.toggle('active',b.dataset.filter===cat));
+  pCards.forEach(c=>{
+    const cats=(c.dataset.category||'').split(' ');
+    c.classList.toggle('is-hidden',cat!=='all'&&!cats.includes(cat));
+  });
+}
+fBtns.forEach(b=>b.onclick=()=>filterProjects(b.dataset.filter));
+document.querySelectorAll('[data-nav-filter]').forEach(a=>{
+  a.addEventListener('click',()=>filterProjects(a.dataset.navFilter));
+});
+
+const PROJECTS={
+  '01':{
+    code:'EXECUTED PROJECT // 01 · CONCEPT STORE',
+    title:'Villa Baboushka Concept Store',
+    loc:'Capital Business Park, Sheikh Zayed',
+    area:'280 m² Retail Space',
+    scope:'Interior Architecture, Custom Joinery & Turnkey Retail Fit-Out',
+    mat:'Polished Terrazzo, Fluted Oak Wood, Brushed Brass, Curved Microcement',
+    desc:'Designed and executed to deliver a high-end retail experience, this luxury fashion boutique blends minimalist spatial zoning with bespoke display fixtures, utilizing soft ambient lighting and sculptural display islands to elevate the customer journey.',
+    images:[
+      {url:'assets/villa-baboushka-main.jpg',caption:'01 / Villa Baboushka Concept Store — Main Double-Height Retail Atrium'},
+      {url:'https://images.unsplash.com/photo-1600585152220-90363fe7e115?auto=format&fit=crop&w=1200&q=85',caption:'02 / Minimalist Spatial Zoning & Sculptural Display Islands'},
+      {url:'https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=1200&q=85',caption:'03 / Custom Fluted Oak Joinery & Brushed Brass Fixtures'},
+      {url:'https://images.unsplash.com/photo-1600566753086-2d87185b9fd2?auto=format&fit=crop&w=1200&q=85',caption:'04 / Curved Microcement Walls & Soft Ambient Lighting'}
+    ]
+  },
+  '02':{
+    code:'EXECUTED PROJECT // 02 · 2025',
+    title:'Allegria Sky Penthouse',
+    loc:'Allegria, Sheikh Zayed',
+    area:'440 m²',
+    scope:'Interior Architecture, Custom Joinery & Smart KNX Automation',
+    mat:'Book-Matched Calacatta Marble, Micro-Cement, Smoked Oak',
+    desc:'A complete structural reconfiguration and turnkey finishing project featuring seamless shadow-gap walls, concealed linear HVAC diffusers, and bespoke Italian stone kitchen islands.',
+    images:[
+      {url:'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1200&q=85',caption:'01 / Main Penthouse Living Vista'},
+      {url:'https://images.unsplash.com/photo-1600566753086-2d87185b9fd2?auto=format&fit=crop&w=1200&q=85',caption:'02 / Book-Matched Calacatta Kitchen Monolith'},
+      {url:'https://images.unsplash.com/photo-1600585152220-90363fe7e115?auto=format&fit=crop&w=1200&q=85',caption:'03 / Minimalist Gallery Corridor & Flush Pivot Doors'},
+      {url:'https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=1200&q=85',caption:'04 / Spa Bathroom Finished in Honed Natural Stone'}
+    ]
+  },
+  '03':{
+    code:'EXECUTED PROJECT // 03 · 2025',
+    title:'Aura Executive Headquarters',
+    loc:'Financial District, New Capital',
+    area:'1,250 m²',
+    scope:'Commercial Interior Design, Acoustic Engineering & Full MEP Fit-Out',
+    mat:'Acoustic Oak Baffles, Double-Glazed Partitions, Terrazzo Monoliths',
+    desc:'Engineered for high-performance acoustic comfort and executive presence, integrating smart boardroom automation, circadian architectural lighting, and custom millwork.',
+    images:[
+      {url:'https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1200&q=85',caption:'01 / Main Executive Atrium & Reception'},
+      {url:'https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&w=1200&q=85',caption:'02 / Acoustic Timber Baffle Boardroom'},
+      {url:'https://images.unsplash.com/photo-1497215728101-856f4ea42174?auto=format&fit=crop&w=1200&q=85',caption:'03 / Collaborative Workspace & Glass Partitions'},
+      {url:'https://images.unsplash.com/photo-1524758631624-e2822e304c36?auto=format&fit=crop&w=1200&q=85',caption:'04 / Private Executive Lounge & Bespoke Millwork'}
+    ]
+  },
+  '04':{
+    code:'EXECUTED PROJECT // 04 · 2025',
+    title:'Marassi Coastal Residence',
+    loc:'Marassi, North Coast',
+    area:'520 m²',
+    scope:'Coastal Villa Architecture, Outdoor Living & Natural Stone Finishing',
+    mat:'Hand-Troweled Lime Plaster, Local Limestone, Burmese Teak',
+    desc:'Crafted to withstand coastal conditions while maintaining effortless luxury, featuring breathable mineral plasters, shaded teak pergolas, and seamless indoor-to-terrace stone flooring.',
+    images:[
+      {url:'https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?auto=format&fit=crop&w=1200&q=85',caption:'01 / Main Coastal Elevation & Limestone Terrace'},
+      {url:'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=85',caption:'02 / Sunlit Poolside Pergola & Outdoor Lounge'},
+      {url:'https://images.unsplash.com/photo-1600573472589-003525b2b729?auto=format&fit=crop&w=1200&q=85',caption:'03 / Breathable Lime-Plaster Living Room'},
+      {url:'https://images.unsplash.com/photo-1600566752355-35792bedcfea?auto=format&fit=crop&w=1200&q=85',caption:'04 / Sea-Breeze Master Suite & Teak Shutters'}
+    ]
+  },
+  '05':{
+    code:'EXECUTED PROJECT // 05 · 2024',
+    title:'Zamalek Nile View Residence',
+    loc:'Zamalek, Cairo',
+    area:'340 m²',
+    scope:'Architectural Restoration & Luxury Modern Interior Finishing',
+    mat:'Chevron French Oak Parquet, Unlacquered Brass, Venetian Plaster',
+    desc:'Restoring the grandeur of a classic Zamalek apartment while introducing modern millimetric detailing, concealed storage systems, and museum-grade warm grazing illumination.',
+    images:[
+      {url:'https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1200&q=85',caption:'01 / Main Salon & Chevron French Oak Parquet'},
+      {url:'https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=1200&q=85',caption:'02 / Bespoke Brass Reveal Library & Dining Area'},
+      {url:'https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=1200&q=85',caption:'03 / Venetian Plaster Gallery & Custom Lighting'},
+      {url:'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1200&q=85',caption:'04 / Nile-Facing Master Bedroom Sanctuary'}
+    ]
+  },
+  '06':{
+    code:'EXECUTED PROJECT // 06 · 2024',
+    title:'Verve Flagship Architectural Gallery',
+    loc:'5th Settlement, New Cairo',
+    area:'580 m²',
+    scope:'Commercial Showroom Architecture, Structural Steel & Lighting',
+    mat:'Seamless Micro-Cement, Blackened Steel, Honed Basalt Stone',
+    desc:'An architectural gallery space designed with dramatic spatial volumes, a sculptural cantilevered staircase, and high-CRI adjustable spotlighting to showcase material craftsmanship.',
+    images:[
+      {url:'https://images.unsplash.com/photo-1600585152220-90363fe7e115?auto=format&fit=crop&w=1200&q=85',caption:'01 / Main Gallery Hall & Micro-Cement Plinths'},
+      {url:'https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=1200&q=85',caption:'02 / Monolithic Stone Material Display Wing'},
+      {url:'https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1200&q=85',caption:'03 / Architectural Track Lighting & Steel Staircase'},
+      {url:'https://images.unsplash.com/photo-1600566753086-2d87185b9fd2?auto=format&fit=crop&w=1200&q=85',caption:'04 / Private Client Material Consultation Atelier'}
+    ]
+  }
+};
+
+const modal=$('project-modal'),mThumbs=$('m-thumbs');
+let activePhotos=[],activeIdx=0;
+
+function showSlide(i){
+  if(!activePhotos.length)return;
+  const len=activePhotos.length;
+  activeIdx=((i%len)+len)%len;
+  const item=activePhotos[activeIdx];
+  $('m-img').src=item.url;
+  $('m-img').alt=item.caption;
+  $('m-counter').textContent=`${activeIdx+1} / ${len}`;
+  $('m-caption').textContent=item.caption;
+  Array.from(mThumbs.children).forEach((b,idx)=>b.classList.toggle('is-active',idx===activeIdx));
+}
+
+document.querySelectorAll('[data-open-modal]').forEach(el=>{
+  el.onclick=()=>{
+    const p=PROJECTS[el.dataset.openModal];
+    if(!p)return;
+    activePhotos=p.images||[];
+    activeIdx=0;
+    $('m-code').textContent=p.code;
+    $('m-title').textContent=p.title;
+    $('m-desc').textContent=p.desc;
+    $('m-loc').textContent=p.loc;
+    $('m-area').textContent=p.area;
+    $('m-scope').textContent=p.scope;
+    $('m-mat').textContent=p.mat;
+    mThumbs.innerHTML='';
+    activePhotos.forEach((ph,idx)=>{
+      const b=document.createElement('button');
+      b.type='button';
+      b.className='m-thumb-btn'+(idx===0?' is-active':'');
+      b.setAttribute('aria-label',`Photo ${idx+1}: ${ph.caption}`);
+      const im=document.createElement('img');
+      im.src=ph.url;
+      im.alt=ph.caption;
+      b.appendChild(im);
+      b.onclick=()=>showSlide(idx);
+      mThumbs.appendChild(b);
+    });
+    showSlide(0);
+    modal.classList.add('is-open');
+    modal.setAttribute('aria-hidden','false');
+  };
+});
+
+$('m-prev').onclick=()=>showSlide(activeIdx-1);
+$('m-next').onclick=()=>showSlide(activeIdx+1);
+$('m-close').onclick=()=>{modal.classList.remove('is-open');modal.setAttribute('aria-hidden','true')};
+modal.onclick=e=>{if(e.target===modal)$('m-close').onclick()};
+addEventListener('keydown',e=>{
+  if(!modal.classList.contains('is-open'))return;
+  if(e.key==='Escape')$('m-close').onclick();
+  if(e.key==='ArrowLeft')showSlide(activeIdx-1);
+  if(e.key==='ArrowRight')showSlide(activeIdx+1);
+});
+</script>
+</body>
+</html>
