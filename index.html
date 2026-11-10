@@ -79,8 +79,8 @@
       rel="stylesheet"
     />
 
-    <!-- Main Stylesheet -->
-    <link rel="stylesheet" href="styles.css" />
+    <!-- Main Stylesheet (with cache-busting version for GitHub Pages) -->
+    <link rel="stylesheet" href="styles.css?v=20261110-2" />
   </head>
   <body>
     <div class="page-wrapper">
@@ -129,8 +129,8 @@
           </button>
         </div>
 
-        <!-- Mobile Navigation Drawer -->
-        <div class="mobile-nav-drawer" id="mobile-nav-drawer" aria-hidden="true">
+        <!-- Mobile Navigation Drawer (hidden by default) -->
+        <div class="mobile-nav-drawer" id="mobile-nav-drawer" aria-hidden="true" hidden>
           <div class="mobile-nav-inner">
             <a href="#about" class="mobile-nav-link" data-nav-section="about">
               <span class="mobile-nav-num">01</span>
@@ -162,18 +162,18 @@
 
       <!-- =====================================================================
            FIRST VIEWPORT: HERO SECTION (100SVH)
-           - Poster image shown immediately on mobile & slow connections
-           - Video preload set to metadata; autoplay disabled on mobile via JS
+           - Original 3D architectural building & clouds video playing on both Desktop & Mobile
            ===================================================================== -->
       <section class="hero-section" id="top">
         <div class="video-bg-wrapper" id="boomerang-bg">
           <video
             id="boomerang-video"
             src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260715_090628_7052d8a6-a094-4341-a4a2-ad58493a67a9.mp4"
-            poster="assets/hero-poster.jpg"
+            autoplay
             muted
             playsinline
-            preload="metadata"
+            webkit-playsinline
+            preload="auto"
             crossorigin="anonymous"
             class="video-bg-media"
           ></video>
@@ -2017,7 +2017,7 @@
       </div>
     </div>
 
-    <!-- Main Script -->
-    <script src="script.js" defer></script>
+    <!-- Main Script (with cache-busting version for GitHub Pages) -->
+    <script src="script.js?v=20261110-2" defer></script>
   </body>
 </html>

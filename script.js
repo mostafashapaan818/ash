@@ -39,166 +39,150 @@
   }
 
   // ==========================================================================
-  // 2. SMART HERO VIDEO CAPTURE & POSTER CONTROLLER
-  //    Disables automatic video playback on mobile (< 768px), reduced motion,
-  //    or slow connections (Save-Data / 2G / 3G), showing the poster image instead.
+  // 2. BOOMERANG HERO VIDEO CAPTURE & 30FPS PING-PONG PLAYBACK
+  //    Plays automatically and responsively on BOTH Mobile and Desktop screens.
   // ==========================================================================
   const video = document.getElementById('boomerang-video');
   const canvas = document.getElementById('boomerang-canvas');
 
-  function shouldDisableBackgroundVideo() {
-    const isMobileViewport = window.matchMedia('(max-width: 767px)').matches;
-    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-    const conn = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
-    const isDataSaver = Boolean(conn && conn.saveData);
-    const isSlowConnection = Boolean(
-      conn && typeof conn.effectiveType === 'string' && ['slow-2g', '2g', '3g'].includes(conn.effectiveType)
-    );
-
-    return isMobileViewport || prefersReducedMotion || isDataSaver || isSlowConnection;
-  }
-
   if (video && canvas) {
-    if (shouldDisableBackgroundVideo()) {
-      // Keep the lightweight poster image visible and prevent video download/playback
-      video.pause();
-      video.removeAttribute('autoplay');
-      video.preload = 'none';
-      canvas.style.display = 'none';
-    } else {
-      let isCapturing = false;
-      let rafId = null;
-      let rvfcId = null;
-      let lastCapturedTime = -1;
-      const capturedFrames = [];
+    let isCapturing = false;
+    let rafId = null;
+    let rvfcId = null;
+    let lastCapturedTime = -1;
+    const capturedFrames = [];
 
-      function captureFrame() {
-        if (video.readyState < 2 || video.videoWidth === 0 || video.videoHeight === 0) {
-          return;
-        }
-
-        const currentTime = video.currentTime;
-        if (currentTime === lastCapturedTime) {
-          return;
-        }
-        lastCapturedTime = currentTime;
-
-        const width = Math.min(video.videoWidth, 960);
-        const height = Math.round((video.videoHeight / video.videoWidth) * width);
-
-        const offscreen = document.createElement('canvas');
-        offscreen.width = width;
-        offscreen.height = height;
-
-        const ctx = offscreen.getContext('2d');
-        if (ctx) {
-          try {
-            ctx.drawImage(video, 0, 0, width, height);
-            capturedFrames.push(offscreen);
-          } catch {
-            // Ignore transient draw error
-          }
-        }
+    function captureFrame() {
+      if (video.readyState < 2 || video.videoWidth === 0 || video.videoHeight === 0) {
+        return;
       }
 
-      function scheduleCapture() {
-        if (!isCapturing) return;
+      const currentTime = video.currentTime;
+      if (currentTime === lastCapturedTime) {
+        return;
+      }
+      lastCapturedTime = currentTime;
 
-        if (typeof video.requestVideoFrameCallback === 'function') {
-          rvfcId = video.requestVideoFrameCallback(() => {
-            captureFrame();
-            scheduleCapture();
-          });
-        } else {
-          rafId = requestAnimationFrame(() => {
-            captureFrame();
-            scheduleCapture();
-          });
+      const maxWidth = window.innerWidth < 768 ? 640 : 960;
+      const width = Math.min(video.videoWidth, maxWidth);
+      const height = Math.round((video.videoHeight / video.videoWidth) * width);
+
+      const offscreen = document.createElement('canvas');
+      offscreen.width = width;
+      offscreen.height = height;
+
+      const ctx = offscreen.getContext('2d');
+      if (ctx) {
+        try {
+          ctx.drawImage(video, 0, 0, width, height);
+          capturedFrames.push(offscreen);
+        } catch {
+          // Ignore transient draw error
         }
       }
+    }
 
-      function stopCapture() {
-        isCapturing = false;
-        if (rvfcId !== null && typeof video.cancelVideoFrameCallback === 'function') {
-          video.cancelVideoFrameCallback(rvfcId);
-          rvfcId = null;
-        }
-        if (rafId !== null) {
-          cancelAnimationFrame(rafId);
-          rafId = null;
-        }
+    function scheduleCapture() {
+      if (!isCapturing) return;
+
+      if (typeof video.requestVideoFrameCallback === 'function') {
+        rvfcId = video.requestVideoFrameCallback(() => {
+          captureFrame();
+          scheduleCapture();
+        });
+      } else {
+        rafId = requestAnimationFrame(() => {
+          captureFrame();
+          scheduleCapture();
+        });
       }
+    }
 
-      function startBoomerangCanvasPlayback(frames) {
-        if (!frames || frames.length === 0) return;
+    function stopCapture() {
+      isCapturing = false;
+      if (rvfcId !== null && typeof video.cancelVideoFrameCallback === 'function') {
+        video.cancelVideoFrameCallback(rvfcId);
+        rvfcId = null;
+      }
+      if (rafId !== null) {
+        cancelAnimationFrame(rafId);
+        rafId = null;
+      }
+    }
 
-        canvas.width = frames[0].width;
-        canvas.height = frames[0].height;
+    function startBoomerangCanvasPlayback(frames) {
+      if (!frames || frames.length === 0) return;
 
-        const ctx = canvas.getContext('2d');
-        if (!ctx) return;
+      canvas.width = frames[0].width;
+      canvas.height = frames[0].height;
 
-        video.style.display = 'none';
-        canvas.style.display = 'block';
+      const ctx = canvas.getContext('2d');
+      if (!ctx) return;
 
-        let frameIndex = 0;
-        let direction = 1;
-        let lastTime = performance.now();
-        const interval = 1000 / 30;
+      video.style.display = 'none';
+      canvas.style.display = 'block';
 
-        ctx.drawImage(frames[frameIndex], 0, 0, canvas.width, canvas.height);
+      let frameIndex = 0;
+      let direction = 1;
+      let lastTime = performance.now();
+      const interval = 1000 / 30;
 
-        function animate(now) {
-          if (now - lastTime >= interval) {
-            lastTime = now - ((now - lastTime) % interval);
+      ctx.drawImage(frames[frameIndex], 0, 0, canvas.width, canvas.height);
 
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-            ctx.drawImage(frames[frameIndex], 0, 0, canvas.width, canvas.height);
+      function animate(now) {
+        if (now - lastTime >= interval) {
+          lastTime = now - ((now - lastTime) % interval);
 
-            if (frames.length > 1) {
-              frameIndex += direction;
-              if (frameIndex >= frames.length - 1) {
-                frameIndex = frames.length - 1;
-                direction = -1;
-              } else if (frameIndex <= 0) {
-                frameIndex = 0;
-                direction = 1;
-              }
+          ctx.clearRect(0, 0, canvas.width, canvas.height);
+          ctx.drawImage(frames[frameIndex], 0, 0, canvas.width, canvas.height);
+
+          if (frames.length > 1) {
+            frameIndex += direction;
+            if (frameIndex >= frames.length - 1) {
+              frameIndex = frames.length - 1;
+              direction = -1;
+            } else if (frameIndex <= 0) {
+              frameIndex = 0;
+              direction = 1;
             }
           }
-          requestAnimationFrame(animate);
         }
-
         requestAnimationFrame(animate);
       }
 
-      function handleLoaded() {
-        if (isCapturing || capturedFrames.length > 0) return;
-        isCapturing = true;
-        video.muted = true;
-        scheduleCapture();
+      requestAnimationFrame(animate);
+    }
+
+    function handleLoaded() {
+      if (isCapturing || capturedFrames.length > 0) return;
+      isCapturing = true;
+      video.muted = true;
+      video.defaultMuted = true;
+      video.setAttribute('playsinline', '');
+      video.setAttribute('webkit-playsinline', '');
+      scheduleCapture();
+      video.play().catch(() => {});
+    }
+
+    function handleEnded() {
+      captureFrame();
+      stopCapture();
+
+      if (capturedFrames.length > 1) {
+        startBoomerangCanvasPlayback(capturedFrames);
+      } else {
+        // Fallback: loop the native <video> element if canvas frames were not captured
+        video.currentTime = 0;
         video.play().catch(() => {});
       }
+    }
 
-      function handleEnded() {
-        captureFrame();
-        stopCapture();
+    video.addEventListener('loadeddata', handleLoaded);
+    video.addEventListener('canplay', handleLoaded);
+    video.addEventListener('ended', handleEnded);
 
-        if (capturedFrames.length > 0) {
-          startBoomerangCanvasPlayback(capturedFrames);
-        }
-      }
-
-      video.addEventListener('loadeddata', handleLoaded);
-      video.addEventListener('canplay', handleLoaded);
-      video.addEventListener('ended', handleEnded);
-
-      if (video.readyState >= 2) {
-        handleLoaded();
-      } else {
-        video.load();
-      }
+    if (video.readyState >= 2) {
+      handleLoaded();
     }
   }
 
@@ -213,8 +197,10 @@
     if (!mobileMenuToggle || !mobileNavDrawer) return;
     mobileMenuToggle.setAttribute('aria-expanded', 'false');
     mobileMenuToggle.setAttribute('aria-label', 'Open navigation menu');
+    if (navbar) navbar.classList.remove('menu-open');
     mobileNavDrawer.classList.remove('is-open');
     mobileNavDrawer.setAttribute('aria-hidden', 'true');
+    mobileNavDrawer.setAttribute('hidden', '');
   }
 
   function toggleMobileMenu() {
@@ -225,6 +211,8 @@
     } else {
       mobileMenuToggle.setAttribute('aria-expanded', 'true');
       mobileMenuToggle.setAttribute('aria-label', 'Close navigation menu');
+      if (navbar) navbar.classList.add('menu-open');
+      mobileNavDrawer.removeAttribute('hidden');
       mobileNavDrawer.classList.add('is-open');
       mobileNavDrawer.setAttribute('aria-hidden', 'false');
     }

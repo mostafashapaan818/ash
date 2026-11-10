@@ -309,6 +309,7 @@ a {
 
 /* Mobile Navigation Drawer */
 .mobile-nav-drawer {
+  display: none;
   position: fixed;
   top: 3.7rem;
   left: 0.75rem;
@@ -327,15 +328,19 @@ a {
   transition: opacity 220ms ease, transform 220ms ease;
 }
 
-.navbar.menu-open .mobile-nav-drawer {
+.navbar.menu-open .mobile-nav-drawer,
+.mobile-nav-drawer.is-open {
+  display: block;
   opacity: 1;
   pointer-events: auto;
   transform: translateY(0);
 }
 
 @media (min-width: 900px) {
-  .mobile-nav-drawer {
-    display: none;
+  .mobile-nav-drawer,
+  .navbar.menu-open .mobile-nav-drawer,
+  .mobile-nav-drawer.is-open {
+    display: none !important;
   }
 }
 
@@ -406,9 +411,7 @@ a {
   bottom: 0;
   left: 0;
   z-index: 0;
-  background-image: url('assets/hero-poster.jpg');
-  background-size: cover;
-  background-position: 50% 62%;
+  background-color: #FFFFFF;
   transform: scale(1.04);
   transform-origin: center center;
   overflow: hidden;
@@ -416,7 +419,6 @@ a {
 
 @media (min-width: 768px) {
   .video-bg-wrapper {
-    background-position: top center;
     transform: scale(1.15);
     transform-origin: top;
   }
@@ -443,11 +445,11 @@ a {
   pointer-events: none;
   background: linear-gradient(
     180deg,
-    rgba(255, 255, 255, 0.88) 0%,
-    rgba(255, 255, 255, 0.68) 33%,
-    rgba(255, 255, 255, 0.06) 54%,
-    rgba(255, 255, 255, 0.04) 78%,
-    rgba(255, 255, 255, 0.48) 100%
+    rgba(255, 255, 255, 0.72) 0%,
+    rgba(255, 255, 255, 0.42) 32%,
+    rgba(255, 255, 255, 0.04) 55%,
+    rgba(255, 255, 255, 0.02) 82%,
+    rgba(255, 255, 255, 0.35) 100%
   );
 }
 
@@ -455,8 +457,8 @@ a {
   .hero-bg-overlay {
     background: linear-gradient(
       180deg,
-      rgba(255, 255, 255, 0.38) 0%,
-      rgba(255, 255, 255, 0.0) 45%,
+      rgba(255, 255, 255, 0.25) 0%,
+      rgba(255, 255, 255, 0.0) 40%,
       rgba(255, 255, 255, 0.0) 100%
     );
   }
