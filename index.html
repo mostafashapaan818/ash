@@ -3,1946 +3,796 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-    <!-- =====================================================================
-         CUSTOM DOMAIN SETUP GUIDE FOR GITHUB PAGES (e.g., ahmedshaaban.com)
-         =====================================================================
-         1. Create a file named `CNAME` (all caps, no extension) in the root
-            folder of this repository containing only your domain name:
-            ahmedshaaban.com
-         2. In your domain registrar's DNS settings (Namecheap, GoDaddy, Cloudflare):
-            - Add 4 `A` records for `@` pointing to GitHub Pages IPs:
-              185.199.108.153
-              185.199.109.153
-              185.199.110.153
-              185.199.111.153
-            - Add 1 `CNAME` record for `www` pointing to:
-              mostafashapaan818.github.io
-         3. Go to GitHub Repository -> Settings -> Pages -> Custom Domain,
-            enter `ahmedshaaban.com`, click Save, and check "Enforce HTTPS".
-         4. Once live, update the `og:url` and `canonical` URLs below to
-            https://ahmedshaaban.com/
-         ===================================================================== -->
-
-    <title>Ahmed Shaaban — Architectural Engineer &amp; Finishing Zone Manager</title>
+    <title>Ahmed Shaaban — Architectural Finishing &amp; Execution</title>
     <meta
       name="description"
-      content="Portfolio of Ahmed Mohamed Mahmoud Shaaban, Architectural Engineer and Finishing Department Zone Manager at EDARA SODIC (East Cairo) with 12+ years of site execution experience."
+      content="Editorial architectural project showcase by Ahmed Shaaban — Executed retail, hospitality, corporate, banking, and residential finishing works across East Cairo and Sheikh Zayed."
     />
-    <meta name="author" content="Ahmed Mohamed Mahmoud Shaaban" />
-    <link rel="canonical" href="https://mostafashapaan818.github.io/ash/" />
+    <meta name="author" content="Ahmed Shaaban" />
 
-    <!-- Open Graph / WhatsApp / LinkedIn Sharing Meta Tags -->
+    <!-- Open Graph / Social Sharing -->
     <meta property="og:type" content="website" />
-    <meta property="og:site_name" content="Ahmed Shaaban — Architectural Portfolio" />
-    <meta
-      property="og:title"
-      content="Ahmed Shaaban — Architectural Engineer &amp; Finishing Zone Manager"
-    />
+    <meta property="og:title" content="Ahmed Shaaban — Architectural Finishing &amp; Execution" />
     <meta
       property="og:description"
-      content="12+ years of experience in interior finishing, shop drawings, contract management, and site execution at EDARA SODIC, Impact Finishing, and Contrade Engineers."
+      content="Executed architectural finishing works across retail boutiques, hospitality venues, corporate headquarters, banking branches, and private villas."
     />
-    <meta property="og:url" content="https://mostafashapaan818.github.io/ash/" />
-    <meta
-      property="og:image"
-      content="https://mostafashapaan818.github.io/ash/img/v.JPG"
-    />
-    <meta property="og:image:alt" content="Villa Baboushka Concept Store Interior by Arch. Ahmed Shaaban" />
+    <meta property="og:image" content="img/0022578b-54ed-4393-b1c1-df706acd5b31.JPG" />
 
-    <!-- Twitter Card Meta Tags -->
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta
-      name="twitter:title"
-      content="Ahmed Shaaban — Architectural Engineer &amp; Finishing Zone Manager"
-    />
-    <meta
-      name="twitter:description"
-      content="Architectural Engineer &amp; Finishing Zone Manager at EDARA SODIC (East Cairo). View executed retail, hospitality, corporate, and residential projects."
-    />
-    <meta
-      name="twitter:image"
-      content="https://mostafashapaan818.github.io/ash/img/v.JPG"
-    />
-
-    <!-- Display / serif: P22 Mackinac W01 Book -->
-    <link
-      href="https://db.onlinewebfonts.com/c/9d4d074c9335825a23cce178ee03b498?family=P22+Mackinac+W01+Book"
-      rel="stylesheet"
-    />
-
-    <!-- UI / sans: Inter weights 300, 400, 500, 600 -->
+    <!-- Editorial Serif: Playfair Display | Geometric Sans: Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap"
       rel="stylesheet"
     />
 
-    <!-- Main Stylesheet (with cache-busting version for GitHub Pages) -->
-    <link rel="stylesheet" href="styles.css?v=20261110-2" />
+    <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <div class="page-wrapper">
+    <div class="editorial-shell" id="top">
       <!-- =====================================================================
-           FIXED NAVBAR (WITH SCROLL-SPY ACTIVE HIGHLIGHTING)
+           MINIMALIST TOP NAVIGATION
            ===================================================================== -->
-      <nav class="navbar" aria-label="Main navigation">
-        <!-- Left: Brand Logo + Architect Name -->
-        <a href="#top" class="brand-link">
-          <img
-            src="assets/logo.jpg"
-            alt="Ahmed Shaaban Monogram Logo"
-            class="brand-logo-img"
-            width="36"
-            height="36"
-          />
-          <div class="brand-text-col">
-            <span class="brand-name">Ahmed Shaaban</span>
-            <span class="brand-role-tag">Arch. Engineer · Zone Manager</span>
-          </div>
-        </a>
+      <header class="site-header" id="site-header">
+        <div class="header-inner">
+          <a href="#top" class="brand-lockup" aria-label="Ahmed Shaaban Home">
+            <span class="brand-logo-wrap">
+              <img
+                src="assets/ash-logo.jpg"
+                alt="Ash Construction &amp; Fine Finishes Logo"
+                class="brand-logo-img"
+                width="44"
+                height="44"
+              />
+            </span>
+            <span class="brand-text-group">
+              <span class="brand-wordmark">ash.archii</span>
+              <span class="brand-submark">ARCHITECTURAL FINISHING &amp; EXECUTION</span>
+            </span>
+          </a>
 
-        <!-- Center: Navigation Links (Desktop) -->
-        <div class="nav-links" id="desktop-nav-links">
-          <a href="#about" class="nav-link" data-nav-section="about">About</a>
-          <a href="#experience" class="nav-link" data-nav-section="experience">Experience</a>
-          <a href="#projects" class="nav-link" data-nav-section="projects">Projects</a>
-          <a href="#testimonials" class="nav-link" data-nav-section="testimonials">Testimonials</a>
-          <a href="#skills" class="nav-link" data-nav-section="skills">Skills</a>
-        </div>
+          <nav class="header-nav" aria-label="Primary Navigation">
+            <a href="#projects" class="header-link">Projects</a>
+            <a href="#categories" class="header-link">Categories</a>
+            <a href="#contact" class="header-link">Contact</a>
+          </nav>
 
-        <!-- Right: CTA Button + Mobile Menu Toggle -->
-        <div class="nav-actions">
-          <a href="#contact" class="btn-cta btn-nav-cta" id="nav-contact-btn" data-nav-section="contact">Contact</a>
           <button
             type="button"
-            class="mobile-menu-toggle"
-            id="mobile-menu-toggle"
+            class="mobile-nav-btn"
+            id="mobile-nav-btn"
             aria-label="Toggle navigation menu"
             aria-expanded="false"
-            aria-controls="mobile-nav-drawer"
+            aria-controls="mobile-nav-panel"
           >
-            <span class="hamburger-line"></span>
-            <span class="hamburger-line"></span>
-            <span class="hamburger-line"></span>
+            <span></span>
+            <span></span>
           </button>
         </div>
 
-        <!-- Mobile Navigation Drawer (hidden by default) -->
-        <div class="mobile-nav-drawer" id="mobile-nav-drawer" aria-hidden="true" hidden>
-          <div class="mobile-nav-inner">
-            <a href="#about" class="mobile-nav-link" data-nav-section="about">
-              <span class="mobile-nav-num">01</span>
-              <span>About &amp; Profile</span>
-            </a>
-            <a href="#experience" class="mobile-nav-link" data-nav-section="experience">
-              <span class="mobile-nav-num">02</span>
-              <span>Career Timeline (2014–Present)</span>
-            </a>
-            <a href="#projects" class="mobile-nav-link" data-nav-section="projects">
-              <span class="mobile-nav-num">03</span>
-              <span>Executed Projects</span>
-            </a>
-            <a href="#testimonials" class="mobile-nav-link" data-nav-section="testimonials">
-              <span class="mobile-nav-num">04</span>
-              <span>What Colleagues Say</span>
-            </a>
-            <a href="#skills" class="mobile-nav-link" data-nav-section="skills">
-              <span class="mobile-nav-num">05</span>
-              <span>Skills &amp; Education</span>
-            </a>
-            <a href="#contact" class="mobile-nav-link" data-nav-section="contact">
-              <span class="mobile-nav-num">06</span>
-              <span>Contact</span>
-            </a>
-          </div>
+        <div class="mobile-nav-panel" id="mobile-nav-panel" hidden>
+          <a href="#projects" class="mobile-panel-link">Projects</a>
+          <a href="#categories" class="mobile-panel-link">Categories</a>
+          <a href="#contact" class="mobile-panel-link">Contact</a>
         </div>
-      </nav>
+      </header>
 
-      <!-- =====================================================================
-           FIRST VIEWPORT: HERO SECTION (100SVH)
-           - Original 3D architectural building & clouds video playing on both Desktop & Mobile
-           ===================================================================== -->
-      <section class="hero-section" id="top">
-        <div class="video-bg-wrapper" id="boomerang-bg">
-          <video
-            id="boomerang-video"
-            src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260715_090628_7052d8a6-a094-4341-a4a2-ad58493a67a9.mp4"
-            autoplay
-            muted
-            playsinline
-            webkit-playsinline
-            preload="auto"
-            crossorigin="anonymous"
-            class="video-bg-media"
-          ></video>
-          <canvas
-            id="boomerang-canvas"
-            class="video-bg-media"
-            style="display: none;"
-          ></canvas>
-          <div class="hero-bg-overlay" aria-hidden="true"></div>
-        </div>
+      <main>
+        <!-- ===================================================================
+             ASYMMETRIC SPLIT HERO SECTION (~38% LEFT / ~62% RIGHT)
+             =================================================================== -->
+        <section class="hero-split" aria-label="Architectural Showcase Introduction">
+          <div class="hero-left">
+            <div class="hero-left-inner">
+              <h1 class="hero-headline">
+                Spaces built<br />
+                to endure<span class="accent-dot">.</span>
+              </h1>
 
-        <!-- Centered Hero Copy Block -->
-        <div class="hero-copy">
-          <div class="hero-eyebrow-pill">
-            <span class="eyebrow-dot"></span>
-            <span>ARCHITECTURAL ENGINEER · FINISHING ZONE MANAGER</span>
-          </div>
+              <p class="hero-micro-desc">
+                TURNKEY ARCHITECTURAL FINISHING<br />
+                AND ON-SITE EXECUTION ACROSS<br />
+                EAST CAIRO &amp; SHEIKH ZAYED.
+              </p>
 
-          <h1 class="hero-title">
-            Ahmed Mohamed<br />
-            Mahmoud Shaaban.
-          </h1>
+              <span class="accent-dash" aria-hidden="true"></span>
 
-          <p class="hero-subcopy">
-            Finishing Department Zone Manager at <strong>EDARA SODIC (East Cairo)</strong>,
-            focused on interior finishing supervision, shop drawing coordination,
-            and contract and invoice management.
-          </p>
-
-          <div class="hero-cta-group">
-            <a href="#projects" class="btn-cta btn-hero-cta">
-              View Executed Projects
-            </a>
-            <a href="#experience" class="btn-secondary-hero">
-              Career Timeline (2014–Present)
-            </a>
-          </div>
-        </div>
-
-        <!-- Bottom Info Panel -->
-        <div class="bottom-panel-outer">
-          <div class="bottom-panel-card">
-            <div class="panel-row-1">
-              <div>
-                <p class="panel-kicker">EAST CAIRO &amp; SHEIKH ZAYED</p>
-                <h2 class="panel-heading">
-                  Interior finishing &amp; <br class="sm-break" />on-site project delivery
-                </h2>
-              </div>
-
-              <div class="panel-body-wrap">
-                <p class="panel-body">
-                  Delivering residential, retail, hospitality, corporate, and banking
-                  interiors on schedule through clear technical coordination and strict
-                  cost control.
-                </p>
-              </div>
-            </div>
-
-            <div class="panel-divider"></div>
-
-            <div class="feature-rows-grid">
-              <a href="#experience" class="feature-row">
-                <div class="feature-text">
-                  <span class="feature-num">01</span>
-                  <span class="feature-slash">/</span>
-                  <span class="feature-label">EDARA SODIC Zone Manager</span>
-                </div>
-                <svg
-                  class="feature-arrow"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  aria-hidden="true"
-                >
-                  <path d="M5 12h14"></path>
-                  <path d="m12 5 7 7-7 7"></path>
-                </svg>
-              </a>
-
-              <a href="#projects" class="feature-row" data-jump-filter="retail">
-                <div class="feature-text">
-                  <span class="feature-num">02</span>
-                  <span class="feature-slash">/</span>
-                  <span class="feature-label">Commercial, Retail &amp; F&amp;B Fit-Out</span>
-                </div>
-                <svg
-                  class="feature-arrow"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  aria-hidden="true"
-                >
-                  <path d="M5 12h14"></path>
-                  <path d="m12 5 7 7-7 7"></path>
-                </svg>
-              </a>
-
-              <a href="#skills" class="feature-row">
-                <div class="feature-text">
-                  <span class="feature-num">03</span>
-                  <span class="feature-slash">/</span>
-                  <span class="feature-label">Shop Drawings, Contracts &amp; QC</span>
-                </div>
-                <svg
-                  class="feature-arrow"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  aria-hidden="true"
-                >
-                  <path d="M5 12h14"></path>
-                  <path d="m12 5 7 7-7 7"></path>
-                </svg>
+              <a href="#projects" class="editorial-cta">
+                <span>EXPLORE PROJECTS</span>
+                <span class="cta-arrow" aria-hidden="true">&#8594;</span>
               </a>
             </div>
           </div>
-        </div>
-      </section>
 
-      <!-- =====================================================================
-           SECTION 01: ABOUT & ARCHITECTURAL DOSSIER
-           (No duplicate contact links here — contact info is only in Contact & Footer)
-           ===================================================================== -->
-      <section class="about-section" id="about">
-        <div class="section-container">
-          <div class="about-grid reveal-item">
-            <!-- Left: Concise Summary -->
-            <div class="about-main-col">
-              <p class="panel-kicker">01 / PROFESSIONAL SUMMARY &amp; ABOUT</p>
-              <h2 class="section-serif-title">
-                Practical architectural engineering from shop drawings to handover.
-              </h2>
-              <p class="about-lead-paragraph">
-                <strong>Ahmed Mohamed Mahmoud Shaaban</strong> is an Architectural Engineer
-                and Finishing Department Zone Manager at <strong>EDARA SODIC</strong> who
-                delivers residential, retail, hospitality, and corporate interiors from
-                technical drawings through final handover.
-              </p>
-              <p class="about-sub-paragraph">
-                Since starting as a Site Engineer in 2014, he has managed interior
-                finishing across East Cairo zones (<em>Villette, Eastown, SODIC East, and EDNC</em>)
-                and executed over 25 commercial, F&amp;B, banking, and villa projects on schedule.
-              </p>
-
-              <!-- Key Career Figures -->
-              <div class="metrics-strip">
-                <div class="metric-box">
-                  <span class="metric-number">2014–Now</span>
-                  <span class="metric-caption">01 / Site &amp; Finishing Experience</span>
+          <div class="hero-right">
+            <figure class="hero-media-frame">
+              <img
+                src="img/0022578b-54ed-4393-b1c1-df706acd5b31.JPG"
+                alt="Elliptical spiral staircase and natural skylight in Three-Stories Villa, Upville Compound"
+                class="editorial-img hero-img"
+                width="1200"
+                height="1400"
+              />
+              <div class="hero-margin-notes" aria-hidden="true">
+                <div class="margin-note-top">
+                  <span class="margin-dash"></span>
+                  <span>EXECUTED<br />ARCHITECTURAL<br />PORTFOLIO</span>
                 </div>
-                <div class="metric-box">
-                  <span class="metric-number">4 Zones</span>
-                  <span class="metric-caption">02 / EDARA SODIC East Cairo</span>
-                </div>
-                <div class="metric-box">
-                  <span class="metric-number">25+</span>
-                  <span class="metric-caption">03 / Delivered Projects Across Egypt</span>
+                <div class="margin-note-bottom">
+                  <span>RETAIL</span>
+                  <span>HOSPITALITY</span>
+                  <span>CORPORATE</span>
+                  <span>VILLAS</span>
                 </div>
               </div>
-            </div>
-
-            <!-- Right: Compact Personal & Academic Dossier Card -->
-            <aside class="dossier-card" aria-label="Personal and Academic Information">
-              <div class="dossier-corner tl"></div>
-              <div class="dossier-corner tr"></div>
-              <div class="dossier-corner bl"></div>
-              <div class="dossier-corner br"></div>
-
-              <div class="dossier-card-header">
-                <div class="dossier-spec-tag">
-                  <span class="dossier-grid-icon" aria-hidden="true">
-                    <svg viewBox="0 0 16 16" fill="currentColor" width="12" height="12">
-                      <rect x="1" y="1" width="5" height="5" rx="0.5" />
-                      <rect x="10" y="1" width="5" height="5" rx="0.5" />
-                      <rect x="1" y="10" width="5" height="5" rx="0.5" />
-                      <rect x="10" y="10" width="5" height="5" rx="0.5" />
-                    </svg>
-                  </span>
-                  <span>ARCHITECTURAL DOSSIER</span>
-                </div>
-                <div class="dossier-status-pill">
-                  <span class="status-radar-dot"></span>
-                  <span>ACTIVE · EAST CAIRO</span>
-                </div>
-              </div>
-
-              <div class="dossier-hero-block">
-                <div class="dossier-avatar-badge" aria-hidden="true">
-                  <img
-                    src="assets/logo.jpg"
-                    alt="Ahmed Shaaban Monogram"
-                    class="dossier-logo-img"
-                    width="38"
-                    height="38"
-                  />
-                </div>
-                <div class="dossier-name-group">
-                  <span class="dossier-pretitle">ARCHITECTURAL ENGINEER · ZONE MANAGER</span>
-                  <h3 class="dossier-fullname">Ahmed Mohamed Mahmoud Shaaban</h3>
-                  <div class="dossier-badge-row">
-                    <span class="dossier-pill-gold">EDARA SODIC</span>
-                    <span class="dossier-pill-subtle">Finishing Department</span>
-                    <span class="dossier-pill-subtle">East Cairo</span>
-                  </div>
-                </div>
-              </div>
-
-              <div class="dossier-modular-grid">
-                <div class="dossier-mod-cell cell-full">
-                  <div class="dossier-cell-header">
-                    <span class="dossier-label">CURRENT ROLE &amp; SCOPE</span>
-                    <span class="dossier-cell-tag">2020 – PRESENT</span>
-                  </div>
-                  <div class="dossier-cell-value">
-                    <strong>EDARA SODIC — Finishing Department</strong>
-                    <p class="dossier-cell-sub">
-                      Zone Manager overseeing residential and commercial finishing across
-                      <strong>Villette</strong>, <strong>Eastown</strong>, <strong>SODIC East</strong>, and <strong>EDNC</strong>.
-                    </p>
-                  </div>
-                </div>
-
-                <div class="dossier-mod-cell cell-full">
-                  <div class="dossier-cell-header">
-                    <span class="dossier-label">EDUCATION</span>
-                    <span class="dossier-cell-tag">GRADUATED: AUG 2013</span>
-                  </div>
-                  <div class="dossier-cell-value">
-                    <strong>B.S. of Architectural Engineering</strong>
-                    <p class="dossier-cell-sub">
-                      Higher Technological Institute for Engineering &amp; Technology — Minya, Egypt
-                    </p>
-                  </div>
-                </div>
-
-                <div class="dossier-mod-cell cell-half">
-                  <span class="dossier-label">LANGUAGES</span>
-                  <div class="dossier-lang-chips">
-                    <div class="lang-chip-item">
-                      <span class="chip-code">AR</span>
-                      <span class="chip-label">Arabic · Native</span>
-                    </div>
-                    <div class="lang-chip-item">
-                      <span class="chip-code">EN</span>
-                      <span class="chip-label">English · Professional</span>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="dossier-mod-cell cell-half">
-                  <span class="dossier-label">CORE FOCUS</span>
-                  <div class="dossier-domain-box">
-                    <span class="domain-title">Interior Fit-Out</span>
-                    <span class="domain-desc">Site Supervision · Shop Drawings · Contracts &amp; IPCs</span>
-                  </div>
-                </div>
-              </div>
-            </aside>
+            </figure>
           </div>
-        </div>
-      </section>
+        </section>
 
-      <!-- =====================================================================
-           SECTION 02: CONCISE CAREER TIMELINE (2014 – PRESENT)
-           (Displays only Role, Period, Company & Core Responsibilities — no duplicate project lists)
-           ===================================================================== -->
-      <section class="experience-section" id="experience">
-        <div class="section-container">
-          <div class="exp-header reveal-item">
-            <div>
-              <p class="panel-kicker exp-kicker">02 / WORK EXPERIENCE</p>
-              <h2 class="exp-main-title">
-                Career Timeline<br />
-                (2014 – Present).
-              </h2>
-            </div>
-            <p class="exp-intro">
-              Over a decade of progressive site engineering and finishing management across
-              residential compounds, international retail brands, restaurants, and corporate offices.
-            </p>
-          </div>
-
-          <!-- Interactive Timeline Filter Pills -->
-          <div class="timeline-QuickNav reveal-item" role="tablist" aria-label="Career stages">
-            <button type="button" class="tl-nav-pill active" data-tl-target="all">
-              All Career Stages (2014 – Present)
-            </button>
-            <button type="button" class="tl-nav-pill" data-tl-target="sodic">
-              2020 – Present · EDARA SODIC
-            </button>
-            <button type="button" class="tl-nav-pill" data-tl-target="impact">
-              2018 – 2020 · Impact Finishing
-            </button>
-            <button type="button" class="tl-nav-pill" data-tl-target="contrade">
-              2014 – 2018 · Contrade Engineers
-            </button>
-          </div>
-
-          <div class="career-timeline" id="career-timeline">
-            <!-- TIMELINE ITEM 01: EDARA SODIC (2020 – PRESENT) -->
-            <article class="timeline-item is-active reveal-item" data-tl-id="sodic">
-              <div class="timeline-marker">
-                <span class="timeline-dot"></span>
-                <span class="timeline-line"></span>
-              </div>
-
-              <div class="timeline-card">
-                <div class="tl-card-top">
-                  <div class="tl-period-wrap">
-                    <span class="tl-period-badge">2020 – PRESENT</span>
-                    <span class="tl-current-tag">CURRENT ROLE</span>
-                  </div>
-                  <span class="tl-location-tag">EAST CAIRO · EGYPT</span>
-                </div>
-
-                <h3 class="tl-role-title">
-                  Finishing Department Zone Manager – East Cairo
-                </h3>
-                <p class="tl-company-name">
-                  EDARA SODIC &mdash; <span>Finishing Department (Villette, Eastown, SODIC East &amp; EDNC)</span>
-                </p>
-
-                <div class="tl-resp-block">
-                  <h4 class="tl-col-heading">Key Responsibilities</h4>
-                  <ul class="tl-bullet-list">
-                    <li>
-                      <strong>Interior Finishing Supervision:</strong> Supervising interior
-                      finishing works for residential and commercial units across East Cairo zones.
-                    </li>
-                    <li>
-                      <strong>Shop Drawing Coordination:</strong> Coordinating architectural
-                      and MEP shop drawings with client modifications and site requirements.
-                    </li>
-                    <li>
-                      <strong>Contracts &amp; Invoices:</strong> Revising contracts and auditing
-                      client statements alongside subcontractor progressive invoices (IPCs).
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </article>
-
-            <!-- TIMELINE ITEM 02: IMPACT FINISHING AND DECORATION (2018 – 2020) -->
-            <article class="timeline-item is-active reveal-item" data-tl-id="impact">
-              <div class="timeline-marker">
-                <span class="timeline-dot"></span>
-                <span class="timeline-line"></span>
-              </div>
-
-              <div class="timeline-card">
-                <div class="tl-card-top">
-                  <div class="tl-period-wrap">
-                    <span class="tl-period-badge">2018 – 2020</span>
-                    <span class="tl-sector-tag">RETAIL, F&amp;B, CORPORATE &amp; VILLAS</span>
-                  </div>
-                  <span class="tl-location-tag">CAIRO · SHEIKH ZAYED · NORTH COAST</span>
-                </div>
-
-                <h3 class="tl-role-title">
-                  Senior Site Engineer
-                </h3>
-                <p class="tl-company-name">
-                  Impact Finishing and Decoration
-                </p>
-
-                <div class="tl-resp-block">
-                  <h4 class="tl-col-heading">Key Responsibilities</h4>
-                  <ul class="tl-bullet-list">
-                    <li>
-                      <strong>Site Execution Management:</strong> Managing full on-site execution
-                      for retail boutiques, restaurants, corporate offices, and private villas.
-                    </li>
-                    <li>
-                      <strong>Client Invoicing:</strong> Preparing quantity take-offs, client
-                      invoices, and subcontractor statements.
-                    </li>
-                    <li>
-                      <strong>Shop Drawings:</strong> Producing technical shop drawings for
-                      custom joinery, marble works, ceilings, and lighting layouts.
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </article>
-
-            <!-- TIMELINE ITEM 03: CONTRADE ENGINEERS & CONTRACTORS (2014 – 2018) -->
-            <article class="timeline-item is-active reveal-item" data-tl-id="contrade">
-              <div class="timeline-marker">
-                <span class="timeline-dot"></span>
-              </div>
-
-              <div class="timeline-card">
-                <div class="tl-card-top">
-                  <div class="tl-period-wrap">
-                    <span class="tl-period-badge">2014 – 2018</span>
-                    <span class="tl-sector-tag">DIPLOMATIC, BANKING, COMMERCIAL &amp; EDUCATIONAL</span>
-                  </div>
-                  <span class="tl-location-tag">CAIRO · ZAYED · 6TH OF OCTOBER · MINYA</span>
-                </div>
-
-                <h3 class="tl-role-title">
-                  Site Engineer
-                </h3>
-                <p class="tl-company-name">
-                  Contrade Engineers &amp; Contractors
-                </p>
-
-                <div class="tl-resp-block">
-                  <h4 class="tl-col-heading">Key Responsibilities</h4>
-                  <ul class="tl-bullet-list">
-                    <li>
-                      <strong>Site Engineering &amp; Quality Control:</strong> Supervising civil
-                      and architectural finishing works, coordinating MEP installations, and
-                      ensuring on-schedule delivery for banking, diplomatic, commercial, and
-                      educational buildings.
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <!-- =====================================================================
-           SECTION 03: EXECUTED PROJECTS PORTFOLIO
-           - 2-line concise descriptions
-           - Unified fixed specs bar (Area, Duration, Role — hides empty fields automatically)
-           - Max 3 tags per card
-           - "4 Photos" badge on every card
-           - Collapsible accordion for the Complete Executed Projects Directory
-           ===================================================================== -->
-      <section class="projects-page" id="projects">
-        <div class="section-container">
-          <div class="projects-header reveal-item">
-            <div class="projects-header-left">
-              <p class="panel-kicker">03 / EXECUTED PORTFOLIO</p>
-              <h2 class="projects-main-title">
-                Executed Projects &amp;<br />
-                Site Delivery.
-              </h2>
-            </div>
-
-            <div class="projects-header-right">
-              <p class="projects-intro">
-                Selected retail, hospitality, corporate, banking, and residential projects.
-                Click any card to open its 4-photo execution gallery.
-              </p>
-
-              <!-- Category Filter Bar -->
-              <div class="projects-filter-bar" role="tablist" aria-label="Filter executed projects by category">
-                <button type="button" class="filter-btn active" data-filter="all">
-                  All Projects (12)
-                </button>
-                <button type="button" class="filter-btn" data-filter="retail">
-                  Commercial &amp; Retail
-                </button>
-                <button type="button" class="filter-btn" data-filter="fb">
-                  F&amp;B &amp; Hospitality
-                </button>
-                <button type="button" class="filter-btn" data-filter="corporate">
-                  Corporate &amp; Banking
-                </button>
-                <button type="button" class="filter-btn" data-filter="residential">
-                  Residential &amp; SODIC
-                </button>
-              </div>
-            </div>
-          </div>
-
-          <!-- =================================================================
-               NOTE FOR ADDING PROJECT AREA & DURATION LATER:
-               Each `.project-specs-bar` automatically hides any `.spec-item` whose
-               `.spec-item-val` is empty (`:empty`). Simply fill in the text inside
-               `<span class="spec-item-val">...</span>` whenever data becomes available!
-               ================================================================= -->
-          <div class="projects-grid" id="projects-grid">
-            <!-- PROJECT 01: VILLA BABOUSHKA CONCEPT STORE -->
-            <article
-              class="project-card reveal-item"
-              data-category="retail residential"
-              data-project-id="01"
-              data-open-modal="01"
-            >
-              <div class="project-image-wrap" title="Click to browse Villa Baboushka photo gallery">
+        <!-- ===================================================================
+             3-COLUMN FEATURED PILLARS / PROJECT CATEGORIES
+             =================================================================== -->
+        <section class="pillars-section" id="categories" aria-label="Project Categories">
+          <div class="pillars-grid">
+            <article class="pillar-card" data-jump-filter="retail">
+              <div class="pillar-img-wrap">
                 <img
                   src="img/v.JPG"
-                  alt="Villa Baboushka Concept Store double-height retail interior with brass chandeliers"
-                  class="project-image"
+                  alt="Villa Baboushka Concept Store luxury retail interior"
+                  class="editorial-img"
                   loading="lazy"
                   decoding="async"
                   width="800"
-                  height="525"
+                  height="800"
                 />
-                <span class="project-badge">01 / CONCEPT STORE &amp; VILLA</span>
-                <span class="project-gallery-count">4 Photos</span>
               </div>
-              <div class="project-content">
-                <div class="project-meta-row">
-                  <span class="project-location">CAPITAL BUSINESS PARK · SHEIKH ZAYED</span>
-                </div>
-                <h3 class="project-title">Villa Baboushka Concept Store</h3>
-                <p class="project-description">
-                  High-end fashion boutique combining custom brass display fixtures,
-                  terrazzo flooring, and soft ambient lighting across a two-level layout.
-                </p>
-
-                <!-- Unified Fixed Specs Row (Area / Duration / Role) -->
-                <div class="project-specs-bar" aria-label="Project specifications">
-                  <div class="spec-item">
-                    <span class="spec-item-lbl">Area</span>
-                    <!-- Replace 280 m² with exact area if needed -->
-                    <span class="spec-item-val">280 m²</span>
-                  </div>
-                  <div class="spec-item">
-                    <span class="spec-item-lbl">Duration</span>
-                    <!-- Add duration here later, e.g. 5 Months (auto-hidden while empty) -->
-                    <span class="spec-item-val"></span>
-                  </div>
-                  <div class="spec-item">
-                    <span class="spec-item-lbl">Role</span>
-                    <span class="spec-item-val">Senior Site Engineer</span>
-                  </div>
-                </div>
-
-                <div class="project-footer-row">
-                  <div class="project-tags">
-                    <span>Interior Fit-Out</span>
-                    <span>Custom Joinery</span>
-                    <span>Terrazzo &amp; Brass</span>
-                  </div>
-                  <button type="button" class="project-action-btn" data-open-modal="01">
-                    <span>View Gallery</span>
-                    <svg class="feature-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                      <path d="M5 12h14"></path>
-                      <path d="m12 5 7 7-7 7"></path>
-                    </svg>
-                  </button>
-                </div>
-              </div>
+              <h2 class="pillar-title">Commercial &amp; Retail</h2>
+              <span class="accent-dash" aria-hidden="true"></span>
+              <p class="pillar-caption">BOUTIQUES, FLAGSHIPS &amp; PAVILIONS.</p>
             </article>
 
-            <!-- PROJECT 02: EDARA SODIC EAST CAIRO ZONES -->
-            <article
-              class="project-card reveal-item"
-              data-category="residential"
-              data-project-id="02"
-              data-open-modal="02"
-            >
-              <div class="project-image-wrap" title="Click to browse EDARA SODIC East Cairo photo gallery">
-                <img
-                  src="img/3387b959-0b21-4588-a94b-c9833fe4ce9c.JPG"
-                  alt="EDARA SODIC East Cairo residential courtyard with travertine stone cladding"
-                  class="project-image"
-                  loading="lazy"
-                  decoding="async"
-                  width="800"
-                  height="525"
-                />
-                <span class="project-badge">02 / EDARA SODIC · 2020–PRESENT</span>
-                <span class="project-gallery-count">4 Photos</span>
-              </div>
-              <div class="project-content">
-                <div class="project-meta-row">
-                  <span class="project-location">VILLETTE · EASTOWN · SODIC EAST · EDNC</span>
-                </div>
-                <h3 class="project-title">EDARA SODIC — East Cairo Finishing Zones</h3>
-                <p class="project-description">
-                  Managing interior finishing works, shop drawing coordination, and contract
-                  and invoice revisions for residential and commercial units across four zones.
-                </p>
-
-                <div class="project-specs-bar" aria-label="Project specifications">
-                  <div class="spec-item">
-                    <span class="spec-item-lbl">Area</span>
-                    <!-- Add area here later if needed (auto-hidden while empty) -->
-                    <span class="spec-item-val">4 Major Zones</span>
-                  </div>
-                  <div class="spec-item">
-                    <span class="spec-item-lbl">Duration</span>
-                    <span class="spec-item-val">2020 – Present</span>
-                  </div>
-                  <div class="spec-item">
-                    <span class="spec-item-lbl">Role</span>
-                    <span class="spec-item-val">Zone Manager</span>
-                  </div>
-                </div>
-
-                <div class="project-footer-row">
-                  <div class="project-tags">
-                    <span>Zone Management</span>
-                    <span>Shop Drawings</span>
-                    <span>Contracts &amp; IPCs</span>
-                  </div>
-                  <button type="button" class="project-action-btn" data-open-modal="02">
-                    <span>View Gallery</span>
-                    <svg class="feature-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                      <path d="M5 12h14"></path>
-                      <path d="m12 5 7 7-7 7"></path>
-                    </svg>
-                  </button>
-                </div>
-              </div>
-            </article>
-
-            <!-- PROJECT 03: OKHTEIN BOUTIQUE (ARKAN MALL) -->
-            <article
-              class="project-card reveal-item"
-              data-category="retail"
-              data-project-id="03"
-              data-open-modal="03"
-            >
-              <div class="project-image-wrap" title="Click to browse Okhtein Arkan Mall photo gallery">
-                <img
-                  src="img/51563824-00a7-4253-845c-55c6b4771936.JPG"
-                  alt="Okhtein boutique at Arkan Mall featuring brass columns and faceted ceilings"
-                  class="project-image"
-                  loading="lazy"
-                  decoding="async"
-                  width="800"
-                  height="525"
-                />
-                <span class="project-badge">03 / RETAIL · ARKAN MALL</span>
-                <span class="project-gallery-count">4 Photos</span>
-              </div>
-              <div class="project-content">
-                <div class="project-meta-row">
-                  <span class="project-location">ARKAN MALL · SHEIKH ZAYED</span>
-                </div>
-                <h3 class="project-title">Okhtein Boutique — Arkan Mall</h3>
-                <p class="project-description">
-                  Retail fit-out for luxury accessories brand Okhtein featuring faceted
-                  ceilings, brass mirror columns, and carved stone seating islands.
-                </p>
-
-                <div class="project-specs-bar" aria-label="Project specifications">
-                  <div class="spec-item">
-                    <span class="spec-item-lbl">Area</span>
-                    <!-- Add area here later (auto-hidden while empty) -->
-                    <span class="spec-item-val"></span>
-                  </div>
-                  <div class="spec-item">
-                    <span class="spec-item-lbl">Duration</span>
-                    <!-- Add duration here later (auto-hidden while empty) -->
-                    <span class="spec-item-val"></span>
-                  </div>
-                  <div class="spec-item">
-                    <span class="spec-item-lbl">Role</span>
-                    <span class="spec-item-val">Senior Site Engineer</span>
-                  </div>
-                </div>
-
-                <div class="project-footer-row">
-                  <div class="project-tags">
-                    <span>Brass Metalwork</span>
-                    <span>Carved Stone</span>
-                    <span>Shop Drawings</span>
-                  </div>
-                  <button type="button" class="project-action-btn" data-open-modal="03">
-                    <span>View Gallery</span>
-                    <svg class="feature-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                      <path d="M5 12h14"></path>
-                      <path d="m12 5 7 7-7 7"></path>
-                    </svg>
-                  </button>
-                </div>
-              </div>
-            </article>
-
-            <!-- PROJECT 04: NUWA ASIAN FOOD RESTAURANT -->
-            <article
-              class="project-card reveal-item"
-              data-category="fb"
-              data-project-id="04"
-              data-open-modal="04"
-            >
-              <div class="project-image-wrap" title="Click to browse NUWA Asian Food Restaurant photo gallery">
+            <article class="pillar-card" data-jump-filter="fb corporate">
+              <div class="pillar-img-wrap">
                 <img
                   src="img/2d73aabc-c8b1-46ca-8396-7d4305d3047c.JPG"
-                  alt="NUWA Asian Food Restaurant dining room with custom mural and backlit mirrors"
-                  class="project-image"
+                  alt="NUWA Asian Food Restaurant dining hall and custom marble bar"
+                  class="editorial-img"
                   loading="lazy"
                   decoding="async"
                   width="800"
-                  height="525"
+                  height="800"
                 />
-                <span class="project-badge">04 / F&amp;B · SHEIKH ZAYED</span>
-                <span class="project-gallery-count">4 Photos</span>
               </div>
-              <div class="project-content">
-                <div class="project-meta-row">
-                  <span class="project-location">CAPITAL BUSINESS PARK · SHEIKH ZAYED</span>
-                </div>
-                <h3 class="project-title">NUWA Asian Food Restaurant</h3>
-                <p class="project-description">
-                  Full restaurant execution featuring book-matched marble sushi counters,
-                  acoustic wood ceilings, custom murals, and kitchen MEP coordination.
-                </p>
-
-                <div class="project-specs-bar" aria-label="Project specifications">
-                  <div class="spec-item">
-                    <span class="spec-item-lbl">Area</span>
-                    <span class="spec-item-val"></span>
-                  </div>
-                  <div class="spec-item">
-                    <span class="spec-item-lbl">Duration</span>
-                    <span class="spec-item-val"></span>
-                  </div>
-                  <div class="spec-item">
-                    <span class="spec-item-lbl">Role</span>
-                    <span class="spec-item-val">Senior Site Engineer</span>
-                  </div>
-                </div>
-
-                <div class="project-footer-row">
-                  <div class="project-tags">
-                    <span>Restaurant Fit-Out</span>
-                    <span>Marble Counters</span>
-                    <span>Acoustic Wood</span>
-                  </div>
-                  <button type="button" class="project-action-btn" data-open-modal="04">
-                    <span>View Gallery</span>
-                    <svg class="feature-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                      <path d="M5 12h14"></path>
-                      <path d="m12 5 7 7-7 7"></path>
-                    </svg>
-                  </button>
-                </div>
-              </div>
+              <h2 class="pillar-title">Hospitality &amp; Corporate</h2>
+              <span class="accent-dash" aria-hidden="true"></span>
+              <p class="pillar-caption">DINING, BANKING &amp; WORKSPACES.</p>
             </article>
 
-            <!-- PROJECT 05: RAX CONCEPT STORE & ORIGINAL MARINES -->
-            <article
-              class="project-card reveal-item"
-              data-category="retail"
-              data-project-id="05"
-              data-open-modal="05"
-            >
-              <div class="project-image-wrap" title="Click to browse Rax Concept Store photo gallery">
+            <article class="pillar-card" data-jump-filter="residential">
+              <div class="pillar-img-wrap">
                 <img
-                  src="img/v2.JPG"
-                  alt="Rax Concept Store interior with rose-gold expanded metal mesh pavilion"
-                  class="project-image"
+                  src="img/3387b959-0b21-4588-a94b-c9833fe4ce9c.JPG"
+                  alt="East Cairo luxury residential finishing and travertine courtyard"
+                  class="editorial-img"
                   loading="lazy"
                   decoding="async"
                   width="800"
-                  height="525"
+                  height="800"
                 />
-                <span class="project-badge">05 / RETAIL · ZAYED &amp; ALMAZA</span>
-                <span class="project-gallery-count">4 Photos</span>
               </div>
-              <div class="project-content">
-                <div class="project-meta-row">
-                  <span class="project-location">CAPITAL BUSINESS PARK &amp; CITY CENTRE ALMAZA</span>
-                </div>
-                <h3 class="project-title">Rax Concept Store &amp; Original Marines</h3>
-                <p class="project-description">
-                  Retail stores built with a rose-gold expanded metal mesh pavilion,
-                  terrazzo flooring with marble inlays, and arched display niches.
-                </p>
-
-                <div class="project-specs-bar" aria-label="Project specifications">
-                  <div class="spec-item">
-                    <span class="spec-item-lbl">Area</span>
-                    <span class="spec-item-val"></span>
-                  </div>
-                  <div class="spec-item">
-                    <span class="spec-item-lbl">Duration</span>
-                    <span class="spec-item-val"></span>
-                  </div>
-                  <div class="spec-item">
-                    <span class="spec-item-lbl">Role</span>
-                    <span class="spec-item-val">Senior Site Engineer</span>
-                  </div>
-                </div>
-
-                <div class="project-footer-row">
-                  <div class="project-tags">
-                    <span>Metal Mesh</span>
-                    <span>Terrazzo Flooring</span>
-                    <span>Retail Lighting</span>
-                  </div>
-                  <button type="button" class="project-action-btn" data-open-modal="05">
-                    <span>View Gallery</span>
-                    <svg class="feature-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                      <path d="M5 12h14"></path>
-                      <path d="m12 5 7 7-7 7"></path>
-                    </svg>
-                  </button>
-                </div>
-              </div>
-            </article>
-
-            <!-- PROJECT 06: MINCE BURGER -->
-            <article
-              class="project-card reveal-item"
-              data-category="fb"
-              data-project-id="06"
-              data-open-modal="06"
-            >
-              <div class="project-image-wrap" title="Click to browse MINCE Burger photo gallery">
-                <img
-                  src="img/98ebad92-b248-4b46-abaf-af2c2b14821c.JPG"
-                  alt="MINCE Burger restaurant interior with perforated steel fascia and walnut slats"
-                  class="project-image"
-                  loading="lazy"
-                  decoding="async"
-                  width="800"
-                  height="525"
-                />
-                <span class="project-badge">06 / F&amp;B · CAPITAL BUSINESS PARK</span>
-                <span class="project-gallery-count">4 Photos</span>
-              </div>
-              <div class="project-content">
-                <div class="project-meta-row">
-                  <span class="project-location">CAPITAL BUSINESS PARK · SHEIKH ZAYED</span>
-                </div>
-                <h3 class="project-title">MINCE Burger — Capital Business Park</h3>
-                <p class="project-description">
-                  Modern industrial restaurant featuring perforated steel signage,
-                  expanded metal ceiling grids, walnut slat walls, and patterned floors.
-                </p>
-
-                <div class="project-specs-bar" aria-label="Project specifications">
-                  <div class="spec-item">
-                    <span class="spec-item-lbl">Area</span>
-                    <span class="spec-item-val"></span>
-                  </div>
-                  <div class="spec-item">
-                    <span class="spec-item-lbl">Duration</span>
-                    <span class="spec-item-val"></span>
-                  </div>
-                  <div class="spec-item">
-                    <span class="spec-item-lbl">Role</span>
-                    <span class="spec-item-val">Senior Site Engineer</span>
-                  </div>
-                </div>
-
-                <div class="project-footer-row">
-                  <div class="project-tags">
-                    <span>Steel Metalwork</span>
-                    <span>HVAC &amp; MEP</span>
-                    <span>F&amp;B Fit-Out</span>
-                  </div>
-                  <button type="button" class="project-action-btn" data-open-modal="06">
-                    <span>View Gallery</span>
-                    <svg class="feature-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                      <path d="M5 12h14"></path>
-                      <path d="m12 5 7 7-7 7"></path>
-                    </svg>
-                  </button>
-                </div>
-              </div>
-            </article>
-
-            <!-- PROJECT 07: ARMANI EXCHANGE & COMMERCIAL PAVILIONS -->
-            <article
-              class="project-card reveal-item"
-              data-category="retail"
-              data-project-id="07"
-              data-open-modal="07"
-            >
-              <div class="project-image-wrap" title="Click to browse Armani Exchange & Commercial Pavilions photo gallery">
-                <img
-                  src="img/a14b960b-8bcd-44b1-a2dc-016d12cf1249.JPG"
-                  alt="Armani Exchange retail store and double-height steel exhibition pavilion"
-                  class="project-image"
-                  loading="lazy"
-                  decoding="async"
-                  width="800"
-                  height="525"
-                />
-                <span class="project-badge">07 / INTERNATIONAL RETAIL</span>
-                <span class="project-gallery-count">4 Photos</span>
-              </div>
-              <div class="project-content">
-                <div class="project-meta-row">
-                  <span class="project-location">MALL OF EGYPT &amp; CITY CENTRE ALMAZA</span>
-                </div>
-                <h3 class="project-title">Armani Exchange &amp; Commercial Pavilions</h3>
-                <p class="project-description">
-                  Site execution and shop drawings for Armani Exchange branches at Mall
-                  of Egypt and City Centre Almaza, plus double-height steel pavilions.
-                </p>
-
-                <div class="project-specs-bar" aria-label="Project specifications">
-                  <div class="spec-item">
-                    <span class="spec-item-lbl">Area</span>
-                    <span class="spec-item-val"></span>
-                  </div>
-                  <div class="spec-item">
-                    <span class="spec-item-lbl">Duration</span>
-                    <span class="spec-item-val"></span>
-                  </div>
-                  <div class="spec-item">
-                    <span class="spec-item-lbl">Role</span>
-                    <span class="spec-item-val">Senior Site Engineer</span>
-                  </div>
-                </div>
-
-                <div class="project-footer-row">
-                  <div class="project-tags">
-                    <span>Brand Standards</span>
-                    <span>Shop Drawings</span>
-                    <span>Retail Fit-Out</span>
-                  </div>
-                  <button type="button" class="project-action-btn" data-open-modal="07">
-                    <span>View Gallery</span>
-                    <svg class="feature-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                      <path d="M5 12h14"></path>
-                      <path d="m12 5 7 7-7 7"></path>
-                    </svg>
-                  </button>
-                </div>
-              </div>
-            </article>
-
-            <!-- PROJECT 08: TED'S RESTAURANT, 7 SEEDS CAFE & ORCHID CAFÉ -->
-            <article
-              class="project-card reveal-item"
-              data-category="fb"
-              data-project-id="08"
-              data-open-modal="08"
-            >
-              <div class="project-image-wrap" title="Click to browse Ted's, 7 Seeds & Orchid Café photo gallery">
-                <img
-                  src="img/b0cf99fa-1b91-4478-b5b4-c169307c188e.JPG"
-                  alt="Ted's Restaurant, 7 Seeds Cafe and Orchid Café interior woodwork and seating"
-                  class="project-image"
-                  loading="lazy"
-                  decoding="async"
-                  width="800"
-                  height="525"
-                />
-                <span class="project-badge">08 / HOSPITALITY VENUES</span>
-                <span class="project-gallery-count">4 Photos</span>
-              </div>
-              <div class="project-content">
-                <div class="project-meta-row">
-                  <span class="project-location">MALL OF EGYPT · CAPITAL BUSINESS PARK · KARMA 4</span>
-                </div>
-                <h3 class="project-title">Ted's Restaurant, 7 Seeds Cafe &amp; Orchid Café</h3>
-                <p class="project-description">
-                  Execution of three dining venues featuring custom timber columns,
-                  brick pizza ovens, velvet seating, and coordinated MEP systems.
-                </p>
-
-                <div class="project-specs-bar" aria-label="Project specifications">
-                  <div class="spec-item">
-                    <span class="spec-item-lbl">Area</span>
-                    <span class="spec-item-val">3 Venues</span>
-                  </div>
-                  <div class="spec-item">
-                    <span class="spec-item-lbl">Duration</span>
-                    <span class="spec-item-val"></span>
-                  </div>
-                  <div class="spec-item">
-                    <span class="spec-item-lbl">Role</span>
-                    <span class="spec-item-val">Senior Site Engineer</span>
-                  </div>
-                </div>
-
-                <div class="project-footer-row">
-                  <div class="project-tags">
-                    <span>Custom Millwork</span>
-                    <span>Timber Columns</span>
-                    <span>Hospitality MEP</span>
-                  </div>
-                  <button type="button" class="project-action-btn" data-open-modal="08">
-                    <span>View Gallery</span>
-                    <svg class="feature-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                      <path d="M5 12h14"></path>
-                      <path d="m12 5 7 7-7 7"></path>
-                    </svg>
-                  </button>
-                </div>
-              </div>
-            </article>
-
-            <!-- PROJECT 09: CASPER & GAMBINI'S, MORI SUSHI & GARNELL SUSHI -->
-            <article
-              class="project-card reveal-item"
-              data-category="fb"
-              data-project-id="09"
-              data-open-modal="09"
-            >
-              <div class="project-image-wrap" title="Click to browse Casper & Gambini's and Mori Sushi photo gallery">
-                <img
-                  src="img/5cb2342b-3352-4652-b69c-3c02e0bf3184.JPG"
-                  alt="Casper & Gambini's and Mori Sushi bar counter with fluted oak cladding"
-                  class="project-image"
-                  loading="lazy"
-                  decoding="async"
-                  width="800"
-                  height="525"
-                />
-                <span class="project-badge">09 / F&amp;B · MADINATY · NORTH COAST · ZAYED</span>
-                <span class="project-gallery-count">4 Photos</span>
-              </div>
-              <div class="project-content">
-                <div class="project-meta-row">
-                  <span class="project-location">MADINATY · NORTH COAST · SHEIKH ZAYED</span>
-                </div>
-                <h3 class="project-title">Casper &amp; Gambini's, Mori Sushi &amp; Garnell</h3>
-                <p class="project-description">
-                  Site execution, shop drawings, and client invoicing for Casper &amp;
-                  Gambini's, Mori Sushi by Mori Co., and Garnell Sushi &amp; Poke.
-                </p>
-
-                <div class="project-specs-bar" aria-label="Project specifications">
-                  <div class="spec-item">
-                    <span class="spec-item-lbl">Area</span>
-                    <span class="spec-item-val">4 Branches</span>
-                  </div>
-                  <div class="spec-item">
-                    <span class="spec-item-lbl">Duration</span>
-                    <span class="spec-item-val"></span>
-                  </div>
-                  <div class="spec-item">
-                    <span class="spec-item-lbl">Role</span>
-                    <span class="spec-item-val">Senior Site Engineer</span>
-                  </div>
-                </div>
-
-                <div class="project-footer-row">
-                  <div class="project-tags">
-                    <span>Bar &amp; Kitchen Fit-Out</span>
-                    <span>Acoustic Ceilings</span>
-                    <span>Client Invoicing</span>
-                  </div>
-                  <button type="button" class="project-action-btn" data-open-modal="09">
-                    <span>View Gallery</span>
-                    <svg class="feature-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                      <path d="M5 12h14"></path>
-                      <path d="m12 5 7 7-7 7"></path>
-                    </svg>
-                  </button>
-                </div>
-              </div>
-            </article>
-
-            <!-- PROJECT 10: ANGHAMI OFFICE EGYPT & UNDP HEADQUARTERS -->
-            <article
-              class="project-card reveal-item"
-              data-category="corporate"
-              data-project-id="10"
-              data-open-modal="10"
-            >
-              <div class="project-image-wrap" title="Click to browse Anghami Office Egypt & UNDP photo gallery">
-                <img
-                  src="img/f176b889-fc76-4cc1-a523-458cc54ec10e.JPG"
-                  alt="Anghami Office Egypt workspace with custom Cairo wall mural and mesh ceiling"
-                  class="project-image"
-                  loading="lazy"
-                  decoding="async"
-                  width="800"
-                  height="525"
-                />
-                <span class="project-badge">10 / CORPORATE &amp; DIPLOMATIC</span>
-                <span class="project-gallery-count">4 Photos</span>
-              </div>
-              <div class="project-content">
-                <div class="project-meta-row">
-                  <span class="project-location">NEW CAIRO &amp; WORLD TRADE CENTER CAIRO</span>
-                </div>
-                <h3 class="project-title">Anghami Office Egypt &amp; UNDP Offices</h3>
-                <p class="project-description">
-                  Office interior execution for Anghami Egypt in New Cairo and the
-                  United Nations Development Program (UNDP) at the World Trade Center.
-                </p>
-
-                <div class="project-specs-bar" aria-label="Project specifications">
-                  <div class="spec-item">
-                    <span class="spec-item-lbl">Area</span>
-                    <span class="spec-item-val"></span>
-                  </div>
-                  <div class="spec-item">
-                    <span class="spec-item-lbl">Duration</span>
-                    <span class="spec-item-val"></span>
-                  </div>
-                  <div class="spec-item">
-                    <span class="spec-item-lbl">Role</span>
-                    <span class="spec-item-val">Senior / Site Engineer</span>
-                  </div>
-                </div>
-
-                <div class="project-footer-row">
-                  <div class="project-tags">
-                    <span>Office Fit-Out</span>
-                    <span>Glass Partitions</span>
-                    <span>Custom Joinery</span>
-                  </div>
-                  <button type="button" class="project-action-btn" data-open-modal="10">
-                    <span>View Gallery</span>
-                    <svg class="feature-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                      <path d="M5 12h14"></path>
-                      <path d="m12 5 7 7-7 7"></path>
-                    </svg>
-                  </button>
-                </div>
-              </div>
-            </article>
-
-            <!-- PROJECT 11: ARAB BANK, NATIONAL BANK OF EGYPT & AL AHLY SALES OFFICE -->
-            <article
-              class="project-card reveal-item"
-              data-category="corporate"
-              data-project-id="11"
-              data-open-modal="11"
-            >
-              <div class="project-image-wrap" title="Click to browse Banking & Corporate Offices photo gallery">
-                <img
-                  src="img/5d6790d6-beba-4478-992e-6cfa6052e06d.JPG"
-                  alt="Banking and corporate office corridor with stone flooring and vertical walnut fins"
-                  class="project-image"
-                  loading="lazy"
-                  decoding="async"
-                  width="800"
-                  height="525"
-                />
-                <span class="project-badge">11 / BANKING &amp; COMMERCIAL</span>
-                <span class="project-gallery-count">4 Photos</span>
-              </div>
-              <div class="project-content">
-                <div class="project-meta-row">
-                  <span class="project-location">MALL OF EGYPT · 6TH OF OCTOBER · MOHANDESEEN</span>
-                </div>
-                <h3 class="project-title">Arab Bank, NBE &amp; Al Ahly Sales Office</h3>
-                <p class="project-description">
-                  Banking and commercial interiors for Arab Bank, National Bank of Egypt,
-                  Al Ahly Sales Office, and Opera City Mall in Sheikh Zayed.
-                </p>
-
-                <div class="project-specs-bar" aria-label="Project specifications">
-                  <div class="spec-item">
-                    <span class="spec-item-lbl">Area</span>
-                    <span class="spec-item-val"></span>
-                  </div>
-                  <div class="spec-item">
-                    <span class="spec-item-lbl">Duration</span>
-                    <span class="spec-item-val"></span>
-                  </div>
-                  <div class="spec-item">
-                    <span class="spec-item-lbl">Role</span>
-                    <span class="spec-item-val">Site Engineer</span>
-                  </div>
-                </div>
-
-                <div class="project-footer-row">
-                  <div class="project-tags">
-                    <span>Banking Fit-Out</span>
-                    <span>Marble &amp; Glass</span>
-                    <span>MEP Coordination</span>
-                  </div>
-                  <button type="button" class="project-action-btn" data-open-modal="11">
-                    <span>View Gallery</span>
-                    <svg class="feature-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                      <path d="M5 12h14"></path>
-                      <path d="m12 5 7 7-7 7"></path>
-                    </svg>
-                  </button>
-                </div>
-              </div>
-            </article>
-
-            <!-- PROJECT 12: THREE-STORIES VILLA (UPVILLE COMPOUND) -->
-            <article
-              class="project-card reveal-item"
-              data-category="residential"
-              data-project-id="12"
-              data-open-modal="12"
-            >
-              <div class="project-image-wrap" title="Click to browse Three-Stories Villa Upville photo gallery">
-                <img
-                  src="img/0022578b-54ed-4393-b1c1-df706acd5b31.JPG"
-                  alt="Three-Stories Villa in Upville Compound featuring spiral staircase and skylight"
-                  class="project-image"
-                  loading="lazy"
-                  decoding="async"
-                  width="800"
-                  height="525"
-                />
-                <span class="project-badge">12 / PRIVATE VILLA · UPVILLE ZAYED</span>
-                <span class="project-gallery-count">4 Photos</span>
-              </div>
-              <div class="project-content">
-                <div class="project-meta-row">
-                  <span class="project-location">UPVILLE COMPOUND · SHEIKH ZAYED CITY</span>
-                </div>
-                <h3 class="project-title">Three-Stories Villa — Upville Compound</h3>
-                <p class="project-description">
-                  Interior finishing of a three-story private villa featuring a spiral
-                  staircase under a skylight, marble reception floors, and oak cladding.
-                </p>
-
-                <div class="project-specs-bar" aria-label="Project specifications">
-                  <div class="spec-item">
-                    <span class="spec-item-lbl">Area</span>
-                    <span class="spec-item-val">3-Story Villa</span>
-                  </div>
-                  <div class="spec-item">
-                    <span class="spec-item-lbl">Duration</span>
-                    <span class="spec-item-val"></span>
-                  </div>
-                  <div class="spec-item">
-                    <span class="spec-item-lbl">Role</span>
-                    <span class="spec-item-val">Senior Site Engineer</span>
-                  </div>
-                </div>
-
-                <div class="project-footer-row">
-                  <div class="project-tags">
-                    <span>Spiral Staircase</span>
-                    <span>Marble Flooring</span>
-                    <span>Villa Finishing</span>
-                  </div>
-                  <button type="button" class="project-action-btn" data-open-modal="12">
-                    <span>View Gallery</span>
-                    <svg class="feature-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                      <path d="M5 12h14"></path>
-                      <path d="m12 5 7 7-7 7"></path>
-                    </svg>
-                  </button>
-                </div>
-              </div>
+              <h2 class="pillar-title">Turnkey Villas</h2>
+              <span class="accent-dash" aria-hidden="true"></span>
+              <p class="pillar-caption">PRIVATE RESIDENCES &amp; MASTER ZONES.</p>
             </article>
           </div>
+        </section>
 
-          <!-- =================================================================
-               COLLAPSIBLE COMPLETE EXECUTED PROJECTS DIRECTORY (CLOSED BY DEFAULT)
-               ================================================================= -->
-          <div class="master-index-block reveal-item" id="master-directory">
-            <div class="master-index-head">
-              <div>
-                <p class="panel-kicker">PROJECT ARCHIVE · 22 DELIVERED WORKS</p>
-                <h3 class="methodology-title">Complete Executed Projects Directory</h3>
-                <p class="master-index-sub">
-                  Full list of residential, retail, hospitality, corporate, banking, and educational projects.
-                </p>
-              </div>
-              <button
-                type="button"
-                class="directory-toggle-btn"
-                id="directory-toggle-btn"
-                aria-expanded="false"
-                aria-controls="directory-collapsible"
-              >
-                <span id="directory-toggle-label">Show Full Projects Directory</span>
-                <svg
-                  class="directory-chevron"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  aria-hidden="true"
-                >
-                  <path d="m6 9 6 6 6-6"></path>
-                </svg>
+        <!-- ===================================================================
+             CURATED EDITORIAL FEATURE SPLITS
+             =================================================================== -->
+        <section class="feature-splits" aria-label="Featured Case Studies">
+          <!-- Feature Split 01 -->
+          <article class="feature-split-row">
+            <div class="feature-split-text">
+              <span class="micro-eyebrow">FEATURED CASE STUDY · 01</span>
+              <h2 class="feature-headline">
+                Villa<br />
+                Baboushka<span class="accent-dot">.</span>
+              </h2>
+              <p class="feature-narrative">
+                Executed at Capital Business Park in Sheikh Zayed across 280 m² of
+                retail space. Minimalist spatial zoning meets custom brushed-brass
+                joinery, polished terrazzo, fluted oak, and curved microcement.
+              </p>
+              <span class="accent-dash" aria-hidden="true"></span>
+              <button type="button" class="editorial-cta" data-open-modal="01">
+                <span>VIEW CASE STUDY</span>
+                <span class="cta-arrow" aria-hidden="true">&#8594;</span>
               </button>
             </div>
 
-            <div class="directory-collapsible" id="directory-collapsible" hidden>
-              <div class="index-table-wrap">
-                <table class="index-table">
-                  <thead>
-                    <tr>
-                      <th>Project Name</th>
-                      <th>Sector</th>
-                      <th>Location</th>
-                      <th>Company &amp; Role</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr data-index-cat="residential">
-                      <td><strong>Villette, Eastown, SODIC East &amp; EDNC Finishing Zones</strong></td>
-                      <td><span class="idx-pill">Residential &amp; Commercial</span></td>
-                      <td>East Cairo (New Cairo &amp; Shorouk)</td>
-                      <td>EDARA SODIC · Finishing Zone Manager</td>
-                    </tr>
-                    <tr data-index-cat="retail residential">
-                      <td><strong>Villa Baboushka Concept Store</strong></td>
-                      <td><span class="idx-pill">Retail &amp; Residential</span></td>
-                      <td>Capital Business Park, Sheikh Zayed</td>
-                      <td>Impact Finishing · Senior Site Engineer</td>
-                    </tr>
-                    <tr data-index-cat="residential">
-                      <td><strong>Three-Stories Villa</strong></td>
-                      <td><span class="idx-pill">Residential</span></td>
-                      <td>Upville Compound, Zayed City</td>
-                      <td>Impact Finishing · Senior Site Engineer</td>
-                    </tr>
-                    <tr data-index-cat="retail">
-                      <td><strong>Armani Exchange (2 Branches)</strong></td>
-                      <td><span class="idx-pill">Commercial &amp; Retail</span></td>
-                      <td>Mall of Egypt &amp; City Centre Almaza</td>
-                      <td>Impact Finishing · Senior Site Engineer</td>
-                    </tr>
-                    <tr data-index-cat="retail">
-                      <td><strong>Okhtein Boutique</strong></td>
-                      <td><span class="idx-pill">Commercial &amp; Retail</span></td>
-                      <td>Arkan Mall, Sheikh Zayed</td>
-                      <td>Impact Finishing · Senior Site Engineer</td>
-                    </tr>
-                    <tr data-index-cat="retail">
-                      <td><strong>Original Marines</strong></td>
-                      <td><span class="idx-pill">Commercial &amp; Retail</span></td>
-                      <td>City Centre Almaza</td>
-                      <td>Impact Finishing · Senior Site Engineer</td>
-                    </tr>
-                    <tr data-index-cat="retail">
-                      <td><strong>Rax Concept Store</strong></td>
-                      <td><span class="idx-pill">Commercial &amp; Retail</span></td>
-                      <td>Capital Business Park, Sheikh Zayed</td>
-                      <td>Impact Finishing · Senior Site Engineer</td>
-                    </tr>
-                    <tr data-index-cat="fb">
-                      <td><strong>Casper &amp; Gambini's (2 Branches)</strong></td>
-                      <td><span class="idx-pill">F&amp;B / Hospitality</span></td>
-                      <td>Open Air Mall (Madinaty) &amp; North Coast</td>
-                      <td>Impact Finishing · Senior Site Engineer</td>
-                    </tr>
-                    <tr data-index-cat="fb">
-                      <td><strong>Mori Sushi by Mori Co.</strong></td>
-                      <td><span class="idx-pill">F&amp;B / Hospitality</span></td>
-                      <td>Capital Business Park, Sheikh Zayed</td>
-                      <td>Impact Finishing · Senior Site Engineer</td>
-                    </tr>
-                    <tr data-index-cat="fb">
-                      <td><strong>MINCE Burger</strong></td>
-                      <td><span class="idx-pill">F&amp;B / Hospitality</span></td>
-                      <td>Capital Business Park, Sheikh Zayed</td>
-                      <td>Impact Finishing · Senior Site Engineer</td>
-                    </tr>
-                    <tr data-index-cat="fb">
-                      <td><strong>NUWA Asian Food Restaurant</strong></td>
-                      <td><span class="idx-pill">F&amp;B / Hospitality</span></td>
-                      <td>Capital Business Park, Sheikh Zayed</td>
-                      <td>Impact Finishing · Senior Site Engineer</td>
-                    </tr>
-                    <tr data-index-cat="fb">
-                      <td><strong>7 Seeds Cafe</strong></td>
-                      <td><span class="idx-pill">F&amp;B / Hospitality</span></td>
-                      <td>Capital Business Park, Sheikh Zayed</td>
-                      <td>Impact Finishing · Senior Site Engineer</td>
-                    </tr>
-                    <tr data-index-cat="fb">
-                      <td><strong>Orchid Café</strong></td>
-                      <td><span class="idx-pill">F&amp;B / Hospitality</span></td>
-                      <td>Karma 4, Zayed City</td>
-                      <td>Impact Finishing · Senior Site Engineer</td>
-                    </tr>
-                    <tr data-index-cat="fb">
-                      <td><strong>Ted's Restaurant by Mori Co.</strong></td>
-                      <td><span class="idx-pill">F&amp;B / Hospitality</span></td>
-                      <td>Mall of Egypt, 6th of October</td>
-                      <td>Impact Finishing · Senior Site Engineer</td>
-                    </tr>
-                    <tr data-index-cat="fb">
-                      <td><strong>Garnell Sushi &amp; Poke</strong></td>
-                      <td><span class="idx-pill">F&amp;B / Hospitality</span></td>
-                      <td>Capital Business Park, Sheikh Zayed</td>
-                      <td>Impact Finishing · Senior Site Engineer</td>
-                    </tr>
-                    <tr data-index-cat="corporate">
-                      <td><strong>Anghami Office Egypt</strong></td>
-                      <td><span class="idx-pill">Corporate</span></td>
-                      <td>New Cairo</td>
-                      <td>Impact Finishing · Senior Site Engineer</td>
-                    </tr>
-                    <tr data-index-cat="corporate">
-                      <td><strong>United Nations Development Program (UNDP)</strong></td>
-                      <td><span class="idx-pill">Diplomatic / Corporate</span></td>
-                      <td>World Trade Center, Egypt</td>
-                      <td>Contrade Engineers · Site Engineer</td>
-                    </tr>
-                    <tr data-index-cat="retail corporate">
-                      <td><strong>Opera City Mall</strong></td>
-                      <td><span class="idx-pill">Commercial Mall</span></td>
-                      <td>Sheikh Zayed City</td>
-                      <td>Contrade Engineers · Site Engineer</td>
-                    </tr>
-                    <tr data-index-cat="corporate">
-                      <td><strong>Al Ahly Sales Office</strong></td>
-                      <td><span class="idx-pill">Corporate Sales Office</span></td>
-                      <td>El Mohandeseen</td>
-                      <td>Contrade Engineers · Site Engineer</td>
-                    </tr>
-                    <tr data-index-cat="corporate">
-                      <td><strong>Arab Bank</strong></td>
-                      <td><span class="idx-pill">Banking</span></td>
-                      <td>Mall of Egypt</td>
-                      <td>Contrade Engineers · Site Engineer</td>
-                    </tr>
-                    <tr data-index-cat="corporate">
-                      <td><strong>National Bank of Egypt (NBE)</strong></td>
-                      <td><span class="idx-pill">Banking</span></td>
-                      <td>6th of October City</td>
-                      <td>Contrade Engineers · Site Engineer</td>
-                    </tr>
-                    <tr data-index-cat="corporate">
-                      <td><strong>Primary School Complex</strong></td>
-                      <td><span class="idx-pill">Educational</span></td>
-                      <td>New Minya</td>
-                      <td>Contrade Engineers · Site Engineer</td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
+            <div class="feature-split-media" data-open-modal="01">
+              <img
+                src="img/v.JPG"
+                alt="Villa Baboushka Concept Store double-height interior"
+                class="editorial-img"
+                loading="lazy"
+                decoding="async"
+                width="1000"
+                height="750"
+              />
+              <span class="media-corner-note" aria-hidden="true">
+                CAPITAL<br />
+                BUSINESS PARK<br />
+                280 M²<br />
+                SHEIKH ZAYED
+              </span>
+            </div>
+          </article>
+
+          <!-- Feature Split 02 -->
+          <article class="feature-split-row feature-split-row--reverse">
+            <div class="feature-split-text">
+              <span class="micro-eyebrow">FEATURED CASE STUDY · 02</span>
+              <h2 class="feature-headline">
+                East Cairo<br />
+                Finishing Zones<span class="accent-dot">.</span>
+              </h2>
+              <p class="feature-narrative">
+                Turnkey residential and commercial finishing supervision across
+                Villette, Eastown, SODIC East, and EDNC — aligning technical shop
+                drawings, natural stone cladding, and millwork execution.
+              </p>
+              <span class="accent-dash" aria-hidden="true"></span>
+              <button type="button" class="editorial-cta" data-open-modal="02">
+                <span>VIEW CASE STUDY</span>
+                <span class="cta-arrow" aria-hidden="true">&#8594;</span>
+              </button>
+            </div>
+
+            <div class="feature-split-media" data-open-modal="02">
+              <img
+                src="img/3387b959-0b21-4588-a94b-c9833fe4ce9c.JPG"
+                alt="EDARA SODIC East Cairo residential courtyard lounge and travertine cladding"
+                class="editorial-img"
+                loading="lazy"
+                decoding="async"
+                width="1000"
+                height="750"
+              />
+              <span class="media-corner-note" aria-hidden="true">
+                VILLETTE<br />
+                EASTOWN<br />
+                SODIC EAST<br />
+                EDNC
+              </span>
+            </div>
+          </article>
+        </section>
+
+        <!-- ===================================================================
+             CURATED PROJECT DIRECTORY (ALL 12 CASE STUDIES + FILTER BAR)
+             =================================================================== -->
+        <section class="projects-directory" id="projects" aria-label="Executed Projects Directory">
+          <div class="directory-header">
+            <div class="directory-title-col">
+              <span class="micro-eyebrow">EXECUTED WORKS · ARCHIVE</span>
+              <h2 class="directory-headline">
+                Curated<br />
+                projects<span class="accent-dot">.</span>
+              </h2>
+            </div>
+
+            <div class="directory-filter-bar" role="tablist" aria-label="Filter projects by category">
+              <button type="button" class="filter-link is-active" data-filter="all">All (12)</button>
+              <button type="button" class="filter-link" data-filter="retail">Commercial &amp; Retail</button>
+              <button type="button" class="filter-link" data-filter="fb">F&amp;B / Hospitality</button>
+              <button type="button" class="filter-link" data-filter="corporate">Corporate &amp; Banking</button>
+              <button type="button" class="filter-link" data-filter="residential">Residential</button>
             </div>
           </div>
 
-          <!-- =================================================================
-               SECTION 04: TESTIMONIALS / WHAT COLLEAGUES SAY
-               - Uses clear replaceable placeholders (no fake quotes)
-               - Easily hideable: set `data-section-enabled="false"` below (or
-                 `SHOW_TESTIMONIALS = false` in script.js) to hide this section
-               ================================================================= -->
-          <section
-            class="testimonials-section reveal-item"
-            id="testimonials"
-            data-section-enabled="true"
-            aria-label="Colleague and Client Recommendations"
-          >
-            <div class="methodology-header">
-              <p class="panel-kicker">04 / TESTIMONIALS &amp; RECOMMENDATIONS</p>
-              <h3 class="methodology-title">What Colleagues Say</h3>
+          <div class="editorial-projects-grid" id="editorial-projects-grid">
+            <!-- 01 -->
+            <article class="ed-project-card" data-category="retail residential" data-open-modal="01">
+              <div class="ed-card-media">
+                <img
+                  src="img/v.JPG"
+                  alt="Villa Baboushka Concept Store at Capital Business Park"
+                  class="editorial-img"
+                  loading="lazy"
+                  decoding="async"
+                  width="800"
+                  height="600"
+                />
+                <span class="ed-card-index">01</span>
+                <span class="ed-card-photos">4 PHOTOS</span>
+              </div>
+              <div class="ed-card-body">
+                <span class="ed-card-meta">COMMERCIAL &amp; RETAIL · CAPITAL BUSINESS PARK, SHEIKH ZAYED</span>
+                <h3 class="ed-card-title">Villa Baboushka Concept Store</h3>
+                <span class="accent-dash" aria-hidden="true"></span>
+                <p class="ed-card-summary">
+                  280 m² boutique fit-out featuring sculptural mesh chandeliers, custom
+                  joinery, polished terrazzo, fluted oak, and curved microcement.
+                </p>
+                <span class="ed-card-scope">Scope: Interior Architecture, Joinery &amp; Turnkey Fit-Out</span>
+              </div>
+            </article>
+
+            <!-- 02 -->
+            <article class="ed-project-card" data-category="residential corporate" data-open-modal="02">
+              <div class="ed-card-media">
+                <img
+                  src="img/3387b959-0b21-4588-a94b-c9833fe4ce9c.JPG"
+                  alt="EDARA SODIC East Cairo Finishing Zones"
+                  class="editorial-img"
+                  loading="lazy"
+                  decoding="async"
+                  width="800"
+                  height="600"
+                />
+                <span class="ed-card-index">02</span>
+                <span class="ed-card-photos">4 PHOTOS</span>
+              </div>
+              <div class="ed-card-body">
+                <span class="ed-card-meta">RESIDENTIAL &amp; COMMERCIAL · VILLETTE, EASTOWN, SODIC EAST &amp; EDNC</span>
+                <h3 class="ed-card-title">EDARA SODIC — East Cairo Zones</h3>
+                <span class="accent-dash" aria-hidden="true"></span>
+                <p class="ed-card-summary">
+                  Multi-zone residential and commercial finishing supervision with Roman
+                  travertine cladding, slatted walnut ceilings, and custom kitchen millwork.
+                </p>
+                <span class="ed-card-scope">Scope: Zone Finishing Supervision &amp; Technical Coordination</span>
+              </div>
+            </article>
+
+            <!-- 03 -->
+            <article class="ed-project-card" data-category="retail" data-open-modal="03">
+              <div class="ed-card-media">
+                <img
+                  src="img/51563824-00a7-4253-845c-55c6b4771936.JPG"
+                  alt="Okhtein Flagship Boutique at Arkan Mall"
+                  class="editorial-img"
+                  loading="lazy"
+                  decoding="async"
+                  width="800"
+                  height="600"
+                />
+                <span class="ed-card-index">03</span>
+                <span class="ed-card-photos">4 PHOTOS</span>
+              </div>
+              <div class="ed-card-body">
+                <span class="ed-card-meta">LUXURY RETAIL · ARKAN MALL, SHEIKH ZAYED</span>
+                <h3 class="ed-card-title">Okhtein Flagship Boutique</h3>
+                <span class="accent-dash" aria-hidden="true"></span>
+                <p class="ed-card-summary">
+                  Flagship boutique executed with faceted geometric ceilings, polished
+                  brass mirror monoliths, suspended displays, and carved stone seating.
+                </p>
+                <span class="ed-card-scope">Scope: Site Execution, Shop Drawings &amp; Custom Brasswork</span>
+              </div>
+            </article>
+
+            <!-- 04 -->
+            <article class="ed-project-card" data-category="fb" data-open-modal="04">
+              <div class="ed-card-media">
+                <img
+                  src="img/2d73aabc-c8b1-46ca-8396-7d4305d3047c.JPG"
+                  alt="NUWA Asian Food Restaurant at Capital Business Park"
+                  class="editorial-img"
+                  loading="lazy"
+                  decoding="async"
+                  width="800"
+                  height="600"
+                />
+                <span class="ed-card-index">04</span>
+                <span class="ed-card-photos">4 PHOTOS</span>
+              </div>
+              <div class="ed-card-body">
+                <span class="ed-card-meta">F&amp;B / FINE DINING · CAPITAL BUSINESS PARK, SHEIKH ZAYED</span>
+                <h3 class="ed-card-title">NUWA Asian Food Restaurant</h3>
+                <span class="accent-dash" aria-hidden="true"></span>
+                <p class="ed-card-summary">
+                  Fine-dining interior featuring book-matched marble sushi counters,
+                  custom wall murals, backlit circular mirrors, and carved stone pillars.
+                </p>
+                <span class="ed-card-scope">Scope: Full Site Execution &amp; MEP Kitchen Coordination</span>
+              </div>
+            </article>
+
+            <!-- 05 -->
+            <article class="ed-project-card" data-category="retail" data-open-modal="05">
+              <div class="ed-card-media">
+                <img
+                  src="img/v2.JPG"
+                  alt="Rax Concept Store and Original Marines"
+                  class="editorial-img"
+                  loading="lazy"
+                  decoding="async"
+                  width="800"
+                  height="600"
+                />
+                <span class="ed-card-index">05</span>
+                <span class="ed-card-photos">4 PHOTOS</span>
+              </div>
+              <div class="ed-card-body">
+                <span class="ed-card-meta">COMMERCIAL &amp; RETAIL · SHEIKH ZAYED &amp; CITY CENTRE ALMAZA</span>
+                <h3 class="ed-card-title">Rax Concept Store &amp; Original Marines</h3>
+                <span class="accent-dash" aria-hidden="true"></span>
+                <p class="ed-card-summary">
+                  Multi-brand retail fit-out showcasing a rose-gold expanded metal mesh
+                  pavilion, mosaic terrazzo flooring, and arched display niches.
+                </p>
+                <span class="ed-card-scope">Scope: Turnkey Retail Execution, Metalwork &amp; Terrazzo</span>
+              </div>
+            </article>
+
+            <!-- 06 -->
+            <article class="ed-project-card" data-category="fb" data-open-modal="06">
+              <div class="ed-card-media">
+                <img
+                  src="img/98ebad92-b248-4b46-abaf-af2c2b14821c.JPG"
+                  alt="MINCE Burger at Capital Business Park"
+                  class="editorial-img"
+                  loading="lazy"
+                  decoding="async"
+                  width="800"
+                  height="600"
+                />
+                <span class="ed-card-index">06</span>
+                <span class="ed-card-photos">4 PHOTOS</span>
+              </div>
+              <div class="ed-card-body">
+                <span class="ed-card-meta">F&amp;B / HOSPITALITY · CAPITAL BUSINESS PARK, SHEIKH ZAYED</span>
+                <h3 class="ed-card-title">MINCE Burger</h3>
+                <span class="accent-dash" aria-hidden="true"></span>
+                <p class="ed-card-summary">
+                  Industrial-modern restaurant executed with perforated steel fascia,
+                  acoustic mesh ceiling grids, slatted walnut walls, and custom graphics.
+                </p>
+                <span class="ed-card-scope">Scope: Site Execution, Ceiling Grids &amp; Lighting Calibration</span>
+              </div>
+            </article>
+
+            <!-- 07 -->
+            <article class="ed-project-card" data-category="retail" data-open-modal="07">
+              <div class="ed-card-media">
+                <img
+                  src="img/a14b960b-8bcd-44b1-a2dc-016d12cf1249.JPG"
+                  alt="Armani Exchange and Commercial Exhibition Pavilions"
+                  class="editorial-img"
+                  loading="lazy"
+                  decoding="async"
+                  width="800"
+                  height="600"
+                />
+                <span class="ed-card-index">07</span>
+                <span class="ed-card-photos">4 PHOTOS</span>
+              </div>
+              <div class="ed-card-body">
+                <span class="ed-card-meta">INTERNATIONAL RETAIL · MALL OF EGYPT &amp; CITY CENTRE ALMAZA</span>
+                <h3 class="ed-card-title">Armani Exchange &amp; Commercial Pavilions</h3>
+                <span class="accent-dash" aria-hidden="true"></span>
+                <p class="ed-card-summary">
+                  International fashion boutiques alongside double-height structural
+                  blackened steel exhibition pavilions and illuminated display towers.
+                </p>
+                <span class="ed-card-scope">Scope: Retail Fit-Out &amp; Structural Steel Pavilions</span>
+              </div>
+            </article>
+
+            <!-- 08 -->
+            <article class="ed-project-card" data-category="fb" data-open-modal="08">
+              <div class="ed-card-media">
+                <img
+                  src="img/b0cf99fa-1b91-4478-b5b4-c169307c188e.JPG"
+                  alt="Ted's Restaurant, 7 Seeds Cafe and Orchid Café"
+                  class="editorial-img"
+                  loading="lazy"
+                  decoding="async"
+                  width="800"
+                  height="600"
+                />
+                <span class="ed-card-index">08</span>
+                <span class="ed-card-photos">4 PHOTOS</span>
+              </div>
+              <div class="ed-card-body">
+                <span class="ed-card-meta">F&amp;B COLLECTION · MALL OF EGYPT, CAPITAL PARK &amp; KARMA 4</span>
+                <h3 class="ed-card-title">Ted's, 7 Seeds &amp; Orchid Café</h3>
+                <span class="accent-dash" aria-hidden="true"></span>
+                <p class="ed-card-summary">
+                  Three signature hospitality venues blending sculptural timber ceiling
+                  ribs, botanical columns, velvet banquettes, and artisan brick ovens.
+                </p>
+                <span class="ed-card-scope">Scope: Hospitality Execution, Custom Millwork &amp; MEP</span>
+              </div>
+            </article>
+
+            <!-- 09 -->
+            <article class="ed-project-card" data-category="fb" data-open-modal="09">
+              <div class="ed-card-media">
+                <img
+                  src="img/5cb2342b-3352-4652-b69c-3c02e0bf3184.JPG"
+                  alt="Casper and Gambini's, Mori Sushi and Garnell Sushi"
+                  class="editorial-img"
+                  loading="lazy"
+                  decoding="async"
+                  width="800"
+                  height="600"
+                />
+                <span class="ed-card-index">09</span>
+                <span class="ed-card-photos">4 PHOTOS</span>
+              </div>
+              <div class="ed-card-body">
+                <span class="ed-card-meta">F&amp;B ROLLOUT · MADINATY, NORTH COAST &amp; SHEIKH ZAYED</span>
+                <h3 class="ed-card-title">Casper &amp; Gambini's, Mori &amp; Garnell Sushi</h3>
+                <span class="accent-dash" aria-hidden="true"></span>
+                <p class="ed-card-summary">
+                  Multi-branch restaurant rollout executed with fluted oak bar counters,
+                  blackened steel overhead grids, microcement columns, and show kitchens.
+                </p>
+                <span class="ed-card-scope">Scope: Multi-Branch Bar &amp; Show Kitchen Fit-Out</span>
+              </div>
+            </article>
+
+            <!-- 10 -->
+            <article class="ed-project-card" data-category="corporate" data-open-modal="10">
+              <div class="ed-card-media">
+                <img
+                  src="img/f176b889-fc76-4cc1-a523-458cc54ec10e.JPG"
+                  alt="Anghami Office Egypt and UNDP Headquarters"
+                  class="editorial-img"
+                  loading="lazy"
+                  decoding="async"
+                  width="800"
+                  height="600"
+                />
+                <span class="ed-card-index">10</span>
+                <span class="ed-card-photos">4 PHOTOS</span>
+              </div>
+              <div class="ed-card-body">
+                <span class="ed-card-meta">CORPORATE &amp; DIPLOMATIC · NEW CAIRO &amp; WORLD TRADE CENTER</span>
+                <h3 class="ed-card-title">Anghami Egypt &amp; UNDP Headquarters</h3>
+                <span class="accent-dash" aria-hidden="true"></span>
+                <p class="ed-card-summary">
+                  Executive workspaces featuring double-glazed acoustic partitions, walnut
+                  architectural shelving dividers, custom murals, and tinted glass suites.
+                </p>
+                <span class="ed-card-scope">Scope: Corporate Interior Finishing &amp; Acoustic Systems</span>
+              </div>
+            </article>
+
+            <!-- 11 -->
+            <article class="ed-project-card" data-category="corporate retail" data-open-modal="11">
+              <div class="ed-card-media">
+                <img
+                  src="img/5d6790d6-beba-4478-992e-6cfa6052e06d.JPG"
+                  alt="Arab Bank, National Bank of Egypt and Al Ahly Sales Office"
+                  class="editorial-img"
+                  loading="lazy"
+                  decoding="async"
+                  width="800"
+                  height="600"
+                />
+                <span class="ed-card-index">11</span>
+                <span class="ed-card-photos">4 PHOTOS</span>
+              </div>
+              <div class="ed-card-body">
+                <span class="ed-card-meta">BANKING &amp; COMMERCIAL · MALL OF EGYPT, 6TH OF OCTOBER &amp; MOHANDESEEN</span>
+                <h3 class="ed-card-title">Arab Bank, NBE &amp; Al Ahly Sales Office</h3>
+                <span class="accent-dash" aria-hidden="true"></span>
+                <p class="ed-card-summary">
+                  Institutional banking and commercial commissions including Opera City Mall,
+                  combining honed stone corridors, vertical walnut fins, and Corian counters.
+                </p>
+                <span class="ed-card-scope">Scope: Banking Fit-Out, Security &amp; MEP Integration</span>
+              </div>
+            </article>
+
+            <!-- 12 -->
+            <article class="ed-project-card" data-category="residential" data-open-modal="12">
+              <div class="ed-card-media">
+                <img
+                  src="img/0022578b-54ed-4393-b1c1-df706acd5b31.JPG"
+                  alt="Three-Stories Villa in Upville Compound"
+                  class="editorial-img"
+                  loading="lazy"
+                  decoding="async"
+                  width="800"
+                  height="600"
+                />
+                <span class="ed-card-index">12</span>
+                <span class="ed-card-photos">4 PHOTOS</span>
+              </div>
+              <div class="ed-card-body">
+                <span class="ed-card-meta">PRIVATE RESIDENTIAL · UPVILLE COMPOUND, SHEIKH ZAYED CITY</span>
+                <h3 class="ed-card-title">Three-Stories Villa — Upville</h3>
+                <span class="accent-dash" aria-hidden="true"></span>
+                <p class="ed-card-summary">
+                  Turnkey private villa finishing anchored by an elliptical spiral staircase
+                  under a natural skylight, Crema Marfil marble inlays, and fluted oak walls.
+                </p>
+                <span class="ed-card-scope">Scope: Turnkey Villa Finishing, Staircase &amp; Custom Woodwork</span>
+              </div>
+            </article>
+          </div>
+
+          <!-- Expandable Editorial Index of All 22 Executed Projects -->
+          <div class="editorial-index-wrap">
+            <div class="index-toggle-row">
+              <span class="micro-eyebrow">COMPLETE EXECUTED INDEX · 22 COMMISSIONS</span>
+              <button
+                type="button"
+                class="editorial-cta"
+                id="index-toggle-btn"
+                aria-expanded="false"
+                aria-controls="editorial-index-panel"
+              >
+                <span id="index-toggle-label">VIEW FULL EXECUTED INDEX</span>
+                <span class="cta-arrow" aria-hidden="true">+</span>
+              </button>
             </div>
 
-            <div class="testimonials-grid">
-              <!-- Testimonial Card 01 -->
-              <article class="testimonial-card">
-                <span class="testimonial-quote-mark" aria-hidden="true">“</span>
-                <p class="testimonial-quote">
-                  TESTIMONIAL_TEXT_1_HERE — Replace this placeholder with a real recommendation
-                  from a manager, colleague, or client regarding site execution and finishing quality.
-                </p>
-                <div class="testimonial-author">
-                  <strong class="testimonial-name">COLLEAGUE_NAME_1_HERE</strong>
-                  <span class="testimonial-role">JOB_TITLE_1_HERE · COMPANY_NAME_1_HERE</span>
+            <div class="editorial-index-panel" id="editorial-index-panel" hidden>
+              <div class="index-list">
+                <div class="index-list-item" data-index-cat="residential">
+                  <span class="idx-name">Villette, Eastown, SODIC East &amp; EDNC Finishing Zones</span>
+                  <span class="idx-cat">Residential &amp; Commercial</span>
+                  <span class="idx-loc">East Cairo</span>
                 </div>
-              </article>
-
-              <!-- Testimonial Card 02 -->
-              <article class="testimonial-card">
-                <span class="testimonial-quote-mark" aria-hidden="true">“</span>
-                <p class="testimonial-quote">
-                  TESTIMONIAL_TEXT_2_HERE — Replace this placeholder with a real recommendation
-                  highlighting shop drawing coordination, scheduling, and team leadership.
-                </p>
-                <div class="testimonial-author">
-                  <strong class="testimonial-name">COLLEAGUE_NAME_2_HERE</strong>
-                  <span class="testimonial-role">JOB_TITLE_2_HERE · COMPANY_NAME_2_HERE</span>
+                <div class="index-list-item" data-index-cat="retail residential">
+                  <span class="idx-name">Villa Baboushka Concept Store</span>
+                  <span class="idx-cat">Retail &amp; Residential</span>
+                  <span class="idx-loc">Capital Business Park, Sheikh Zayed</span>
                 </div>
-              </article>
-
-              <!-- Testimonial Card 03 -->
-              <article class="testimonial-card">
-                <span class="testimonial-quote-mark" aria-hidden="true">“</span>
-                <p class="testimonial-quote">
-                  TESTIMONIAL_TEXT_3_HERE — Replace this placeholder with a real recommendation
-                  regarding contract management, invoice auditing, and project handover.
-                </p>
-                <div class="testimonial-author">
-                  <strong class="testimonial-name">COLLEAGUE_NAME_3_HERE</strong>
-                  <span class="testimonial-role">JOB_TITLE_3_HERE · COMPANY_NAME_3_HERE</span>
+                <div class="index-list-item" data-index-cat="residential">
+                  <span class="idx-name">Three-Stories Villa</span>
+                  <span class="idx-cat">Residential</span>
+                  <span class="idx-loc">Upville Compound, Sheikh Zayed</span>
                 </div>
-              </article>
-            </div>
-          </section>
-
-          <!-- =================================================================
-               SECTION 05: TECHNICAL & MANAGEMENT SKILLS + EDUCATION
-               ================================================================= -->
-          <div class="skills-section reveal-item" id="skills">
-            <div class="methodology-header">
-              <p class="panel-kicker">05 / SKILLS &amp; EDUCATION</p>
-              <h3 class="methodology-title">
-                Software Proficiency, Core Skills &amp; Education
-              </h3>
-            </div>
-
-            <div class="skills-grid-3">
-              <!-- Card 1: Engineering Software -->
-              <div class="skill-card">
-                <span class="method-num">01 / ENGINEERING SOFTWARE</span>
-                <h4>CAD &amp; 3D Modeling</h4>
-                <p class="skill-card-desc">
-                  Producing clear architectural shop drawings, 3D models, and material
-                  presentations for site execution and client approval.
-                </p>
-                <div class="skill-bars">
-                  <div class="skill-bar-item">
-                    <div class="skill-bar-top">
-                      <span>AutoCAD (2D &amp; 3D)</span>
-                      <span>Expert · Shop Drawings</span>
-                    </div>
-                    <div class="skill-track"><div class="skill-fill" style="width: 98%"></div></div>
-                  </div>
-                  <div class="skill-bar-item">
-                    <div class="skill-bar-top">
-                      <span>SketchUp</span>
-                      <span>Advanced · 3D Modeling</span>
-                    </div>
-                    <div class="skill-track"><div class="skill-fill" style="width: 92%"></div></div>
-                  </div>
-                  <div class="skill-bar-item">
-                    <div class="skill-bar-top">
-                      <span>Adobe Photoshop</span>
-                      <span>Advanced · Presentation</span>
-                    </div>
-                    <div class="skill-track"><div class="skill-fill" style="width: 88%"></div></div>
-                  </div>
+                <div class="index-list-item" data-index-cat="retail">
+                  <span class="idx-name">Armani Exchange (2 Branches)</span>
+                  <span class="idx-cat">Commercial &amp; Retail</span>
+                  <span class="idx-loc">Mall of Egypt &amp; City Centre Almaza</span>
                 </div>
-              </div>
-
-              <!-- Card 2: Office & Contracts -->
-              <div class="skill-card">
-                <span class="method-num">02 / CONTRACTS &amp; COST CONTROL</span>
-                <h4>Invoices, BOQs &amp; Reporting</h4>
-                <p class="skill-card-desc">
-                  Managing contract revisions, client and subcontractor progressive
-                  invoices (IPCs), quantity take-offs, and progress reports.
-                </p>
-                <div class="skill-bars">
-                  <div class="skill-bar-item">
-                    <div class="skill-bar-top">
-                      <span>Microsoft Excel</span>
-                      <span>Invoices, IPCs &amp; BOQ</span>
-                    </div>
-                    <div class="skill-track"><div class="skill-fill" style="width: 96%"></div></div>
-                  </div>
-                  <div class="skill-bar-item">
-                    <div class="skill-bar-top">
-                      <span>Microsoft Word</span>
-                      <span>Contracts &amp; Specs</span>
-                    </div>
-                    <div class="skill-track"><div class="skill-fill" style="width: 95%"></div></div>
-                  </div>
-                  <div class="skill-bar-item">
-                    <div class="skill-bar-top">
-                      <span>Microsoft PowerPoint</span>
-                      <span>Project Reports</span>
-                    </div>
-                    <div class="skill-track"><div class="skill-fill" style="width: 92%"></div></div>
-                  </div>
+                <div class="index-list-item" data-index-cat="retail">
+                  <span class="idx-name">Okhtein Flagship Boutique</span>
+                  <span class="idx-cat">Commercial &amp; Retail</span>
+                  <span class="idx-loc">Arkan Mall, Sheikh Zayed</span>
                 </div>
-              </div>
-
-              <!-- Card 3: Management Skills -->
-              <div class="skill-card">
-                <span class="method-num">03 / MANAGEMENT SKILLS</span>
-                <h4>Site &amp; Zone Supervision</h4>
-                <p class="skill-card-desc">
-                  Leading site engineers, technicians, and subcontractors to deliver
-                  residential and commercial units on time.
-                </p>
-                <div class="competency-tags">
-                  <span class="comp-tag">Zone Management</span>
-                  <span class="comp-tag">Quality Control (QC)</span>
-                  <span class="comp-tag">Team Leadership</span>
-                  <span class="comp-tag">Deadline Management</span>
-                  <span class="comp-tag">Client Coordination</span>
-                  <span class="comp-tag">Shop Drawings</span>
-                  <span class="comp-tag">Contract &amp; Invoice Auditing</span>
+                <div class="index-list-item" data-index-cat="retail">
+                  <span class="idx-name">Original Marines</span>
+                  <span class="idx-cat">Commercial &amp; Retail</span>
+                  <span class="idx-loc">City Centre Almaza</span>
                 </div>
-              </div>
-            </div>
-
-            <!-- Education & Languages Strip -->
-            <div class="education-banner">
-              <div class="edu-col">
-                <span class="method-num">ACADEMIC DEGREE · GRADUATED AUGUST 2013</span>
-                <h4>B.S. of Architectural Engineering</h4>
-                <p>Higher Technological Institute for Engineering and Technology — Minya, Egypt</p>
-              </div>
-              <div class="edu-col edu-col-right">
-                <span class="method-num">LANGUAGES</span>
-                <div class="lang-pills">
-                  <div class="lang-pill">
-                    <strong>Arabic</strong>
-                    <span>Native Language</span>
-                  </div>
-                  <div class="lang-pill">
-                    <strong>English</strong>
-                    <span>Professional Working Proficiency</span>
-                  </div>
+                <div class="index-list-item" data-index-cat="retail">
+                  <span class="idx-name">Rax Concept Store</span>
+                  <span class="idx-cat">Commercial &amp; Retail</span>
+                  <span class="idx-loc">Capital Business Park, Sheikh Zayed</span>
+                </div>
+                <div class="index-list-item" data-index-cat="fb">
+                  <span class="idx-name">Casper &amp; Gambini's (2 Branches)</span>
+                  <span class="idx-cat">F&amp;B / Hospitality</span>
+                  <span class="idx-loc">Open Air Mall (Madinaty) &amp; North Coast</span>
+                </div>
+                <div class="index-list-item" data-index-cat="fb">
+                  <span class="idx-name">Mori Sushi by Mori Co.</span>
+                  <span class="idx-cat">F&amp;B / Hospitality</span>
+                  <span class="idx-loc">Capital Business Park, Sheikh Zayed</span>
+                </div>
+                <div class="index-list-item" data-index-cat="fb">
+                  <span class="idx-name">MINCE Burger</span>
+                  <span class="idx-cat">F&amp;B / Hospitality</span>
+                  <span class="idx-loc">Capital Business Park, Sheikh Zayed</span>
+                </div>
+                <div class="index-list-item" data-index-cat="fb">
+                  <span class="idx-name">NUWA Asian Food Restaurant</span>
+                  <span class="idx-cat">F&amp;B / Hospitality</span>
+                  <span class="idx-loc">Capital Business Park, Sheikh Zayed</span>
+                </div>
+                <div class="index-list-item" data-index-cat="fb">
+                  <span class="idx-name">7 Seeds Cafe</span>
+                  <span class="idx-cat">F&amp;B / Hospitality</span>
+                  <span class="idx-loc">Capital Business Park, Sheikh Zayed</span>
+                </div>
+                <div class="index-list-item" data-index-cat="fb">
+                  <span class="idx-name">Orchid Café</span>
+                  <span class="idx-cat">F&amp;B / Hospitality</span>
+                  <span class="idx-loc">Karma 4, Zayed City</span>
+                </div>
+                <div class="index-list-item" data-index-cat="fb">
+                  <span class="idx-name">Ted's Restaurant by Mori Co.</span>
+                  <span class="idx-cat">F&amp;B / Hospitality</span>
+                  <span class="idx-loc">Mall of Egypt, 6th of October</span>
+                </div>
+                <div class="index-list-item" data-index-cat="fb">
+                  <span class="idx-name">Garnell Sushi &amp; Poke</span>
+                  <span class="idx-cat">F&amp;B / Hospitality</span>
+                  <span class="idx-loc">Capital Business Park, Sheikh Zayed</span>
+                </div>
+                <div class="index-list-item" data-index-cat="corporate">
+                  <span class="idx-name">Anghami Office Egypt</span>
+                  <span class="idx-cat">Corporate</span>
+                  <span class="idx-loc">New Cairo</span>
+                </div>
+                <div class="index-list-item" data-index-cat="corporate">
+                  <span class="idx-name">United Nations Development Program (UNDP)</span>
+                  <span class="idx-cat">Diplomatic / Corporate</span>
+                  <span class="idx-loc">World Trade Center, Cairo</span>
+                </div>
+                <div class="index-list-item" data-index-cat="retail corporate">
+                  <span class="idx-name">Opera City Mall</span>
+                  <span class="idx-cat">Commercial Mall</span>
+                  <span class="idx-loc">Sheikh Zayed City</span>
+                </div>
+                <div class="index-list-item" data-index-cat="corporate">
+                  <span class="idx-name">Al Ahly Sales Office</span>
+                  <span class="idx-cat">Corporate Sales Office</span>
+                  <span class="idx-loc">El Mohandeseen</span>
+                </div>
+                <div class="index-list-item" data-index-cat="corporate">
+                  <span class="idx-name">Arab Bank</span>
+                  <span class="idx-cat">Banking</span>
+                  <span class="idx-loc">Mall of Egypt</span>
+                </div>
+                <div class="index-list-item" data-index-cat="corporate">
+                  <span class="idx-name">National Bank of Egypt (NBE)</span>
+                  <span class="idx-cat">Banking</span>
+                  <span class="idx-loc">6th of October City</span>
+                </div>
+                <div class="index-list-item" data-index-cat="corporate">
+                  <span class="idx-name">Primary School Complex</span>
+                  <span class="idx-cat">Educational</span>
+                  <span class="idx-loc">New Minya</span>
                 </div>
               </div>
             </div>
           </div>
+        </section>
+      </main>
 
-          <!-- =================================================================
-               SECTION 06: CONTACT SECTION & COMPACT FOOTER LINKS
-               (Contact info appears only here and in the compact footer row below)
-               - Replace CV_LINK_HERE and LINKEDIN_LINK_HERE with your live URLs
-               ================================================================= -->
-          <footer class="contact-footer reveal-item" id="contact">
-            <div class="contact-main-grid">
-              <div class="contact-left">
-                <p class="panel-kicker">06 / DIRECT CONTACT</p>
-                <h2 class="contact-heading">
-                  Get in touch for architectural &amp; finishing projects.
-                </h2>
-                <p class="contact-sub">
-                  <strong>Ahmed Mohamed Mahmoud Shaaban</strong> — Architectural Engineer
-                  &amp; Finishing Department Zone Manager (EDARA SODIC – East Cairo).
-                </p>
-              </div>
+      <!-- =====================================================================
+           MINIMALIST EDITORIAL FOOTER
+           ===================================================================== -->
+      <footer class="editorial-footer" id="contact">
+        <div class="footer-inner">
+          <div class="footer-left">
+            <span class="footer-micro">ARCHITECTURE IS DEFINED BY THE PRECISION OF ITS EXECUTION.</span>
+          </div>
 
-              <div class="contact-right">
-                <!-- Primary Direct Contact Channels -->
-                <div class="contact-channels-grid">
-                  <a
-                    href="mailto:ahmadshaban99@icloud.com"
-                    class="contact-action-btn"
-                    aria-label="Send email to ahmadshaban99@icloud.com"
-                  >
-                    <span class="contact-btn-icon" aria-hidden="true">
-                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <rect width="20" height="16" x="2" y="4" rx="2"></rect>
-                        <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
-                      </svg>
-                    </span>
-                    <span class="contact-btn-meta">
-                      <small>EMAIL</small>
-                      <strong>ahmadshaban99@icloud.com</strong>
-                    </span>
-                  </a>
-
-                  <a
-                    href="tel:+201093996979"
-                    class="contact-action-btn"
-                    aria-label="Call +201093996979"
-                  >
-                    <span class="contact-btn-icon" aria-hidden="true">
-                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
-                      </svg>
-                    </span>
-                    <span class="contact-btn-meta">
-                      <small>PHONE</small>
-                      <strong>+20 109 399 6979</strong>
-                    </span>
-                  </a>
-
-                  <a
-                    href="https://wa.me/201093996979"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="contact-action-btn"
-                    aria-label="Chat on WhatsApp"
-                  >
-                    <span class="contact-btn-icon" aria-hidden="true">
-                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
-                      </svg>
-                    </span>
-                    <span class="contact-btn-meta">
-                      <small>WHATSAPP</small>
-                      <strong>Direct WhatsApp Chat ↗</strong>
-                    </span>
-                  </a>
-
-                  <!-- Replace LINKEDIN_LINK_HERE with your actual LinkedIn profile URL -->
-                  <a
-                    href="LINKEDIN_LINK_HERE"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="contact-action-btn"
-                    aria-label="View LinkedIn Profile (opens in new tab)"
-                  >
-                    <span class="contact-btn-icon" aria-hidden="true">
-                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
-                        <rect width="4" height="12" x="2" y="9"></rect>
-                        <circle cx="4" cy="4" r="2"></circle>
-                      </svg>
-                    </span>
-                    <span class="contact-btn-meta">
-                      <small>LINKEDIN</small>
-                      <strong>LinkedIn Profile ↗</strong>
-                    </span>
-                  </a>
-
-                  <!-- Replace CV_LINK_HERE with your external Google Drive / OneDrive CV URL -->
-                  <a
-                    href="CV_LINK_HERE"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="contact-action-btn contact-action-cv"
-                    aria-label="View CV Online (opens in new tab)"
-                  >
-                    <span class="contact-btn-icon" aria-hidden="true">
-                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
-                        <polyline points="14 2 14 8 20 8"></polyline>
-                        <line x1="16" x2="8" y1="13" y2="13"></line>
-                        <line x1="16" x2="8" y1="17" y2="17"></line>
-                      </svg>
-                    </span>
-                    <span class="contact-btn-meta">
-                      <small>CURRICULUM VITAE (EXTERNAL LINK)</small>
-                      <strong>View Online CV ↗</strong>
-                    </span>
-                  </a>
-                </div>
-              </div>
-            </div>
-
-            <!-- Compact Footer Bar (2nd & final place with short contact links) -->
-            <div class="copyright-bar">
-              <span>© 2026 Eng. Ahmed Mohamed Mahmoud Shaaban. All Rights Reserved.</span>
-              <div class="footer-mini-links" aria-label="Quick footer links">
-                <a href="CV_LINK_HERE" target="_blank" rel="noopener noreferrer">CV ↗</a>
-                <a href="LINKEDIN_LINK_HERE" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
-                <a href="https://wa.me/201093996979" target="_blank" rel="noopener noreferrer">WhatsApp ↗</a>
-                <a href="mailto:ahmadshaban99@icloud.com">Email</a>
-                <a href="tel:+201093996979">Phone</a>
-                <a href="#top" class="back-to-top">Top ↑</a>
-              </div>
-            </div>
-          </footer>
+          <div class="footer-right">
+            <a href="mailto:Ash.archii9@gmail.com" class="footer-link">Ash.archii9@gmail.com</a>
+            <a
+              href="https://www.instagram.com/ash.archii/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="footer-link"
+              aria-label="Instagram @ash.archii"
+            >
+              Instagram (@ash.archii) &#8599;
+            </a>
+            <a href="tel:+201003999579" class="footer-link">+2 01003999579</a>
+            <a href="#top" class="footer-link footer-top-link">BACK TO TOP &#8593;</a>
+          </div>
         </div>
-      </section>
+      </footer>
     </div>
 
-    <!-- =====================================================================
-         FLOATING WHATSAPP BUTTON (FIXED BOTTOM-RIGHT ON ALL SCREENS)
-         ===================================================================== -->
-    <a
-      href="https://wa.me/201093996979"
-      target="_blank"
-      rel="noopener noreferrer"
-      class="floating-whatsapp-btn"
-      aria-label="Chat with Eng. Ahmed Shaaban on WhatsApp"
-      title="Chat on WhatsApp"
-    >
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-        <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
-      </svg>
-      <span>WhatsApp</span>
-    </a>
-
-    <!-- =====================================================================
-         PROJECT DOSSIER & MULTI-IMAGE GALLERY MODAL
-         ===================================================================== -->
+    <!-- =======================================================================
+         PROJECT DETAIL MODAL / MULTI-PHOTO GALLERY
+         ======================================================================= -->
     <div class="project-modal-backdrop" id="project-modal" aria-hidden="true">
       <div class="project-modal-card" role="dialog" aria-modal="true" aria-labelledby="modal-title">
         <div class="modal-top-bar">
-          <span class="panel-kicker" id="modal-code">PROJECT DOSSIER // 01</span>
-          <button type="button" class="modal-close-btn" id="modal-close-btn" aria-label="Close project details">
-            ✕ Close
+          <span class="micro-eyebrow" id="modal-code">EXECUTED PROJECT // 01</span>
+          <button type="button" class="modal-close-btn" id="modal-close-btn" aria-label="Close project dossier">
+            CLOSE &#10005;
           </button>
         </div>
 
         <div class="modal-body-grid">
-          <!-- Left Column: Interactive Multi-Photo Carousel & Thumbnails -->
           <div class="modal-gallery-col">
             <div class="modal-stage-wrap">
               <img
@@ -1950,19 +800,16 @@
                 src="img/v.JPG"
                 alt="Project photo preview"
                 class="modal-img"
-                loading="lazy"
-                decoding="async"
-                width="800"
-                height="525"
+                width="900"
+                height="620"
               />
-
               <button
                 type="button"
                 class="gallery-nav-btn gallery-prev-btn"
                 id="gallery-prev-btn"
                 aria-label="Previous photo"
               >
-                ‹
+                &#8592;
               </button>
               <button
                 type="button"
@@ -1970,46 +817,43 @@
                 id="gallery-next-btn"
                 aria-label="Next photo"
               >
-                ›
+                &#8594;
               </button>
-
               <div class="gallery-caption-bar">
                 <span class="gallery-counter" id="gallery-counter">1 / 4</span>
                 <span class="gallery-caption-text" id="gallery-caption-text">Main View</span>
               </div>
             </div>
 
-            <div class="gallery-thumbs" id="gallery-thumbs" role="listbox" aria-label="Project photos"></div>
+            <div class="gallery-thumbs" id="gallery-thumbs" role="listbox" aria-label="Project gallery thumbnails"></div>
           </div>
 
-          <!-- Right Column: Project Specifications -->
           <div class="modal-info-col">
+            <span class="micro-eyebrow" id="modal-category">COMMERCIAL &amp; RETAIL</span>
             <h3 class="modal-title" id="modal-title">Project Title</h3>
+            <span class="accent-dash" aria-hidden="true"></span>
             <p class="modal-desc" id="modal-desc"></p>
+
             <div class="modal-specs">
-              <div class="modal-spec-row">
-                <span class="spec-key">ARCHITECT</span>
-                <span class="spec-val">Arch. Ahmed Mohamed Mahmoud Shaaban</span>
-              </div>
               <div class="modal-spec-row">
                 <span class="spec-key">LOCATION</span>
                 <span class="spec-val" id="modal-location"></span>
               </div>
               <div class="modal-spec-row" id="modal-area-row">
-                <span class="spec-key">AREA / SCALE</span>
+                <span class="spec-key">SCALE / AREA</span>
                 <span class="spec-val" id="modal-area"></span>
               </div>
-              <div class="modal-spec-row" id="modal-role-row">
-                <span class="spec-key">ROLE</span>
-                <span class="spec-val" id="modal-role"></span>
-              </div>
               <div class="modal-spec-row">
-                <span class="spec-key">SCOPE OF WORK</span>
+                <span class="spec-key">SCOPE OF FINISHING</span>
                 <span class="spec-val" id="modal-scope"></span>
               </div>
               <div class="modal-spec-row">
                 <span class="spec-key">KEY MATERIALS</span>
                 <span class="spec-val" id="modal-materials"></span>
+              </div>
+              <div class="modal-spec-row">
+                <span class="spec-key">EXECUTION HIGHLIGHTS</span>
+                <span class="spec-val" id="modal-highlights"></span>
               </div>
             </div>
           </div>
@@ -2017,7 +861,6 @@
       </div>
     </div>
 
-    <!-- Main Script (with cache-busting version for GitHub Pages) -->
-    <script src="script.js?v=20261110-2" defer></script>
+    <script src="script.js" defer></script>
   </body>
 </html>
